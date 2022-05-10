@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css?family=Sniglet|Boogaloo|Slackey|Comfortaa&effect=3d');
+
+.head{
+    background-color: rgb(238,238,238);
+    text-align:left;
+    font-family: 'Comfortaa', sans-serif;
+}
+
+.content{
+    background-color: rgb(224,224,232);
+    text-align: left;
+}
+
+.site footer{
+    background-color: rgb(224,224,232);
+    text-align: center;
+}
