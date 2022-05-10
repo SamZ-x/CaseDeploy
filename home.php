@@ -17,7 +17,7 @@
         <h1>CaseDeploy</h1>
     </div>
     <div class="content">
-    <a href="../Testcase01/index.php">Testcase01</a>
+    <a href="./Testcase01/index.php">Testcase01</a>
     </div>
     <footer>
         &#174; Xiaobin Zhu <br>
