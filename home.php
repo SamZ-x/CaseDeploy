@@ -1,4 +1,7 @@
-<!-- homepage -->
+<!-- 
+    homepage 
+    navigation page to each cases/projects
+-->
 
 <!DOCTYPE html>
 <html lang="en">
