@@ -12,6 +12,9 @@
     font-family: 'Comfortaa', sans-serif;
     color: whitesmoke;
 }
+ul{
+    padding: 0px 0px;
+}
 
 .navbar li{
     list-style: none;
@@ -24,9 +27,13 @@
 }
 
 .content{
-    background-color: rgb(224,224,232);
+    width: 80%;
+    margin: auto;
+    background-color: whitesmoke;
     text-align: center;
-    border: 2px;
+    font-size: larger;
+    border: 2px ;
+    border-radius: 20px;
 }
 
 .content li{
