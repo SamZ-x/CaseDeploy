@@ -25,16 +25,19 @@
     </div>
     <div class="content">
         <ul>
-            <li><a href="./Testcase01/index.php">Testcase01</a></li>
-            <li><a href="">upcoming...</a></li>
-            <li><a href="">upcoming...</a></li>
-            <li><a href="">upcoming...</a></li>
-            <li><a href="">upcoming...</a></li>
+            <li><a class="link" href="./Testcase01/index.php">Testcase01</a></li>
+            <li><a class="link" href="">upcoming...</a></li>
+            <li><a class="link" href="">upcoming...</a></li>
+            <li><a class="link" href="">upcoming...</a></li>
+            <li><a class="link" href="">upcoming...</a></li>
         </ul>
     </div>
-    <footer>
-        &#174; Xiaobin Zhu <br>
-        <script>document.write('Last Modified: '+document.lastModified);</script>
-    </footer>
+    <div class="footer">
+        <footer>
+            &#174; Xiaobin Zhu <br>
+            <script>document.write('Last Modified: '+document.lastModified);</script>
+        </footer>
+    </div>
+
 </body>
 </html>

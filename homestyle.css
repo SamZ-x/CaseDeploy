@@ -13,8 +13,14 @@
     font-family: 'Comfortaa', sans-serif;
     color: whitesmoke;
 }
+
 ul{
     padding: 0px 0px;
+}
+
+.navbar ul{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
 }
 
 .navbar li{
@@ -29,9 +35,9 @@ ul{
 
 .content{
     width: 90%;
+    height: 500px;
     margin: auto;
     background-color: whitesmoke;
-    text-align: center;
     font-size: larger;
     font-family: 'Roboto', Courier, monospace;
     font-weight: bold;
@@ -48,10 +54,22 @@ ul{
     text-decoration: none;
 }
 
-.homesite footer{
+.link{
+    padding: 5px 5px;
+    border: 1px;
+    border-radius: 10px;
+    background-color:cadetblue;
+    width: 100%;
+}
+
+
+.footer{
     color: #eef2f3;
     text-align: center;
+    padding-top: 10px;
 }
+
+
 
 @media screen and (min-width : 800px) {
 
@@ -59,6 +77,9 @@ ul{
         text-align:left;
     }
 
+    .navbar ul{
+        display: inline-block;
+    }
     .navbar li {
         display: inline-block;
         padding: 5px 20px;
@@ -69,7 +90,6 @@ ul{
         text-decoration: none;
         transition: all 0.3s ease 0s;
     }
-
 
     .navbar li a:hover {
         color: aquamarine;
@@ -84,7 +104,7 @@ ul{
     }
     
     .content li a:hover {
-        color:darkorange;
+        background-color:aquamarine;
     }
 
 }
