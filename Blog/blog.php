@@ -1,10 +1,3 @@
-<!-- 
-    log: 
-    create static page with manipulate functions
-    
-
-
--->
 <?php
 
     require_once "Lib/db.php";
