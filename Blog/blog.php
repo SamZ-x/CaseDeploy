@@ -1,12 +1,10 @@
 <?php
-
     require_once "Lib/db.php";
 
     //import variables
     global $mysql_response;
-
+    $result = "check";
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -32,7 +30,7 @@
     <div class="content">
         <div class = "acticlecontent">
             <h2>Title...</h2>
-            <label><?php echo $mysql_response; ?></label>
+            <label><?php echo $result; ?></label>
             <label>author, date</label>
             <p>
             content...content...content...content...content...content...

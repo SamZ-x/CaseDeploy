@@ -1,6 +1,5 @@
 <?php
 
-
     //data flow start point
     session_start();
 
@@ -37,7 +36,7 @@
         if($mysql_conn->connect_error)
         {
             //update server response info
-            $mysql_response = "Connection error (".$mysql_conn->connect_error.") "
+            $mysql_response = "Connection error (".$mysql_conn->connect_error.") ";
             error_log($mysql_response);   //for debugging
             
             //end the session
