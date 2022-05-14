@@ -1,11 +1,18 @@
 <!-- 
     log: 
     create static page with manipulate functions
-
+    
 
 
 -->
+<?php
 
+    require_once "Lib/db.php";
+
+    //import variables
+    global $mysql_response;
+
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -32,6 +39,7 @@
     <div class="content">
         <div class = "acticlecontent">
             <h2>Title...</h2>
+            <label><?php echo $mysql_response; ?></label>
             <label>author, date</label>
             <p>
             content...content...content...content...content...content...
