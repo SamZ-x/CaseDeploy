@@ -30,7 +30,7 @@
     <div class="content">
         <div class = "acticlecontent">
             <h2>Title...</h2>
-            <label><?php echo $result; ?></label>
+            <label><?php echo $mysql_response; ?></label>
             <label>author, date</label>
             <p>
             content...content...content...content...content...content...
