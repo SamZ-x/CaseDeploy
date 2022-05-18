@@ -1,7 +1,7 @@
 <?php
     
     //import helper function
-    require_once "blog_functions.php";
+    require_once "./blog_functions.php";
     $status = "";
 
     error_log("checkpoint1");
@@ -19,7 +19,7 @@
         $userinfo['status'] = false;
 
         error_log("checkpoint1.1");
-        
+
         //call validation function 
         $userinfo = LoginValidation($userinfo);
 
