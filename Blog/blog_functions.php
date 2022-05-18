@@ -22,7 +22,7 @@
         //retrieve server data, verify userId/email 
         if($result = MysqlQuery($query))
             //retrieve data in associative array format
-            $data = $result->fetch_asssoc();
+            $data = $result->fetch_assoc();
         else
         {
             //incorrect userId/email, no further verification, return result
