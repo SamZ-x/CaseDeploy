@@ -18,6 +18,8 @@
     //create connection
     Mysqlconnect($connectionInfo);
 
+
+
     /***********
     Function name: Mysqlconnect
     desicription: Build the connection with Mysql database
@@ -76,7 +78,7 @@
             return $output;
         }
 
-        //III, Query succeed.
+        //III, Query succeed. produce a result set.
         return $output;
     }
 ?>

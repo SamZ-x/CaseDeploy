@@ -19,13 +19,17 @@
     <div class="navbar">
         <ul>
             <li><a href="home.php">Cases</a></li>
-            <li><a href="./Blog/blog.php">Blog</a></li>
+            <li><a href="./Blog/blog_index.php">Blog</a></li>
             <li><a href="about.php">About</a></li>
         </ul>
     </div>
     <div class="content">
         <ul>
             <li><a class="link" href="./Testcase01/index.php">Testcase01</a></li>
+            <li><a class="link" href="">upcoming......</a></li>
+            <li><a class="link" href="">upcoming...</a></li>
+            <li><a class="link" href="">upcoming...</a></li>
+            <li><a class="link" href="">upcoming...</a></li>
             <li><a class="link" href="">upcoming...</a></li>
             <li><a class="link" href="">upcoming...</a></li>
             <li><a class="link" href="">upcoming...</a></li>
