@@ -11,7 +11,7 @@
         global $mysql_conn, $mysql_response;
 
         //clear data
-        $userid_email = $mysql_conn->real_eacape_string($userinput['userid_email']);
+        $userid_email = $mysql_conn->real_escape_string($userinput['userid_email']);
 
         //use input data to query database
         $query = "SELECT * FROM UserDetail WHERE userId = '$userid_email' or Email = '$userid_email'";     //use email or userID to login.
