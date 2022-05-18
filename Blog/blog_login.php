@@ -7,34 +7,36 @@
     error_log("checkpoint1");
 
     //check local input
-    if(isset($_POST['submit']) && $_POST['submit']=="Sign in"
-        && isset($_POST['userid_email']) && strlen($_POST['userid_email']) > 0
-        && isset($_POST['password']) && strlen($_POST['password']) > 0)
+    if(isset($_POST['submit']) && $_POST['submit']=="Sign in")
     {
-        //construct login info array
-        $userinfo = array();
-        $userinfo['userid_email'] = strip_tags(trim($_POST['userid_email']));
-        $userinfo['password'] = strip_tags(trim($_POST['password']));
-        $userinfo['response'] = "";
-        $userinfo['status'] = false;
-
-        error_log("checkpoint1.1");
-
-        //call validation function 
-        $userinfo = LoginValidation($userinfo);
-
-        //redirection
-        if($userinfo['status'])
+        if(isset($_POST['userid_email']) && strlen($_POST['userid_email']) > 0
+            && isset($_POST['password']) && strlen($_POST['password']) > 0)
         {
-            header("Location: blog_userpage.php");
-            die();
-        }
+            //construct login info array
+            $userinfo = array();
+            $userinfo['userid_email'] = strip_tags(trim($_POST['userid_email']));
+            $userinfo['password'] = strip_tags(trim($_POST['password']));
+            $userinfo['response'] = "";
+            $userinfo['status'] = false;
 
-        $status = $userinfo['response'];
+            error_log("checkpoint1.1");
+
+            //call validation function 
+            $userinfo = LoginValidation($userinfo);
+
+            //redirection
+            if($userinfo['status'])
+            {
+                header("Location: blog_userpage.php");
+                die();
+            }
+
+            $status = $userinfo['response'];
+        }
+        else
+            $status = "Login information cannot be empty.";
     }
-    else
-        //display error message
-        $status = "Login information cann not be empty!";
+       
     
 ?>
 <!DOCTYPE html>
