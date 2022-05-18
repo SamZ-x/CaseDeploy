@@ -23,11 +23,16 @@
             $userinfo = LoginValidation($userinfo);
             error_log($userinfo['userid_email'].$userinfo['password']);
             
-            //redirection
+            //redirection if succeed
             if($userinfo['status'])
             {
                 header("Location: blog_userpage.php");
                 die();
+            }
+            else
+            {
+                //keep the previous input
+                
             }
 
             $status = $userinfo['response'];
