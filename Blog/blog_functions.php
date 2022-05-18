@@ -20,9 +20,9 @@
             //retrieve data in associative array format
             $data = $result->fetch_assoc();
 
-            error_log($data);
+            error_log(json_encode( $data));
             //no user exist
-            if($data->num_rows == 0)
+            if($result->num_rows == 0)
             {
                 //incorrect userId/email, no further verification, return result
                 $userinput['response'] = "Invalid UserId/Email.";
