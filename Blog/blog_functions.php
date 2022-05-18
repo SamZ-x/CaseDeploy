@@ -14,7 +14,7 @@
         $userid_email = $mysql_conn->real_escape_string($userinput['userid_email']);
 
         //use input data to query database
-        $query = "SELECT * FROM UserDetail WHERE userId = '$userid_email' or Email = '$userid_email'";     //use email or userID to login.
+        $query = "SELECT * FROM Users WHERE UserId = '$userid_email' or Email = '$userid_email'";     //use email or userID to login.
         
 
         error_log("checkpoint2.1, ".$query);
