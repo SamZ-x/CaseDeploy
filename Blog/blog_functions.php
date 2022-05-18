@@ -19,8 +19,7 @@
         {
             //retrieve data in associative array format
             $data = $result->fetch_assoc();
-
-            error_log(json_encode( $data));
+            
             //no user exist
             if($result->num_rows == 0)
             {

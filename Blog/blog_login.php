@@ -19,11 +19,10 @@
             $userinfo['response'] = "";
             $userinfo['status'] = false;
 
-            error_log("checkpoint1.1");
-
             //call validation function 
             $userinfo = LoginValidation($userinfo);
-
+            error_log($userinfo['userid_email'].$userinfo['password']);
+            
             //redirection
             if($userinfo['status'])
             {
