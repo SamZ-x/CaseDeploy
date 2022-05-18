@@ -1,35 +1,39 @@
 <?php
     
-    // //import helper function
-    // require_once "blog_functions.php";
-    // $status = "";
+    //import helper function
+    require_once "blog_functions.php";
+    $status = "";
 
-    // //check local input
-    // if(isset($_POST['submit']) && $_POST['submit']=="Sign in"
-    //     && isset($_POST['userid_email']) && strlen($_POST['userid_email']) > 0
-    //     && isset($_POST['password']) && strlen($_POST['password']) > 0)
-    // {
-    //     //construct login info array
-    //     $userinfo = {};
-    //     $userinfo['userid_email'] = strip_tags(trim($_POST['userid_email']));
-    //     $userinfo['password'] = strip_tags(trim($_POST['password']));
-    //     $userinfo['response'] = "";
-    //     $userinfo['status'] = false;
+    error_log("checkpoint1");
 
-    //     //call validation function 
-    //     $userinfo = LoginValidation($userinfo);
+    //check local input
+    if(isset($_POST['submit']) && $_POST['submit']=="Sign in"
+        && isset($_POST['userid_email']) && strlen($_POST['userid_email']) > 0
+        && isset($_POST['password']) && strlen($_POST['password']) > 0)
+    {
+        //construct login info array
+        $userinfo = {};
+        $userinfo['userid_email'] = strip_tags(trim($_POST['userid_email']));
+        $userinfo['password'] = strip_tags(trim($_POST['password']));
+        $userinfo['response'] = "";
+        $userinfo['status'] = false;
 
-    //     //redirection
-    //     if($userinfo['status'])
-    //     {
-    //         header("Location: blog_userpage.php");
-    //         die();
-    //     }
+        error_log("checkpoint1.1");
+        
+        //call validation function 
+        $userinfo = LoginValidation($userinfo);
 
-    //     $status = $userinfo['response'];
-    // }
-    // else
-    //     //display error message
+        //redirection
+        if($userinfo['status'])
+        {
+            header("Location: blog_userpage.php");
+            die();
+        }
+
+        $status = $userinfo['response'];
+    }
+    else
+        //display error message
         $status = "Login information cann not be empty!"
     
 ?>
