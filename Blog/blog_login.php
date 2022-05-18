@@ -32,7 +32,7 @@
             else
             {
                 //keep the previous input
-                
+
             }
 
             $status = $userinfo['response'];
@@ -70,7 +70,7 @@
     <div class="main" >
         <form  class="blog_login" action="blog_login.php" method="post">
             <label class="blog_login_title">Sign in</label>
-            <label class="blog_login_status"><?php echo $status; ?></label>  
+            <label class="blog_login_status"><?php echo $status; ?>  </label>  
             <div class="blog_login_input">
                 <input type="text" name="userid_email" placeholder="UserId/Email">
             </div>
