@@ -3,6 +3,7 @@
     //import database connection file
     require_once "Lib/db.php";
 
+    error_log("checkpoint2");
 
     function LoginValidation($userinput)
     {
@@ -15,6 +16,9 @@
         //use input data to query database
         $query = "SELECT * FROM UserDetail WHERE userId = '$userid_email' or Email = '$userid_email'";     //use email or userID to login.
         
+
+        error_log("checkpoint2.1, ".$query);
+
         //retrieve server data, verify userId/email 
         if($result = MysqlQuery($query))
             //retrieve data in associative array format
