@@ -20,10 +20,7 @@
         error_log("checkpoint2.1, ".$query);
 
         //retrieve server data, verify userId/email 
-        if($result = MysqlQuery($query))
-            //retrieve data in associative array format
-            $data = $result->fetch_assoc();
-        else
+        if(!($result = MysqlQuery($query)))
         {
             //incorrect userId/email, no further verification, return result
             $userinput['response'] = "Invalid UserId/Email.";
@@ -31,6 +28,9 @@
             error_log("checkpoint2.2, ".$userinput['response']);
             return $userinput;
         }
+        else
+            //retrieve data in associative array format
+            $data = $result->fetch_assoc();
 
 
         //verification of password ( matches a hash)

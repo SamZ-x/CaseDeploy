@@ -74,7 +74,7 @@
         if(!($output = $mysql_conn->query($query)))
         {
             //query() return false on failure
-            $mysql_response = "Query Error (".$mysql_conn->connect_error;
+            $mysql_response = "Query Error :".$mysql_conn->connect_error;
             return $output;
         }
 
