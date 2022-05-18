@@ -22,7 +22,7 @@
         //retrieve server data, verify userId/email 
         $result = MysqlQuery($query);
         
-        if(!($result))
+        if($result)
         {
             //incorrect userId/email, no further verification, return result
             $userinput['response'] = "Invalid UserId/Email.";
