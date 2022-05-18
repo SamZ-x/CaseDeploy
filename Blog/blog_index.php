@@ -1,5 +1,5 @@
 <?php
-    //require_once "Lib/db.php";
+    require_once "Lib/db.php";
 
     //import variables
     global $mysql_response;
