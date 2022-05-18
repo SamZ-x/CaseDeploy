@@ -28,8 +28,10 @@
             //incorrect userId/email, no further verification, return result
             $userinput['response'] = "Invalid UserId/Email.";
             $userinput['status'] = false;
+            error_log("checkpoint2.2, ".$userinput['response']);
             return $userinput;
         }
+
 
         //verification of password ( matches a hash)
         //updata 'response' and 'status'
