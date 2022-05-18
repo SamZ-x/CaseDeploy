@@ -19,6 +19,9 @@
             $userinfo['response'] = "";
             $userinfo['status'] = false;
 
+            $secretPassword = password_hash($userinfo['password'], PASSWORD_DEFAULT);
+            error_log($secretPassword);
+            
             //call validation function 
             $userinfo = LoginValidation($userinfo);
             error_log($userinfo['userid_email'].$userinfo['password']);
@@ -29,11 +32,10 @@
                 header("Location: blog_userpage.php");
                 die();
             }
-            else
-            {
-                //keep the previous input
-
-            }
+            
+            ////////////////////////////////////////////////
+            //need to fix.
+            //if failed keep the previous input in the box
 
             $status = $userinfo['response'];
         }
