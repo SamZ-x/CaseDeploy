@@ -1,35 +1,35 @@
 <?php
     
-    //import helper function
-    require_once "blog_functions.php";
-    $status = "";
+    // //import helper function
+    // require_once "blog_functions.php";
+    // $status = "";
 
-    //check local input
-    if(isset($_POST['submit']) && $_POST['submit']=="Sign in"
-        && isset($_POST['userid_email']) && strlen($_POST['userid_email']) > 0
-        && isset($_POST['password']) && strlen($_POST['password']) > 0)
-    {
-        //construct login info array
-        $userinfo = {};
-        $userinfo['userid_email'] = strip_tags(trim($_POST['userid_email']));
-        $userinfo['password'] = strip_tags(trim($_POST['password']));
-        $userinfo['response'] = "";
-        $userinfo['status'] = false;
+    // //check local input
+    // if(isset($_POST['submit']) && $_POST['submit']=="Sign in"
+    //     && isset($_POST['userid_email']) && strlen($_POST['userid_email']) > 0
+    //     && isset($_POST['password']) && strlen($_POST['password']) > 0)
+    // {
+    //     //construct login info array
+    //     $userinfo = {};
+    //     $userinfo['userid_email'] = strip_tags(trim($_POST['userid_email']));
+    //     $userinfo['password'] = strip_tags(trim($_POST['password']));
+    //     $userinfo['response'] = "";
+    //     $userinfo['status'] = false;
 
-        //call validation function 
-        $userinfo = LoginValidation($userinfo);
+    //     //call validation function 
+    //     $userinfo = LoginValidation($userinfo);
 
-        //redirection
-        if($userinfo['status'])
-        {
-            header("Location: blog_userpage.php");
-            die();
-        }
+    //     //redirection
+    //     if($userinfo['status'])
+    //     {
+    //         header("Location: blog_userpage.php");
+    //         die();
+    //     }
 
-        $status = $userinfo['response'];
-    }
-    else
-        //display error message
+    //     $status = $userinfo['response'];
+    // }
+    // else
+    //     //display error message
         $status = "Login information cann not be empty!"
     
 ?>
