@@ -1,7 +1,7 @@
 <?php
     
     //import helper function
-    require_once "./blog_functions.php";
+    require_once "blog_functions.php";
     $status = "";
 
     error_log("checkpoint1");
@@ -34,7 +34,7 @@
     }
     else
         //display error message
-        $status = "Login information cann not be empty!"
+        $status = "Login information cann not be empty!";
     
 ?>
 <!DOCTYPE html>
