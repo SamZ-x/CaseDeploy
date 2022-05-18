@@ -81,7 +81,7 @@
             <input class = "blog_login_submit_button" type="submit" name="submit" value="Sign in">
             <div class="blog_login_link">
                 <a href="">Reset Password?</a>
-                <a href="blog_signup.php">Join</a>
+                <a href="blog_Signup.php">Join</a>
             </div>
 
         </form>
