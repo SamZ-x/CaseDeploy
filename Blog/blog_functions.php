@@ -21,12 +21,13 @@
 
         //retrieve server data, verify userId/email 
         $result = MysqlQuery($query);
-        error_log(json_encode($result));
+        
         if(!($result))
         {
             //incorrect userId/email, no further verification, return result
             $userinput['response'] = "Invalid UserId/Email.";
             $userinput['status'] = false;
+            error_log($userinput['response']);
             error_log("checkpoint2.2, ".$userinput['response']);
             return $userinput;
         }
