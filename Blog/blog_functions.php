@@ -20,7 +20,9 @@
         error_log("checkpoint2.1, ".$query);
 
         //retrieve server data, verify userId/email 
-        if(!($result = MysqlQuery($query)))
+        $result = MysqlQuery($query);
+        error_log(json_encode($result));
+        if(!($result))
         {
             //incorrect userId/email, no further verification, return result
             $userinput['response'] = "Invalid UserId/Email.";
