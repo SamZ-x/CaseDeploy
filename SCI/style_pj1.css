@@ -2,7 +2,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
 
 .homesite{
-    background-color: #eef2f3;
+    font-family: 'Roboto', sans-serif;;
+    background-color: white;
+    margin: 0px 0px;   /* no space between site and screen */
 }
 
 .head{
@@ -11,10 +13,24 @@
     text-align:center;
     font-family: 'Comfortaa', sans-serif;
     color: whitesmoke;
+    padding: 5px;      /* header body size extend 5px(top and bottom) */
+}
+
+.content{
+    display: grid;
+    grid-template-columns: 1fr 4fr 1fr;
+    gap: 10px;
+    border: 1px solid black;
+    width: 90%;
+    margin: 10px auto;
+}
+
+.mainsection{
+    grid-column: 2/3;
 }
 
 .footer{
-    color: #eef2f3;
     text-align: center;
-    padding-top: 10px;
+    padding: 20px;
+    background-color: whitesmoke;
 }
