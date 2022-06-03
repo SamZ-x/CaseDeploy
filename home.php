@@ -25,7 +25,7 @@
     </div>
     <div class="content">
         <ul>
-            <li><a class="link" href="SCI/index.php">Testcase01</a></li>
+            <li><a class="link" href="SCI/index.php">Serial Terimal 1.0</a></li>
             <li><a class="link" href="">upcoming......</a></li>
             <li><a class="link" href="">upcoming...</a></li>
             <li><a class="link" href="">upcoming...</a></li>

@@ -10,9 +10,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Serial Communication Interface</title>
 </head>
-<body>
+<body class="homesite">
     <div>
-        <header>
+        <header class="head">
             <h1>Serial Communication Interface</h1>
         </header>
     </div>
