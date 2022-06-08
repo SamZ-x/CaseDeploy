@@ -1,6 +1,9 @@
 @import url('https://fonts.googleapis.com/css?family=Sniglet|Boogaloo|Slackey|Comfortaa&effect=3d');
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
 
+p { margin: 20px 0px; }
+li {margin: 10px auto;}
+
 .homesite{
     font-family: 'Roboto', sans-serif;;
     background-color: white;
@@ -27,6 +30,19 @@
 
 .mainsection{
     grid-column: 2/3;
+}
+
+.mainUI{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.mysqlconfigUI{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
 }
 
 .footer{
