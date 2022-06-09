@@ -1,74 +1,49 @@
 @import url('https://fonts.googleapis.com/css?family=Sniglet|Boogaloo|Slackey|Comfortaa&effect=3d');
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
 
-p { margin: 20px 0px; }
+p { margin: 20px 0px; word-wrap: normal; }
 li {margin: 10px auto;}
+
 
 .homesite{
     font-family: 'Roboto', sans-serif;;
     background-color: white;
-    margin: 0px 0px;   /* no space between site and screen */
+    margin: 0;   /* no space between site and screen */
+    display: grid;
+    grid-template-columns: 1fr;
 }
-
 .head{
     background: rgb(2,0,36);
     background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%);
     text-align:center;
+    width: 100%;
     font-family: 'Comfortaa', sans-serif;
     color: whitesmoke;
     padding: 5px;      /* header body size extend 5px(top and bottom) */
     position: relative;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
 .content{
     display: grid;
-    grid-template-columns: 1fr 4fr 1fr;
+    grid-template-columns: 1fr ;
     gap: 10px;
     width: 80%;
-    margin: 10px auto;
+    margin-left: 10px;
+    margin-right: 10px;
 }
 
-.mainsection{
-    grid-column: 2/3;
-}
-
-/* for side nav link */
-.mainsection h1{
-    padding-top: 90px;
-    margin-top: -70px;
-}
-.mainsection h3{
-    padding-top: 90px;
-    margin-top: -80px;
-}
-.leftbar{
-    grid-column: 1/2;
-    padding-left: 50px;
-}
+.rightbar{
+    visibility: hidden;
+} 
 
 .buttonlink{
     padding: 5px;
     border: 1px;
     border-radius: 10px;
-}
-.buttonlink:hover{
-    color: white;
-    font-weight: bold;
-    background-color: rgb(67, 221, 235);
-    text-decoration: none;
-}
-
-.rightbar{
-    grid-column: 3/4;
-}
-
-
-.sidesection{
-    position: relative;
 }
 
 .navlist{
@@ -82,10 +57,6 @@ li {margin: 10px auto;}
     color: black;
 }
 
-.content a:hover{
-    text-decoration: underline;
-}
-
 .usagetable{
     width: 100%;
     text-align: center;
@@ -97,59 +68,126 @@ li {margin: 10px auto;}
     border: 1px solid grey;
 }
 
-.descirption-horizontal{
-    margin: 20px;
-    display: flex;
-    flex-direction: row;
-    justify-content:center;
-}
-.descirption-vertical{
-    margin: 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content:flex-start;
-    align-items:center;
-}
-
-.descirption-horizontal div{
-    margin: 5px 20px;
-   text-align: left;
-}
-
-.descirption-vertical div{
-    margin: 5px 10px;
-   text-align: left;
-}
-
-
-/* use sticky when browser support, otherwise relative */
-@supports (position: sticky){
-    .head{
-        position: sticky;
-        top: 0;
-    }
-
-    .sidesection{
-        position: sticky;
-        top: 70px;
-    }
-}
-
-.mainUI{
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-}
-
-.mysqlconfigUI{
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
-}
-
 .footer{
     text-align: center;
     padding: 20px;
     background-color: whitesmoke;
 }
+
+@media screen and (min-width : 800px) {
+
+    .homesite{
+        margin: 0;   /* no space between site and screen */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .head{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .content{
+        display: grid;
+        grid-template-columns: 0.5fr 4fr 1fr;
+        gap: 10px;
+        width: 80%;
+        
+    }
+
+    .leftbar{
+        grid-column: 1/2;
+        /* padding-left: 50px; */
+        /* margin-left: -40px; */
+    }
+
+    .mainsection{
+        grid-column: 2/3;
+    }
+
+    .rightbar{
+        visibility:visible;
+        grid-column: 3/4;
+    }
+
+    /* for side nav link */
+    .mainsection h1{
+        padding-top: 90px;
+        margin-top: -70px;
+    }
+    .mainsection h3{
+        padding-top: 90px;
+        margin-top: -80px;
+    }
+
+    .buttonlink:hover{
+        color: white;
+        font-weight: bold;
+        background-color: rgb(67, 221, 235);
+        text-decoration: none;
+    }
+
+    .sidesection{
+        position: relative;
+    }
+
+    .content a:hover{
+        text-decoration: underline;
+    }
+
+    .descirption-horizontal{
+        margin: 20px;
+        display: flex;
+        flex-direction: row;
+        justify-content:center;
+    }
+    .descirption-vertical{
+        margin: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content:flex-start;
+        align-items:center;
+    }
+
+    .descirption-horizontal div{
+        margin: 5px 20px;
+    text-align: left;
+    }
+
+    .descirption-vertical div{
+        margin: 5px 10px;
+        text-align: left;
+    }
+
+    .mainUI{
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+    }
+
+    .mysqlconfigUI{
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+    }
+
+    /* use sticky when browser support, otherwise relative */
+    @supports (position: sticky){
+        .head{
+            position: sticky;
+            top: 0;
+        }
+
+        .sidesection{
+            position: sticky;
+            top: 70px;
+        }
+    }
+}
+
+
