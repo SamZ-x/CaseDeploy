@@ -25,7 +25,7 @@
     </div>
     <div class="content">
         <ul>
-            <li><a class="link" href="SCI/index.php">Serial Terimal 2.0</a></li>
+            <li><a class="link" href="SCI/index.php">Serial Port Terminal 2.0</a></li>
             <li><a class="link" href="">upcoming......</a></li>
             <li><a class="link" href="">upcoming...</a></li>
             <li><a class="link" href="">upcoming...</a></li>
