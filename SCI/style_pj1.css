@@ -17,19 +17,122 @@ li {margin: 10px auto;}
     font-family: 'Comfortaa', sans-serif;
     color: whitesmoke;
     padding: 5px;      /* header body size extend 5px(top and bottom) */
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
 }
 
 .content{
     display: grid;
     grid-template-columns: 1fr 4fr 1fr;
     gap: 10px;
-    border: 1px solid black;
-    width: 90%;
+    width: 80%;
     margin: 10px auto;
 }
 
 .mainsection{
     grid-column: 2/3;
+}
+
+/* for side nav link */
+.mainsection h1{
+    padding-top: 90px;
+    margin-top: -70px;
+}
+.mainsection h3{
+    padding-top: 90px;
+    margin-top: -80px;
+}
+.leftbar{
+    grid-column: 1/2;
+    padding-left: 50px;
+}
+
+.buttonlink{
+    padding: 5px;
+    border: 1px;
+    border-radius: 10px;
+}
+.buttonlink:hover{
+    color: white;
+    font-weight: bold;
+    background-color: rgb(67, 221, 235);
+    text-decoration: none;
+}
+
+.rightbar{
+    grid-column: 3/4;
+}
+
+
+.sidesection{
+    position: relative;
+}
+
+.navlist{
+    margin: 0px;
+    padding: 0px 10px;
+    list-style-type: none;
+}
+
+.navlist a{
+    text-decoration: none;
+    color: black;
+}
+
+.content a:hover{
+    text-decoration: underline;
+}
+
+.usagetable{
+    width: 100%;
+    text-align: center;
+    border: 1px solid grey;
+    border-collapse: collapse;
+}
+
+.usagetable td{
+    border: 1px solid grey;
+}
+
+.descirption-horizontal{
+    margin: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content:center;
+}
+.descirption-vertical{
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content:flex-start;
+    align-items:center;
+}
+
+.descirption-horizontal div{
+    margin: 5px 20px;
+   text-align: left;
+}
+
+.descirption-vertical div{
+    margin: 5px 10px;
+   text-align: left;
+}
+
+
+/* use sticky when browser support, otherwise relative */
+@supports (position: sticky){
+    .head{
+        position: sticky;
+        top: 0;
+    }
+
+    .sidesection{
+        position: sticky;
+        top: 70px;
+    }
 }
 
 .mainUI{
