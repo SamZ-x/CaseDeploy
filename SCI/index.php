@@ -52,7 +52,7 @@
                     <nav>
                         <ul class="navlist">
                             <li><a class="buttonlink" href="index.php">Introduction</a></li>
-                            <li><a class="buttonlink" href="index.php?filename=win-sci2.zip">Download</a></li>
+                            <li><a class="buttonlink" href="index.php?filename=win-sci.zip">Download</a></li>
                             <li><a class="buttonlink" href="https://github.com/SamZ-x/SCI_9S12.git">Github</a></li>
                             <li><a class="buttonlink" href="http://www.casedeploy.com">Home</a></li>
                         </ul>
