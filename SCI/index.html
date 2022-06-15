@@ -45,7 +45,7 @@
             <h1 id = "ui">UI</h1>
             <!-- section 3.1 -->
             <h3 style="color:blue" id="mainUI">1. Main UI</h3>
-            <div class=" mainUI">
+            <div class=" descirption-horizontal">
                 <div>
                     <p style="font-size:large">Main UI contains several sections:<br> (from top to buttom)</p>
                     <ul>
@@ -56,12 +56,16 @@
                         <li><b>Data Control: </b>Mathcing Raw Data format to Database fields.</li>
                     </ul>
                 </div>
-                <img src="images/UI/UI_main.jpg" alt="UI_main">
+                <div class="flex-item">
+                    <img src="images/UI/UI_main.jpg" alt="UI_main">
+                </div>
             </div>
             <!-- section 3.2 -->
             <h3 style="color:blue" id="mysqlconfigUI">2. MySQL configure UI</h3>
-            <div class="mysqlconfigUI">
-                <img src="images/UI/UI_mysqlconfig.jpg" alt="UI_MySQLconfig">
+            <div class="descirption-vertical">
+                <div class="flex-item">
+                    <img src="images/UI/UI_mysqlconfig.jpg" alt="UI_MySQLconfig" >
+                </div>
                 <div>
                     <p><b style="color:red">Note:</b> To successfully establish MySQL database remote connection and correctly upload the raw data to cloud, it is important to correctly configure all the section above.<br></p> 
                     <ul>
@@ -86,15 +90,19 @@
                         <td>Comport Contorl</td>
                         <td>
                             <div class="descirption-horizontal">
-                                <div>
+                                <div class="flex-content">
                                     <p>>> Select appropriate <b>Com port</b> and <b>Baud rate</b>.<br></p>
                                     <p>Default with:<br> { Parity:"none", Databits:"8", Stopbits:"one"}. </p>
                                 </div>
-                                <img src="images/Usages/comcontrol_basic.jpg" alt="menu_file">
+                                <div class="flex-item">
+                                    <img src="images/Usages/comcontrol_basic.jpg" alt="menu_file">
+                                </div>
                             </div>
                             <hr>
                             <div class="descirption-horizontal">
-                                <img src="images/Usages/comcontrol_options.jpg" alt="menu_file">
+                                <div class="flex-item">
+                                    <img src="images/Usages/comcontrol_options.jpg" alt="menu_file">
+                                </div>
                                 <div>
                                     <p>>> Advanced setting:<br></p>
                                     <p>Click <b>More Option</b> to customize serial port setup.</p>
@@ -105,8 +113,10 @@
                     <tr>
                         <td>Storage Contorl</td>
                         <td>
-                            <img src="images/Usages/filecontrol.jpg" alt="file_control" style="margin-top:20px;">
                             <div class="descirption-vertical">
+                                <div class="flex-item">
+                                    <img src="images/Usages/filecontrol.jpg" alt="file_control" >
+                                </div>
                                 <div>
                                     <p>>> Data storage method: <strong>Save to TXT file</strong> or <strong>Save to MySQL.</strong></p>
                                     <p>>><span style="color:green; font-weight: bold"> Green light</span> on function section and check mark &#10003 indicate successfully setup.</p>
@@ -118,8 +128,12 @@
                         <td>Monitor Contorl</td>
                         <td>
                             <div class="descirption-horizontal">
-                                <img src="images/UI/UI_monitor_data.jpg" alt="monitor_data" style="width:50% ;height:50% ; margin-right: 5px;" >
-                                <img src="images/UI/UI_monitor_config.jpg" alt="monitor_config" style="width:50% ;height:50%">
+                                <div class="flex-item">
+                                    <img src="images/UI/UI_monitor_data.jpg" alt="monitor_data" >
+                                </div>
+                                <div class="flex-item">
+                                    <img src="images/UI/UI_monitor_config.jpg" alt="monitor_config">
+                                </div>
                             </div>
                             <div class="descirption-vertical">
                                 <div>
@@ -137,11 +151,16 @@
                                     <p>>> Choose to <b>Import/Export</b> databse configuration.<br></p>
                                     <p>Specific Format required, see below.</p>
                                 </div>
-                                <img src="images/Usages/5.Usage_db_file.jpg" alt="menu_file" >
+                                <div  class="flex-item">
+                                    <img src="images/Usages/5.Usage_db_file.jpg" alt="menu_file" >
+                                </div>
+
                             </div>
                             <hr>
-                            <div class="descirption-horizontal">                                
-                                <img src="images/Usages/6.Usage_dbinfo.jpg" alt="menu_file">
+                            <div class="descirption-horizontal">
+                                <div class="flex-item">
+                                    <img src="images/Usages/6.Usage_dbinfo.jpg" alt="menu_file">
+                                </div>                                
                                 <div>
                                     <p>>> All information Required. <b>Submit</b> to test the connection.<br></p>
                                     <p>>> <b>Import file Format:</b><br></p>
@@ -163,11 +182,15 @@
                                          in order to correctly upload to corresponding fields.<br></p>
                                     <p>>> See data format contorl below.</p>
                                 </div>
-                                <img src="images/Usages/7.Usage_db_fields.jpg" alt="mysql_db_fields">
+                                <div class="flex-item">
+                                    <img src="images/Usages/7.Usage_db_fields.jpg" alt="mysql_db_fields">
+                                </div>
                             </div>
                             <hr>
-                            <div class="descirption-horizontal">      
-                                <img src="images/Usages/8.Usage_db_finish.jpg" alt="mysql_db_query">                          
+                            <div class="descirption-horizontal">  
+                                <div class="flex-item">
+                                    <img src="images/Usages/8.Usage_db_finish.jpg" alt="mysql_db_query">    
+                                </div>    
                                 <div>
                                     <p>>> Last <b>Confirm</b> of the database table and fiels. </p>
                                     <p>>> <b>"Finish"</b> to save MySQL database setting</p>
@@ -179,7 +202,9 @@
                         <td>Data Format Contorl</td>
                         <td>
                             <div class="descirption-horizontal">
-                                <img src="images/Usages/9.Usage_datacontrol.jpg" alt="data_control" >
+                                <div class="flex-item">
+                                    <img src="images/Usages/9.Usage_datacontrol.jpg" alt="data_control" >  
+                                </div>  
                                 <div>
                                     <p>>> Select the correct <b>Data Separator</b> to split the raw data to match the selected fields.</p>
                                     <p>>> <b style="color:red;">Note:</b> input raw data should contain <span style="text-decoration:underline">selected separator</span> 
@@ -192,7 +217,9 @@
                         <td>RUN/PAUSE Contorl</td>
                         <td>
                             <div class="descirption-vertical">
-                                <img src="images/Usages/runpause.jpg" alt="runpause_control" >
+                                <div class="flex-item">
+                                    <img src="images/Usages/runpause.jpg" alt="runpause_control" >
+                                </div>  
                                 <div>
                                     <p>>> Use the [start/pause] button to start or stop <b>data operation</b> (save/upload).</p>
                                     <P>>> <span style="color:green; font-weight: bold">Green lights</span> on Data Status section indicate corresponding operation runing.</P>

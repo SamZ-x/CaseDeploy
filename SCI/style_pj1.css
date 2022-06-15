@@ -4,7 +4,6 @@
 p { margin: 20px 0px; word-wrap: normal; }
 li {margin: 10px auto;}
 
-
 .homesite{
     font-family: 'Roboto', sans-serif;;
     background-color: white;
@@ -72,6 +71,7 @@ li {margin: 10px auto;}
     text-align: center;
     padding: 20px;
     background-color: whitesmoke;
+    width: 100%;
 }
 
 @media screen and (min-width : 800px) {
@@ -95,8 +95,7 @@ li {margin: 10px auto;}
         display: grid;
         grid-template-columns: 0.5fr 4fr 1fr;
         gap: 10px;
-        width: 80%;
-        
+        max-width: 80%;
     }
 
     .leftbar{
@@ -145,6 +144,17 @@ li {margin: 10px auto;}
         flex-direction: row;
         justify-content:center;
     }
+
+    .descirption-horizontal .flex-item{
+        /* flex style: no grow/shrink/max 400px */
+        flex: 0 1 auto; 
+        margin: 0 5px;
+    }
+    .descirption-horizontal .flex-item img{
+        width: 100%;
+        height: auto;
+    }
+
     .descirption-vertical{
         margin: 20px;
         display: flex;
@@ -153,27 +163,24 @@ li {margin: 10px auto;}
         align-items:center;
     }
 
+    .descirption-vertical .flex-item{
+        /* flex style: no grow/shrink/max 400px */
+        flex: 0 1 auto; 
+        margin: 0 5px;
+    }
+    .descirption-vertical .flex-item img{
+        width: 100%;
+        height: auto;
+    }
+
     .descirption-horizontal div{
         margin: 5px 20px;
-    text-align: left;
+        text-align: left;
     }
 
     .descirption-vertical div{
         margin: 5px 10px;
         text-align: left;
-    }
-
-    .mainUI{
-        display: flex;
-        flex-direction: row;
-        justify-content: flex-start;
-    }
-
-    .mysqlconfigUI{
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-start;
-        align-items: flex-start;
     }
 
     /* use sticky when browser support, otherwise relative */
