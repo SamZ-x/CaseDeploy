@@ -22,7 +22,7 @@
         }
         //if filename error or no exist file, return error message
         {
-            alert("Download Error! Please try later.");
+            echo '<script>alert("Download Error! Please try later.")</script>';
         }
     }
 ?>
