@@ -1,3 +1,29 @@
+<?php
+    //check the $_GET parameter
+    if(!empty($_GET['filename']))
+    {
+        $filename = basename($_GET['filename']);
+        $filepath = 'Files/'.$filename;
+        //check the filename and the file existence
+        $if(!empty($filename) && file_exists($filepath))
+        {
+            //define headers before send file
+            header("Cache-Control: public;  max-age=3600");                     //set cacha, hold for 1hour
+            header("Content-Description: File Transfer");               
+            header("Content-Disposition: attachment; filename = $filename");
+            header("Content-Type: application/zip");
+            header("Content-Transfer-Encoding: binary"); 
+
+            readfile($filepath);
+            exit;
+        }
+        //if filename error or no exist file, return error message
+        {
+            alert("Download Error! Please try later.");
+        }
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,7 +48,7 @@
                     <nav>
                         <ul class="navlist">
                             <li><a class="buttonlink" href="">Introduction</a></li>
-                            <li><a class="buttonlink" href="">Download</a></li>
+                            <li><a class="buttonlink" href="index.php?filename=win-sci.zip">Download</a></li>
                             <li><a class="buttonlink" href="https://github.com/SamZ-x/SCI_9S12.git">Github</a></li>
                             <li><a class="buttonlink" href="http://www.casedeploy.com">Home</a></li>
                         </ul>
