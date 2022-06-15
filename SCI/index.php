@@ -15,13 +15,14 @@
             header("Content-Transfer-Encoding: binary"); 
 
             readfile($filepath);
-            exit;
         }
         //if filename error or no exist file, return error message
         {
             alert("Download Error! Please try later.");
         }
     }
+
+    error_log("pass");
 ?>
 
 <!DOCTYPE html>
@@ -47,7 +48,7 @@
                     <strong style="margin-left: 5px">Guide</strong>
                     <nav>
                         <ul class="navlist">
-                            <li><a class="buttonlink" href="">Introduction</a></li>
+                            <li><a class="buttonlink" href="index.php">Introduction</a></li>
                             <li><a class="buttonlink" href="index.php?filename=win-sci.zip">Download</a></li>
                             <li><a class="buttonlink" href="https://github.com/SamZ-x/SCI_9S12.git">Github</a></li>
                             <li><a class="buttonlink" href="http://www.casedeploy.com">Home</a></li>
