@@ -91,11 +91,21 @@ li {margin: 10px auto;}
         align-items: center;
     }
 
+    .flex-conten{
+        display: flex;
+        flex: 0 1 auto;
+        /* align-self: center;
+        flex-direction: row;
+        justify-content: center; */
+    }
+
     .content{
         display: grid;
         grid-template-columns: 0.5fr 4fr 1fr;
         gap: 10px;
         max-width: 80%;
+        margin-right: auto;
+        margin-left: auto;
     }
 
     .leftbar{
