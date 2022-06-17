@@ -3,7 +3,7 @@
     //include 'Includes/class-autoloader.inc.php';
     $rootpath = $_SERVER['DOCUMENT_ROOT'];
     error_log("index error-log:".$rootpath);
-    require_once $rootpath.'/Classes/Calculation.class.php';
+    require_once '/var/www/html/CaseDeploy/PHP-MVC-Projects/CalculatorDemo/Classes/Calculation.class.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
