@@ -26,7 +26,7 @@
     </div>
     <div class = "navbar">
         <ul>
-            <li><a href="../home.php">home</a></li>
+            <li><a href="../../home.php">home</a></li>
             <li><a href="">search</a></li>
             <li><a href="./blog_login.php">Login</a></li>
         </ul>
@@ -40,7 +40,7 @@
                 <li style="font-size: larger;"><b>Xiaobin Zhu</b></li>
                 <li>Always Do My Best!</li>
                 <li><a href="https://www.nait.ca/nait/home">NAIT (Northern Alberta Institute of Technology)</a></li>
-                <li><a class="personal_info_contact"  style="color: aliceblue; " href="../about.php">Contact info</a></li>
+                <li><a class="personal_info_contact"  style="color: aliceblue; " href="../../about.php">Contact info</a></li>
                 <li>other info</li>
             </ul>
         </div>
