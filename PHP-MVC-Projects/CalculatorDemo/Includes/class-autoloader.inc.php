@@ -12,7 +12,7 @@
 
         $path = '../Classes/';
         $extension = '.class.php';
-
+        error_log($path.$className.$extension);
         require_once $path.$className.$extension;    //relative path
     }
 

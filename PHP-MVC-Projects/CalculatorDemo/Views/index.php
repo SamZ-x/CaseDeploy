@@ -25,5 +25,10 @@
             <button type="submit">Submit</button>
         </form>
     </div>
+    <div>
+        <?php
+        echo Calculation::$testnum;
+        ?>
+    </div>
 </body>
 </html>
