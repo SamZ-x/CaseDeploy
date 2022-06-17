@@ -1,7 +1,7 @@
 <?php
     declare(strict_types = 1);
-    include 'Includes/class-autoloader.inc.php';
-    //require_once '../Classes/Calculation.class.php';
+    //include 'Includes/class-autoloader.inc.php';
+    require_once 'Classes/Calculation.class.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
