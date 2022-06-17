@@ -19,7 +19,7 @@
     <div class="navbar">
         <ul>
             <li><a href="home.php">Cases</a></li>
-            <li><a href="./Blog/blog_index.php">Blog</a></li>
+            <li><a href="./Blog/views/blog_index.php">Blog</a></li>
             <li><a href="about.php">About</a></li>
         </ul>
     </div>
