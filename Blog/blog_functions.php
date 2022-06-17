@@ -3,6 +3,13 @@
     //import database connection file
     require_once "Lib/db.php";
 
+    /****************************************
+    **function name: LoginValidation
+    **description: for user login validation
+    **usedAt: blog_login.php
+    **return: array that contain 'response'
+              and 'status' information
+    ****************************************/
     function LoginValidation($userinput)
     {
         //import global variables
@@ -57,6 +64,14 @@
         //return result
         return $userinput;
     }
+
+    /****************************************
+    **function name: LoginValidation
+    **description: for user login validation
+    **usedAt: blog_login.php
+    **return: array that contain 'response'
+              and 'status' information
+    ****************************************/
 
 ?>
 
