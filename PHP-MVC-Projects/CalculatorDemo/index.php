@@ -1,5 +1,5 @@
 <?php
-    declare(strict_types = 1);
+    //declare(strict_types = 1);
     //include 'Includes/class-autoloader.inc.php';
     $rootpath = $_SERVER['DOCUMENT_ROOT'];
     error_log("index error-log:".$rootpath);

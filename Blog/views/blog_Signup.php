@@ -11,10 +11,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blog Login</title>
-    <link rel="stylesheet" href="blogstyle.css">
-    <link rel="stylesheet" href="substyle_signup.css">
+    <link rel="stylesheet" href="../blogstyle.css">
+    <link rel="stylesheet" href="../substyle_signup.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="blog_Signup.js"></script>
+    <script src="../blog_Signup.js"></script>
 </head>
 <body class = "blogsite">
     <div class="header">
