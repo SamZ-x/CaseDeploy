@@ -1,7 +1,7 @@
 <?php
     
     //import helper function
-    require_once "blog_functions.php";
+    require_once "../blog_functions.php";
     $status = "";
 
     error_log("checkpoint1");
@@ -54,7 +54,7 @@
     <title>Blog Login</title>
     <link rel="stylesheet" href="blogstyle.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="blog_login.js"></script>
+    <script src="../blog_login.js"></script>
 </head>
 <body class = "blogsite">
     <div class="header">
