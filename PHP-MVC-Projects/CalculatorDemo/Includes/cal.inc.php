@@ -1,5 +1,8 @@
 <?php
 
+    declare(strict_types = 1);
+    require_once 'class-autoloader.inc.php';
+
     //retrieve the parameters
     $operator = $_POST['operator'];
     $num1 = $_POST['num1'];
