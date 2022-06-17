@@ -10,7 +10,7 @@
         // else
         //     $path = '../Classes';
 
-        $path = '../Classes';
+        $path = '../Classes/';
         $extension = '.class.php';
 
         require_once $path.$className.$extension;    //relative path
