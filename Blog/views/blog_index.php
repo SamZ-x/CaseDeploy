@@ -1,7 +1,7 @@
 <?php
     //1. invoke create database connection php file to export the database connection variables  
     //1.1 import database connection variables
-    require_once 
+    //require_once 
 
 
     //2. invoke database query php file to export the data object
@@ -46,7 +46,7 @@
         </div>
         <div class="content">
             <?php
-                require_once 
+                //require_once 
             ?>
             <div class = "acticlecontent" >
                 <h2>Title...</h2>
