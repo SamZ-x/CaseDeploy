@@ -24,7 +24,7 @@
     </div>
     <div class = "navbar">
         <ul>
-            <li><a href="../home.php">home</a></li>
+            <li><a href="../../home.php">home</a></li>
             <li><a href="blog_login.php">Login</a></li>
         </ul>
     </div>
