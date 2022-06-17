@@ -1,6 +1,6 @@
 <?php
     declare(strict_types = 1);
-    include '../Includes/class-autoloader.inc.php';
+    include 'Includes/class-autoloader.inc.php';
     //require_once '../Classes/Calculation.class.php';
 ?>
 <!DOCTYPE html>
@@ -27,8 +27,9 @@
         </form>
     </div>
     <div>
+        static value:
         <?php
-        echo Calculation::$testnum;
+            echo Calculation::$testnum;
         ?>
     </div>
 </body>
