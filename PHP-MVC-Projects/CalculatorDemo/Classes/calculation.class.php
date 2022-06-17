@@ -1,5 +1,5 @@
 <?php
-
+    //class declarasion
     class Calculation{
 
         //properties
