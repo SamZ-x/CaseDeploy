@@ -1,6 +1,6 @@
 <?php
     //class declarasion
-    class Calculation{
+    class Calc{
 
         //properties
         private $operator;
