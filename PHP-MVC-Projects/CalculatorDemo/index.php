@@ -1,5 +1,5 @@
 <?php
-set_include_path('/var/www/html/CaseDeploy/PHP-MVC-Projects/CalculatorDemo');
+    set_include_path('/var/www/html/CaseDeploy/PHP-MVC-Projects/CalculatorDemo/Classes');
     //declare(strict_types = 1);
     //include 'Includes/class-autoloader.inc.php';
     $rootpath = $_SERVER['DOCUMENT_ROOT'];
@@ -9,7 +9,7 @@ set_include_path('/var/www/html/CaseDeploy/PHP-MVC-Projects/CalculatorDemo');
     //     require_once 'Classes/' . $classname . '.class.php'; 
     // }); 
 
-    require_once "./Classes/Calculation.class.php";
+    require_once "Calculation.class.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
