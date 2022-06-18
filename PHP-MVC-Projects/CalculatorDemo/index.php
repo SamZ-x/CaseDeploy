@@ -1,6 +1,6 @@
 <?php
     //declare(strict_types = 1);
-    //include 'Includes/class-autoloader.inc.php';
+    include 'Includes/class-autoloader.inc.php';
     $rootpath = $_SERVER['DOCUMENT_ROOT'];
     error_log("index error-log:".$rootpath);
     //require_once '../PHP-MVC-Projects/CalculatorDemo/Classes/Calculation.class.php';
@@ -36,7 +36,7 @@
     <div>
         static value:
         <?php
-            error_log(Calculation::$testnum);
+            echo Calc::$testnum;
         ?>
     </div>
 </body>
