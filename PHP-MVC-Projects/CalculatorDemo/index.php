@@ -1,15 +1,14 @@
 <?php
-    set_include_path('/var/www/html/CaseDeploy/PHP-MVC-Projects/CalculatorDemo/Classes');
     //declare(strict_types = 1);
     //include 'Includes/class-autoloader.inc.php';
     $rootpath = $_SERVER['DOCUMENT_ROOT'];
     error_log("index error-log:".$rootpath);
-    
+    //require_once '../PHP-MVC-Projects/CalculatorDemo/Classes/Calculation.class.php';
     // spl_autoload_register(function ($classname) {
     //     require_once 'Classes/' . $classname . '.class.php'; 
     // }); 
-
-    require_once "Calculation.class.php";
+    require_once __DIR__ . '/Classes/Calculation.class.php';
+    // require_once() "Calculation.class.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
