@@ -1,14 +1,16 @@
 <?php
-    //declare(strict_types = 1);
-    include 'Includes/class-autoloader.inc.php';
-    $rootpath = $_SERVER['DOCUMENT_ROOT'];
-    error_log("index error-log:".$rootpath);
-    //require_once '../PHP-MVC-Projects/CalculatorDemo/Classes/Calculation.class.php';
-    // spl_autoload_register(function ($classname) {
-    //     require_once 'Classes/' . $classname . '.class.php'; 
-    // }); 
-    //require_once __DIR__ . '/Classes/calculation.class.php';
-    // require_once() "Calculation.class.php";
+    declare(strict_types = 1);
+    include '../Includes/class-autoloader.inc.php';
+    $result = 'n/a';
+
+    if(isset($_GET['result']) && strlen($_GET['result'])>0)
+    {
+        if(inval($_GET['result']) != 0)
+            $result =  inval($_GET['result']);
+        else
+            $result = $_GET['result'];
+    }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -36,7 +38,7 @@
     <div>
         static value:
         <?php
-            echo Calc::$testnum;
+            echo $result;
         ?>
     </div>
 </body>

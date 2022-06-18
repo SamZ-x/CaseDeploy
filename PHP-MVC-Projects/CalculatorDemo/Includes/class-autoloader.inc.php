@@ -3,16 +3,16 @@
 
     function myAutoLoader($className)
     {
-        $url = $_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URL'];
+        // $url = $_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URL'];
         
-        error_log($url);
+        // error_log($url);
 
-        if(strpos($url, 'includes') !== false)
-            $path = '../Classes/';
-        else
-            $path = 'Classes/';
+        // if(strpos($url, 'includes') !== false)
+        //     $path = '../Classes/';
+        // else
+        //     $path = 'Classes/';
 
-
+        $path = '../Classes/';
         $extension = '.class.php';
         error_log($path.$className.$extension);
         require_once $path.$className.$extension;    //relative path
