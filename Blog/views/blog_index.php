@@ -1,7 +1,7 @@
 <?php
     //1. invoke create database connection php file to export the database connection variables  
     //1.1 import database connection variables
-    //require_once 
+    require_once '../PHP-MVC-Projects/CalculatorDemo/Classes/Calculation.class.php';
 
 
     //2. invoke database query php file to export the data object
@@ -52,6 +52,10 @@
                 <h2>Title...</h2>
                 <label>author, date</label>
                 <p>
+                    <?php
+                    echo Calculation::$testnum;
+                    
+                    ?>
                 content...content...content...content...content...content...
                 content...content...content...content...content...content...
                 content...content...content...content...content...content...
