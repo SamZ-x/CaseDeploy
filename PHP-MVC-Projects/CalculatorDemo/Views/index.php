@@ -1,8 +1,11 @@
 <?php
-    declare(strict_types = 1);
-    include '../Includes/class-autoloader.inc.php';
-    $result = 'n/a';
+    
+    
+    declare(strict_types = 1);                        //restrict type enable
+    include '../Includes/class-autoloader.inc.php';     //autoload classes file 
 
+    //handle returned result
+    $result = 'n/a';
     if(isset($_GET['result']) && strlen($_GET['result'])>0)
     {
         if(intval($_GET['result']) != 0)
@@ -37,6 +40,13 @@
     </div>
     <div>
         static value:
+        <?php
+            echo Num::$base;
+        ?>
+
+    </div>
+    <div>
+        Result:
         <?php
             echo $result;
         ?>

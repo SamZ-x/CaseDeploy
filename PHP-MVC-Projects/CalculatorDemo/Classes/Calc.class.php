@@ -7,8 +7,6 @@
         private $num1;
         private $num2;
 
-        public static $testnum = 45; 
-
         //constructor
         public function __construct(string $operator, int $num1, int $num2){
             $this->operator = $operator;
