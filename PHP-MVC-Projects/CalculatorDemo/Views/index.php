@@ -5,8 +5,8 @@
 
     if(isset($_GET['result']) && strlen($_GET['result'])>0)
     {
-        if(inval($_GET['result']) != 0)
-            $result =  inval($_GET['result']);
+        if(intval($_GET['result']) != 0)
+            $result =  intval($_GET['result']);
         else
             $result = $_GET['result'];
     }
