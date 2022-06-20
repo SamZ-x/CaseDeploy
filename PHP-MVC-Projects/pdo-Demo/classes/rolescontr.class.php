@@ -1,5 +1,5 @@
 <?php
 
-class RolesContr extends Roles{
+class rolesContr extends Roles{
     
 }

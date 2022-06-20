@@ -2,7 +2,7 @@
 
 //only class that interact with the database
 
-class Roles extends Dbh{
+class roles extends Dbh{
 
     //only run the operation on database, not show any to client side
     //only be referred by child class
