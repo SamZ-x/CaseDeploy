@@ -17,8 +17,8 @@
     </div>
     <?php
         $testObj = new RolesView();
-        $testObj->showRoles('10');
-        $testObj->showRoles('20');
+        $testObj->showRoles(10);
+        $testObj->showRoles(10);
     ?>
 </body>
 </html>
