@@ -6,5 +6,12 @@
     (non-input: query($query); input: prepare($query) + execute([params..]))
 
 
-# MVC 
+# classes name role:
+- capitalize first letter, camelcase the rest
+- not special character '/-*...'
+- classes names are same with file name, file extend ".class.php"
 
+# MVC 
+- model class : interact with database, return result object, all method/fields protected, only open access to the child class.
+- view class : only display reults to the client
+- control:

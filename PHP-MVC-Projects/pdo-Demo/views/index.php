@@ -16,7 +16,7 @@
         <h1>Dpo Demo</h1>
     </div>
     <?php
-        $testObj = new RolesView();
+        $testObj = new Rolesview();
         $testObj->showRoles(10);
         $testObj->showRoles(10);
     ?>
