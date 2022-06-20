@@ -12,6 +12,6 @@
 - classes names are same with file name, file extend ".class.php"
 
 # MVC 
-- model class : interact with database, return result object, all method/fields protected, only open access to the child class.
+- model class : interact with database, return result object, all method/fields protected, only open access to the child class.(more secure and convenient)
 - view class : only display reults to the client
-- control:
+- control: any change the database action occured in control, but make sure the only interact with db is the model class

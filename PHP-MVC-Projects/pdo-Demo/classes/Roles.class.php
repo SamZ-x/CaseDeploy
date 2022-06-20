@@ -19,4 +19,13 @@ class Roles extends Dbh{
         //return the result(used by view class)
         return $results;
     }
+
+
+    //set data with user input
+    protected function setRoles($rolename, $rolevalue, $roledescription){
+
+        $sqlQuery = "INSERT INTO `Roles`(`RoleName`, `RoleValue`, `RoleDescription`) VALUES (?,?,?)";
+        $stmt = $this->connect()->prepare($sqlQuery);
+        $stmt->execute([$rolename, $rolevalue, $roledescription]);
+    }
 }

@@ -18,7 +18,10 @@
     <?php
         $testObj = new Rolesview();
         $testObj->showRoles(10);
-        $testObj->showRoles(10);
+
+        $testcontr = new Rolecontr();
+        $testcontr->AddRole('testmvc',50,'testmvc');
+
     ?>
 </body>
 </html>
