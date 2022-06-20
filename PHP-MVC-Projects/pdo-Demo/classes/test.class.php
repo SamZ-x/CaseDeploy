@@ -14,6 +14,10 @@
             }
         }
 
+
+        //use placeholder '?' indicate the input parameters
+
+
         //pull data with user input
         public function getRolesStmt($rolevalue, $roledescription){
 
@@ -28,7 +32,6 @@
             }
         }
 
-
         //set data with user input
         public function setRolesStmt($rolename, $rolevalue, $roledescription){
 
@@ -37,7 +40,5 @@
             $stmt->execute([$rolename, $rolevalue, $roledescription]);
         }
     }
-
-
 
 ?>
