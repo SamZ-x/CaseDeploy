@@ -22,7 +22,7 @@
         echo "<strong>Get one role:</strong>". '<br>';   
         $testObj->getRolesStmt(10,'boss');
         echo "<strong>add one role:</strong>". '<br>';
-        $testObj->getRolesStmt('test',45,'testrole');  
+        $testObj->setRolesStmt('test',45,'testrole');  
     ?>
 </body>
 </html>
