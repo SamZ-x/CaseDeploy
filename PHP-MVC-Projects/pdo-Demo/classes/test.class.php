@@ -28,6 +28,14 @@
             }
         }
 
+
+        //set data with user input
+        public function setRolesStmt($rolename, $rolevalue, $roledescription){
+
+            $sqlQuery = "INSERT INTO `Roles`(`RoleName`, `RoleValue`, `RoleDescription`) VALUES (?,?,?)";
+            $stmt = $this->connect()->prepare($sqlQuery);
+            $stmt->execute([$rolename, $rolevalue, $roledescription]);
+        }
     }
 
 

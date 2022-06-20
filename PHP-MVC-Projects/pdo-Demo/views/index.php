@@ -17,10 +17,12 @@
     </div>
     <?php
         $testObj = new test();
-        echo "Get all roles:". '<br>';
+        echo "<strong>Get all roles:</strong>". '<br>';
         $testObj->getRoles();  
-        echo "Get one role:". '<br>';   
+        echo "<strong>Get one role:</strong>". '<br>';   
         $testObj->getRolesStmt(10,'boss');
+        echo "<strong>add one role:</strong>". '<br>';
+        $testObj->getRolesStmt('test',45,'testrole');  
     ?>
 </body>
 </html>
