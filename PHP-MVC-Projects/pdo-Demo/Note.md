@@ -4,3 +4,7 @@
 - child class extends Dbh class to leverage the database connect method to manipulate the data(SAUD)
     use placeholder '?' in query when use user input
     (non-input: query($query); input: prepare($query) + execute([params..]))
+
+
+# MVC 
+

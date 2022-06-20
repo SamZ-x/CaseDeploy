@@ -16,13 +16,9 @@
         <h1>Dpo Demo</h1>
     </div>
     <?php
-        $testObj = new test();
-        echo "<strong>Get all roles:</strong>". '<br>';
-        $testObj->getRoles();  
-        echo "<strong>Get one role:</strong>". '<br>';   
-        $testObj->getRolesStmt(10,'boss');
-        echo "<strong>add one role:</strong>". '<br>';
-        $testObj->setRolesStmt('test',45,'testrole');  
+        $testObj = new RolesView();
+        $testObj->showRoles('10');
+        $testObj->showRoles('20');
     ?>
 </body>
 </html>
