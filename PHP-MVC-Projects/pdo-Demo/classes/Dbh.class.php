@@ -1,6 +1,6 @@
 <?php
 
-    class Dbp{
+    class Dbh{
 
         //database info
         private $host = "localhost";
