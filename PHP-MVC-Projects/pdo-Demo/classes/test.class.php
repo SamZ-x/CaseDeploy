@@ -17,7 +17,7 @@
         //pull data with user input
         public function getRolesStmt($rolevalue, $roledescription){
 
-            $sqlQuery = "select * from Roles WHERE RoleValue = ? AND RoleDescription like '%?%'";
+            $sqlQuery = "select * from Roles WHERE RoleValue = ? AND RoleDescription = ?";
             //use the connect() method connect db and query() to retrieve data
             $stmt = $this->connect()->prepare($sqlQuery);
             $stmt->execute([$rolevalue, $roledescription]);
