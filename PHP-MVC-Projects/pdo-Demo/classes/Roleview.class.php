@@ -1,6 +1,6 @@
 <?php
 
-class rolesView extends Roles{
+class RolesView extends Roles{
 
     public function showRoles($rolevalue){
         $results = $this->getRoles($rolevalue);
