@@ -25,6 +25,8 @@
             $this->region = $region;
         }
 
+        error_log($this->fname.$this->lname.$this->nname.$this->email.$this->password.$this->phone.$this->region); 
+
         //functional method
         public function signupUser(){
             //use exception handler to check first
