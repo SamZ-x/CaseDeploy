@@ -58,8 +58,8 @@
                     <label>Region</label>
                     <select name="Region">
                         <option value="none">Please Select</option>
-                        <option value="CA">CA</option>
-                        <option value="USA">USA</option>
+                        <option value="1">CA</option>
+                        <option value="2">USA</option>
                     </select>
                 </div>
                 <div class="blog_signup_submit">
