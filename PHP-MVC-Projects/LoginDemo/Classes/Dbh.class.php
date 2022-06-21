@@ -17,9 +17,9 @@
                 $dbName = "blog";
 
                 //database server name
-                $dsn = 'mysql:host='.$this->host.';dbname='.$this->dbName;
+                $dsn = 'mysql:host='.$host.';dbname='.$dbName;
                 //create database handler and return
-                $dbh = new PDO($dsn, $this->user, $this->pwd);                          //create new PDO object using the db info
+                $dbh = new PDO($dsn, $user, $pwd);                          //create new PDO object using the db info
                 $dbh->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);     //set the data fetch mode
                 return $dbh;
 
