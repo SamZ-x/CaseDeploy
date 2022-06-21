@@ -82,7 +82,7 @@
             if(filter_var($this->email, FILTER_VALIDATE_EMAIL))  //build-in email validate
                 $result = true;
 
-            return false;
+            return $result;
         }
 
         //***************************************/
