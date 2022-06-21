@@ -11,7 +11,7 @@ class Signup extends Dbh{
         $stmt = $this->connect()->prepare($sqlquery);
         
         //if the excute shows error, show the error
-        if(!$stmt->excute([$email])){
+        if(!$stmt->execute([$email])){
             $stmt = null;    //close the connection statment
             header("location: ../Views/index.php?error=stmtfailed");    //return index page with error parameter
             exit();
