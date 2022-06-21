@@ -47,7 +47,7 @@
             }
 
             //add user
-            $this->setUser($fname,$lname,$nname,$email,$password,$phone,$region);
+            $this->setUser($this->fname,$this->lname,$this->nname,$this->email,$this->password,$this->phone,$this->region);
         }
 
         //************************************ */
