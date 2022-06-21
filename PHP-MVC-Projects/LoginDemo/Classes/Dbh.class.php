@@ -25,7 +25,7 @@
 
             } catch (PDOException $e) {
                 //display the error message and close the connection
-                print "Error!: ".$e->getMessage()."<br/>";
+                print "Database Connection Error!: ".$e->getMessage()."<br/>";
                 die();
             }
         }

@@ -23,7 +23,6 @@
             $this->password = $password;
             $this->phone = $phone;
             $this->region = $region;
-            error_log("test".$this->fname); 
         }
        
 
@@ -32,7 +31,7 @@
             //use exception handler to check first
             if($this->emptyInput()==false){
                 //echo empty input
-                header("location:../Viewsindex.php?error=emptyinput");
+                header("location:../Views/index.php?error=emptyinput");
                 exit();
             }
 

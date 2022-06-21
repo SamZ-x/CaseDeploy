@@ -8,7 +8,7 @@
         $email=$_POST['email'];
         $phone=$_POST['phone'];
         $region=$_POST['Region'];
-        error_log($region);
+
         //Instantiate SignupContr class
         include "../Classes/Dbh.class.php";
         include "../Classes/Signup.class.php";
