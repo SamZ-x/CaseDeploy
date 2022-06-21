@@ -37,8 +37,9 @@ class Signup extends Dbh{
     
         //create query and prepare the stmt with placeholder
         $sqlquery = "INSERT INTO `Users`(`Email`, `Password`, `NickName`, `Firstname`, `Lastname`, `Region`, `Phone`) VALUES (?,?,?,?,?,?,?);";
+        error_log($sqlquery );
         $stmt = $this->connect()->prepare($sqlquery);
-           
+        error_log( print_r([$email,$hashpassword,$nname,$fname,$lname,$region,$phone]) );
         //if the excute shows error, show the error
         if(!$stmt->execute([$email,$hashpassword,$nname,$fname,$lname,$region,$phone])){     //add info array to statement execute()
             $stmt = null;    //close the connection statment
