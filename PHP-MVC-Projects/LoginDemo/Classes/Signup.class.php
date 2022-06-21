@@ -13,7 +13,7 @@ class Signup extends Dbh{
         //if the excute shows error, show the error
         if(!$stmt->execute([$email])){
             $stmt = null;    //close the connection statment
-            header("location: ../Views/index.php?error=stmtfailed");    //return index page with error parameter
+            header("location: ../Views/index.php?error=stmtfailed-check");    //return index page with error parameter
             exit();
         }
 
@@ -42,7 +42,7 @@ class Signup extends Dbh{
         //if the excute shows error, show the error
         if(!$stmt->execute([$email,$hashpassword,$nname,$fname,$lname,$region,$phone])){     //add info array to statement execute()
             $stmt = null;    //close the connection statment
-            header("location: ../Views/index.php?error=stmtfailed");    //return index page with error parameter
+            header("location: ../Views/index.php?error=stmtfailed-insert");    //return index page with error parameter
             exit();
         }
 
