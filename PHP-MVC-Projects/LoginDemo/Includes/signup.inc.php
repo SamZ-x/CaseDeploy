@@ -16,7 +16,7 @@
         $signup = new SignupContr($fname,$lname,$nname,$email,$password,$phone,$region);
 
         //Running Error handlers and user signup
-        $signup->signUser();
+        $signup->signupUser();
         
         //going back to front page
         header("location:../Views/index.php?error=none");
