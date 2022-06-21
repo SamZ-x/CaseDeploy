@@ -34,13 +34,13 @@
                 exit();
             }
 
-            if($this->invalidEmail == false){
+            if($this->invalidEmail() == false){
                 //echo invali email
                 header("location:../Views/index.php?error=invalidemail");
                 exit();
             }
             
-            if($this->ExistenceCheck){
+            if($this->ExistenceCheck()){
                 //echo user existed
                 header("location:../Views/index.php?error=userexisted");
                 exit();
