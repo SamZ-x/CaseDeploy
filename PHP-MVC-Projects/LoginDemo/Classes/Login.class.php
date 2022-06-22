@@ -25,10 +25,10 @@
                 header("loction: ../Views/index.php?error=InvalidUid");
                 exit();
             }
-            error_log(var_dump($result));
+            error_log(json_encode($result));
             //otherwise, verify the input pwd to database hashpassword(password_verify())
             //if not equal, rediect to index.php with error param(invalid pwd)
-            if(!password_verify($pwd, $result['Password'])){
+            if(!password_verify($pwd, $result[0]['Password'])){
                 header("loction: ../Views/index.php?error=InvalidPassword");
                 exit();
             }
