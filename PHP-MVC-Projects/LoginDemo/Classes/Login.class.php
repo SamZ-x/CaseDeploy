@@ -14,7 +14,7 @@
             $stmt = $this->connect()->prepare($sqlquery);
             //if database statment return false, redirect with error
             if(!$stmt->execute([$uid, $uid])){
-                header("loction: ../Views/index.php?error=stmterror");
+                header("location: ../Views/index.php?error=stmterror");
                 exit();
             }
 
@@ -22,14 +22,14 @@
             $result = $stmt->FETCHALL();
             //if query return object empty, means invalid uid
             if(empty($result )){
-                header("loction: ../Views/index.php?error=InvalidUid");
+                header("location: ../Views/index.php?error=InvalidUid");
                 exit();
             }
-            error_log(json_encode($result));
+
             //otherwise, verify the input pwd to database hashpassword(password_verify())
             //if not equal, rediect to index.php with error param(invalid pwd)
             if(!password_verify($pwd, $result[0]['Password'])){
-                header("loction: ../Views/index.php?error=InvalidPassword");
+                header("location: ../Views/index.php?error=InvalidPassword");
                 exit();
             }
             
