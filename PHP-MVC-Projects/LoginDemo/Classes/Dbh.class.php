@@ -12,8 +12,8 @@
             try {
                 //database info (limited in connect() scope)
                 $host = "localhost";
-                $user = "xzhu20";
-                $pwd = "Xzhu20@mysql";
+                $user = "xzhu20_blog";
+                $pwd = "Xzhu20_blog@mysql";
                 $dbName = "blog";
 
                 //database server name
