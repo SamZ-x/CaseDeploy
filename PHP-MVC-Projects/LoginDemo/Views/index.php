@@ -1,11 +1,13 @@
 <?php
- 
+    //resume session
+    session_start();
+    
     $nickname = "";
     $status = "";
     if(isset($_SESSION['userid']))
         $nickname = $_SESSION['nickname'];
     else
-        $nickname = "session not set";
+        $nickname = "none";
     
     if(isset($_GET['error']))
         $status = $_GET['error'];
@@ -23,7 +25,7 @@
         <h2>logined user: </h2>
         <?php 
             echo $nickname.'<br>';
-            if(!empty($nickname))
+            if(!($nickname == "none"))
                 echo '<button><a href="../Includes/logout.inc.php">Log out</a></button><br>';
         ?>
     </div>
