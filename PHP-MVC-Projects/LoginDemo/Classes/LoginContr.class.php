@@ -17,7 +17,7 @@
         public function userLogin(){
             //if login info valid, requet the database validation
             //if login info empty, redirect to index.php with error param
-            if(emptyInput()){
+            if($this->emptyInput()){
                 header("location: ../Views/index.php?error=empty-input");
                 exit();    //terminate the current scripte
             }
