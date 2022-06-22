@@ -11,7 +11,7 @@
             //check if the uid exist
             //if not, rediect to index.php with error param(invalid uid)
             $sqlquery = "SELECT * FROM `Users` WHERE UserID = ? OR Email = ?;";
-            $stmt = $this->connect()-prepare($sqlquery);
+            $stmt = $this->connect()->prepare($sqlquery);
             //if database statment return false, redirect with error
             if(!$stmt->execute([$uid, $uid])){
                 header("loction: ../Views/index.php?error=stmterror");
