@@ -1,9 +1,12 @@
 <?php
  
+    $nickname = "";
     $status = "";
+    if(isset($_SESSION['userid']))
+        $nickname = $_SESSION['nickname'];
+
     if(isset($_GET['error']))
         $status = $_GET['error'];
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -15,7 +18,20 @@
 </head>
 <body>
     <div>
-        <h2>Result: <?php echo $status?></h2>
+        <h2>logined user: </h2>
+        <?php 
+            echo $nickname.'<br>';
+            if(!empty($nickname))
+                echo '<button><a href="../Includes/logout.inc.php">Log out</a></button><br>';
+        ?>
     </div>
+    <div>
+        <h2>Status:</h2>
+        <?php
+        echo $status;
+        ?>
+    </div>
+
+    
 </body>
 </html>
