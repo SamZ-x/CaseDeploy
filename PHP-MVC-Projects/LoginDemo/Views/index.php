@@ -4,7 +4,9 @@
     $status = "";
     if(isset($_SESSION['userid']))
         $nickname = $_SESSION['nickname'];
-
+    else
+        $nickname = "session not set";
+    
     if(isset($_GET['error']))
         $status = $_GET['error'];
 ?>
