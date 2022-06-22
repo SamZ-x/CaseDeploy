@@ -25,7 +25,7 @@
                 header("loction: ../Views/index.php?error=InvalidUid");
                 exit();
             }
-               
+            error_log(var_dump($result));
             //otherwise, verify the input pwd to database hashpassword(password_verify())
             //if not equal, rediect to index.php with error param(invalid pwd)
             if(!password_verify($pwd, $result['Password'])){
