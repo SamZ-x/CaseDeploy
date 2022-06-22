@@ -24,7 +24,7 @@
         </ul>
     </div>
     <div class="main" >
-        <form  class="blog_login" action="blog_login.php" method="post">
+        <form  class="blog_login" action="../Includes/login.inc.php" method="post">
             <label class="blog_login_title">Sign in</label>
             <label class="blog_login_status"><?php echo $status; ?>  </label>  
             <div class="blog_login_input">
@@ -34,12 +34,12 @@
                 <input  class="blog_login_input_pwd" type="password" name="password" placeholder="Password" >
                 <span class="blog_login_input_pwdshow">Show</span>
             </div>
-            <input class = "blog_login_submit_button" type="submit" name="submit" value="Sign in">
+            <button class = "blog_login_submit_button" type="submit" name="submit">Sign in</button>
+            <!-- <input class = "blog_login_submit_button" type="submit" name="submit" value="Sign in"> -->
             <div class="blog_login_link">
                 <a href="">Reset Password?</a>
                 <a href="blog_Signup.php">Join</a>
             </div>
-
         </form>
     </div>
     <div class="footer">

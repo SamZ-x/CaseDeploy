@@ -19,7 +19,7 @@
     <div class = "navbar">
         <ul>
             <li><a href="">home</a></li>
-            <li><a href="blog_login.php">Login</a></li>
+            <li><a href="login.php">Login</a></li>
         </ul>
     </div>
     <div class="main" >
