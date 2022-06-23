@@ -108,6 +108,7 @@ ul{
 
     .content li a {
         transition: all 0.3s ease 0s;
+        color: white;
     }
     
     .content li a:hover {
