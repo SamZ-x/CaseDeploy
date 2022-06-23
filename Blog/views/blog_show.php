@@ -1,24 +1,12 @@
 <?php
     //blog_index page (home page of the blog)
     //display search bar for searching specific user's blog or blog articles base on title key words
-    $status = "";
-    $error = "";
-    
-    if(isset($_GET['status']))
-    {
-        $status = $_GET['status'];
-        $error = $_GET['error'];
-        
-        if($error=="inputEmpty")
-            echo "<script>alert('Please Input a keyword!');</script>";
-        
-        if($error=="databaseError")
-            echo "<script>alert('System Error!');</script>";
-
-        if($status=="dataEmpty")
-            echo "<script>alert('No relative article!');</script>";
+    $data="";
+    //resume the session;
+    session_start();
+    if(isset($_SESSION['data'])){
+        $data = $_SESSION['data'];
     }
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -46,20 +34,19 @@
     </div>
     <div class="main">
         <div class="content">
-            <div class="search-title">
-                <label>Search</label>
-                <img src="../images/search.png" alt="searchicon">
-            </div>
-            <div class="search-bar">
-                <form action="" method="get">
-                    <select name="searchCategory" id="searchCategory">
-                        <option value="username">User Name</option>
-                        <option value="articletitle">Article Title</option>
-                    </select>
-                    <input  type="text" name="searchInfo" id="searchInfo" placeholder="Input a keyword...">
-                    <button  type="submit" name="submit" value="search">Go</button>
-                </form>
-            </div>
+            <?php
+                if(!empty($data)){
+                    //for test, display the data
+                    foreach($article in $data)
+                    {
+                        echo "<div>".$article['sanitizedHtml']."</div>";
+                    }
+                }
+                else
+                {
+                    echo "<div>No resource!</div>";
+                }
+            ?>
         </div>
     </div>
     <div class="footer">

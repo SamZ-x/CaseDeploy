@@ -22,7 +22,7 @@
             //if stmt is good, check query object
             $result = $stmt->FETCHALL();
             //if query return object empty, means invalid uid
-            if(empty($result )){
+            if(empty($result)){
                 $stmt = null;
                 header("location: ../Views/index.php?error=InvalidUid");
                 exit();
