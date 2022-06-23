@@ -51,7 +51,7 @@
                 <img src="../images/search.png" alt="searchicon">
             </div>
             <div class="search-bar">
-                <form action="" method="get">
+                <form action="../Includes/search.inc.php" method="get">
                     <select name="searchCategory" id="searchCategory">
                         <option value="username">User Name</option>
                         <option value="articletitle">Article Title</option>
