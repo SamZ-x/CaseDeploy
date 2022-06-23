@@ -49,8 +49,7 @@ ul{
 .content{
     background-color: whitesmoke;
     margin: 2px 5px;
-    border:1px solid white;
-    height: 800px;
+    min-height: 500px;
 }
 
 /* article css */
@@ -175,16 +174,37 @@ ul{
 
     /* main content area item style */
     .content{
-        border: 1px solid gray;
-        padding: 5px 10px;
         display: flex;
         flex-direction: column;
-        order: 1;
+        justify-content:center;
+        align-items: center;
         flex: 1 10 auto;
     }
 
+    .search-title{
+        margin-top: -100px;
+        margin-bottom: 25px;
+        display: flex;
+        flex-direction: row;
+    }
+
+    .search-title label{
+        margin-right: 20px;
+        font-size: 64px;
+    }
+
+    .search-bar form select, input, button{
+        font-size: 20px;
+        border-radius: 5px;
+        border: 2px solid gray;
+    }
+    
+    .search-bar form select, button:hover{
+        border: 2px solid rgb(52, 171, 245);
+    }
+
     /* leftbar style */
-    .leftbar{
+    /* .leftbar{
         border: 1px solid gray;
         border-radius: 5px;
         padding: 5px 10px;
@@ -209,12 +229,12 @@ ul{
     }
 
     .personal_info{
-        /* flex style */
+
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: flex-start;
-        /* other */
+
         list-style: none;
         font-family: 'Roboto', sans-serif;
         font-size: large;
@@ -237,7 +257,7 @@ ul{
         border-radius: 10px; 
         padding: 4px 4px;
         font-weight: bolder;
-    }
+    } */
     
     .rightbar{
         border: 1px solid gray;
