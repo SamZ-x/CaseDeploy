@@ -9,6 +9,8 @@ if(isset($_POST['submit'])){
     include "../Classes/Dbh.class.php";
     include "../Classes/Login.class.php";
     include "../Classes/LoginContr.class.php";
+
+    
     $login = new LoginContr($uid, $pwd);
 
     //Running Error handlers and user login
