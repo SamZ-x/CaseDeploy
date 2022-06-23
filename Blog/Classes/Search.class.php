@@ -12,7 +12,7 @@
                 $sqlQuery = "SELECT * FROM `Articles` a JOIN `Users` u ON a.UserId = u.UserId ";
                 $sqlQuery .= "WHERE u.Firstname LIKE '%?%' OR u.Lastname LIKE '%?%' OR u.Middlename LIKE '%?%'";
                 
-                $stmt = $this->connect()-prepare($sqlQuery);
+                $stmt = $this->connect()->prepare($sqlQuery);
                 $status = $stmt->execute([$keyword, $keyword, $keyword]);
             }
 
@@ -20,7 +20,7 @@
                 $sqlQuery = "SELECT * FROM `Articles` a JOIN `Users` u ON a.UserId = u.UserId ";
                 $sqlQuery .= "WHERE a.Title LIKE '%?%'";
 
-                $stmt = $this->connect()-prepare($sqlQuery);
+                $stmt = $this->connect()->prepare($sqlQuery);
                 $status = $stmt->execute([$keyword]);
             }
             
