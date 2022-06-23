@@ -37,7 +37,7 @@
             <?php
                 if(!empty($data)){
                     //for test, display the data
-                    foreach($article in $data)
+                    foreach($data as $article)
                     {
                         echo "<div>".$article['sanitizedHtml']."</div>";
                     }
