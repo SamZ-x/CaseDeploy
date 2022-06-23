@@ -14,7 +14,7 @@
         include "../Classes/Dbh.class.php";
         include "../Classes/Search.class.php";
         include "../Classes/SearchView.class.php";
-        $search = new SeachView($category, $keyword);
+        $search = new SearchView($category, $keyword);
 
         //run error handle and search data
         $data = $search->Searchdata();    //get the data array
