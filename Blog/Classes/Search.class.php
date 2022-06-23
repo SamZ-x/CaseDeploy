@@ -10,19 +10,19 @@
             //create query base on the category
             if($category == "username"){
                 $sqlQuery = "SELECT * FROM `Articles` a JOIN `Users` u ON a.UserId = u.UserId ";
-                $sqlQuery .= "WHERE u.Firstname LIKE '%?%' OR u.Lastname LIKE '%?%' OR u.Middlename LIKE '%?%'";
+                $sqlQuery .= "WHERE u.Firstname LIKE '%'?'%' OR u.Lastname LIKE '%'?'%' OR u.Middlename LIKE '%'?'%'";
 
                 $stmt = $this->connect()->prepare($sqlQuery);
-                error_log("search query1: ".print_r($stmt));
+                error_log("search query1: ".$stmt->queryString);
                 $status = $stmt->execute([$keyword, $keyword, $keyword]);
             }
 
             if($category == "articletitle"){
                 $sqlQuery = "SELECT * FROM `Articles` a JOIN `Users` u ON a.UserId = u.UserId ";
-                $sqlQuery .= "WHERE a.Title LIKE '%?%'";
+                $sqlQuery .= "WHERE a.Title LIKE '%'?'%'";
 
                 $stmt = $this->connect()->prepare($sqlQuery);
-                error_log("search query2: ".print_r($stmt));
+                error_log("search query2: ".$stmt->queryString);
                 $status = $stmt->execute([$keyword]);
             }
             
