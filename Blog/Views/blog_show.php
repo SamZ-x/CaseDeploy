@@ -28,7 +28,7 @@
     <div class = "navbar">
         <ul>
             <li><a href="../../home.php">home</a></li>
-            <li><a href="">search</a></li>
+            <li><a href="blog_index.php">search</a></li>
             <li><a href="blog_login.php">Login</a></li>
         </ul>
     </div>
