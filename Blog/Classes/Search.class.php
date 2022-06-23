@@ -13,7 +13,7 @@
                 $sqlQuery .= "WHERE u.Firstname LIKE '%?%' OR u.Lastname LIKE '%?%' OR u.Middlename LIKE '%?%'";
 
                 $stmt = $this->connect()->prepare($sqlQuery);
-                error_log("search query1: ".$stmt);
+                error_log("search query1: ".print_r($stmt));
                 $status = $stmt->execute([$keyword, $keyword, $keyword]);
             }
 
@@ -22,7 +22,7 @@
                 $sqlQuery .= "WHERE a.Title LIKE '%?%'";
 
                 $stmt = $this->connect()->prepare($sqlQuery);
-                error_log("search query2: ".$stmt);
+                error_log("search query2: ".print_r($stmt));
                 $status = $stmt->execute([$keyword]);
             }
             
