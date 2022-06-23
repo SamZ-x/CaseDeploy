@@ -12,6 +12,8 @@
                 $sqlQuery = "SELECT * FROM `Articles` a JOIN `Users` u ON a.UserId = u.UserId ";
                 $sqlQuery .= "WHERE u.Firstname LIKE '%?%' OR u.Lastname LIKE '%?%' OR u.Middlename LIKE '%?%'";
                 
+                error_log("search query1".$sqlQuery);
+
                 $stmt = $this->connect()->prepare($sqlQuery);
                 $status = $stmt->execute([$keyword, $keyword, $keyword]);
             }
@@ -19,6 +21,8 @@
             if($category == "articletitle"){
                 $sqlQuery = "SELECT * FROM `Articles` a JOIN `Users` u ON a.UserId = u.UserId ";
                 $sqlQuery .= "WHERE a.Title LIKE '%?%'";
+
+                error_log("search query2".$sqlQuery);
 
                 $stmt = $this->connect()->prepare($sqlQuery);
                 $status = $stmt->execute([$keyword]);
@@ -33,7 +37,7 @@
             }
             //otherwise
             $result = $stmt->FETCHALL();    //return associate array/empty object.
-
+            
             //no related data, return dataEmpty message
             if(empty($result)){
                 $stmt=null;
@@ -41,6 +45,8 @@
                 exit();
             }
 
+            error_log("Dt: ".print_r($result));
+            
             return $result;
         }
     }
