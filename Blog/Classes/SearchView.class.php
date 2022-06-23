@@ -1,7 +1,7 @@
 <?php
 
     //retrieve data from db and provide methods for fontend use.
-    class SearchView{
+    class SearchView extends Search{
 
         //fields
         private $category;
