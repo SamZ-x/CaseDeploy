@@ -1,4 +1,4 @@
-<?php
+<!-- <?php
     //blog_index page (home page of the blog)
     //display search bar for searching specific user's blog or blog articles base on title key words
     $data="";
@@ -7,7 +7,7 @@
     if(isset($_SESSION['data'])){
         $data = $_SESSION['data'];
     }
-?>
+?> -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,6 +16,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blog</title>
     <link rel="stylesheet" href="../blogstyle.css">
+    <link rel="stylesheet" href="../blog-article.css">
     <!-- CSS only -->
     <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous"> -->
 </head>
@@ -35,18 +36,99 @@
     <div class="main">
         <div class="content">
             <?php
-                if(!empty($data)){
-                    //for test, display the data
-                    foreach($data as $article)
-                    {
-                        echo "<div>".$article['sanitizedHtml']."</div>";
-                    }
-                }
-                else
+            //iterate all retrieved article
+            //fill into the template
+                foreach($data as $article)
                 {
-                    echo "<div>No resource!</div>";
+                    echo "<div>".$article['sanitizedHtml']."</div>";
+                    //display title
+                    echo "<div class=\"articles\"><div class=\"article-body\"><h1 class=\"article-title\">".$article['title']."</h1>";
+                    //display subtitle
+                    echo "<div class=\"article-subtitle\">".$article['createdAt']."<a class=\"article-link\" href=\"\">".$article['Firstname']."</a></div>";
+                    //display description
+                    echo "<div class=\"article-text\">".$artcle['description']."<br></div>";
+                    //display the button and close tag
+                    echo "<a class = \"article-link-button\" href=\"\">Read More</a></div></div>";
                 }
             ?>
+            <!-- <div class="articles">
+                <div class="article-body">
+                    <h1 class="article-title">fill title</h1>
+                    <div class="article-subtitle">
+                        fill date
+                        <a class="article-link" href="http://">author</a>
+                    </div>
+                    <div class="article-text">
+                        fill description............................<br>
+                    </div>
+                    <a class = "article-link-button" href="http://">read more button</a>
+                </div>
+            </div>
+            <div class="articles">
+                <div class="article-body">
+                    <h1 class="article-title">fill title</h1>
+                    <div class="article-subtitle">
+                        fill date
+                        <a class="article-link" href="http://">author</a>
+                    </div>
+                    <div class="article-text">
+                        fill description<br>
+                    </div>
+                    <a class = "article-link-button" href="http://">read more button</a>
+                </div>
+            </div>
+            <div class="articles">
+                <div class="article-body">
+                    <h1 class="article-title">fill title</h1>
+                    <div class="article-subtitle">
+                        fill date
+                        <a class="article-link" href="http://">author</a>
+                    </div>
+                    <div class="article-text">
+                        fill description<br>
+                    </div>
+                    <a class = "article-link-button" href="http://">read more button</a>
+                </div>
+            </div>
+            <div class="articles">
+                <div class="article-body">
+                    <h1 class="article-title">fill title</h1>
+                    <div class="article-subtitle">
+                        fill date
+                        <a class="article-link" href="http://">author</a>
+                    </div>
+                    <div class="article-text">
+                        fill description<br>
+                    </div>
+                    <a class = "article-link-button" href="http://">read more button</a>
+                </div>
+            </div>
+            <div class="articles">
+                <div class="article-body">
+                    <h1 class="article-title">fill title</h1>
+                    <div class="article-subtitle">
+                        fill date
+                        <a class="article-link" href="http://">author</a>
+                    </div>
+                    <div class="article-text">
+                        fill description<br>
+                    </div>
+                    <a class = "article-link-button" href="http://">read more button</a>
+                </div>
+            </div>
+            <div class="articles">
+                <div class="article-body">
+                    <h1 class="article-title">fill title</h1>
+                    <div class="article-subtitle">
+                        fill date
+                        <a class="article-link" href="http://">author</a>
+                    </div>
+                    <div class="article-text">
+                        fill description<br>
+                    </div>
+                    <a class = "article-link-button" href="http://">read more button</a>
+                </div>
+            </div> -->
         </div>
     </div>
     <div class="footer">

@@ -11,9 +11,8 @@
             if($category == "username"){
                 $sqlQuery = "SELECT * FROM `Articles` a JOIN `Users` u ON a.UserId = u.UserId ";
                 $sqlQuery .= "WHERE u.Firstname LIKE '%' ? '%' OR u.Lastname LIKE '%' ? '%' OR u.Middlename LIKE '%' ? '%'";
-
+                //fill the query with parameters
                 $stmt = $this->connect()->prepare($sqlQuery);
-                error_log("search query1: ".$stmt->queryString);
                 $status = $stmt->execute([$keyword, $keyword, $keyword]);
             }
 
@@ -21,8 +20,8 @@
                 $sqlQuery = "SELECT * FROM `Articles` a JOIN `Users` u ON a.UserId = u.UserId ";
                 $sqlQuery .= "WHERE a.Title LIKE '%' ? '%'";
 
+                //fill the query with parameters
                 $stmt = $this->connect()->prepare($sqlQuery);
-                error_log("search query2: ".$stmt->queryString);
                 $status = $stmt->execute([$keyword]);
             }
             
@@ -43,8 +42,8 @@
                 exit();
             }
 
-            error_log("Dt: ".print_r($result));
-
+            //if successfully retrieve data, clear the statment and return
+            $stmt=null;
             return $result;
         }
     }

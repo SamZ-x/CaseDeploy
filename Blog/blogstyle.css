@@ -177,8 +177,8 @@ ul{
         background-color: transparent;
         display: flex;
         flex-direction: column;
-        justify-content:center;
-        align-items: center;
+        justify-content:flex-start;
+        align-items: flex-start;
         flex: 1 10 auto;
     }
 

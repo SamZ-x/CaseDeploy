@@ -18,7 +18,6 @@
         if($status=="dataEmpty")
             echo "<script>alert('No relative article!');</script>";
     }
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -68,6 +67,5 @@
             <script>document.write('Last Modified: '+document.lastModified);</script>
         </footer>
     </div>
-
 </body>
 </html>

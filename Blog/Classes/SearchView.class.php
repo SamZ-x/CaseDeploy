@@ -22,9 +22,8 @@
                 exit();
             }
 
-            //get the data
+            //get the data and return
             $result = $this->GetData($this->category, $this->keyword);
-            
             return $result;
         }
 
