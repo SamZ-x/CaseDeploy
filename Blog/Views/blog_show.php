@@ -40,7 +40,6 @@
             //fill into the template
                 foreach($data as $article)
                 {
-                    echo "<div>".$article['sanitizedHtml']."</div>";
                     //display title
                     echo "<div class=\"articles\"><div class=\"article-body\"><h1 class=\"article-title\">".$article['title']."</h1>";
                     //display subtitle
