@@ -45,7 +45,7 @@
                     //display subtitle
                     echo "<div class=\"article-subtitle\">".$article['createdAt']."<a class=\"article-link\" href=\"\">".$article['Firstname']."</a></div>";
                     //display description
-                    echo "<div class=\"article-text\">".$artcle['description']."<br></div>";
+                    echo "<div class=\"article-text\">".$article['description']."<br></div>";
                     //display the button and close tag
                     echo "<a class = \"article-link-button\" href=\"\">Read More</a></div></div>";
                 }
