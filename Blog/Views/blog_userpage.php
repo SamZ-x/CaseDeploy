@@ -60,7 +60,7 @@
                     //display description
                     echo "<div class=\"article-text\">".$article['description']."<br></div>";
                     //display the button and close tag
-                    echo "<a class = \"article-link-button\" href=\"\">Read More</a></div></div>";
+                    echo "<a class = \"article-link-button\" href=\"\">Read More</a><a class = \"article-link-button\" href=\"\">Edit</a></div></div>";
                 }
             }
             else
