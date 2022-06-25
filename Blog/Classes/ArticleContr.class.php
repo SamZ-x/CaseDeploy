@@ -28,12 +28,12 @@
             $this->sanitizedhtml = $parsedwon->text($markdown);
             $this->slug = $this->slugify($title);
 
-            error_log($this->title);
-            error_log($this->description);
-            error_log($this->markdown);
-            error_log($this->userid);
-            error_log($this->sanitizedhtml);
-            error_log($this->slug);
+            error_log("title: ".$this->title);
+            error_log("description: ".$this->description);
+            error_log("markdown: ".$this->markdown);
+            error_log("userid: ".$this->userid);
+            error_log("sanitizedhtml: ".$this->sanitizedhtml);
+            error_log("slug: ".$this->slug);
         }
 
         //replace all special char with '-'
