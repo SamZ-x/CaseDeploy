@@ -20,7 +20,6 @@
     if(isset($_SESSION['userdata']) && !empty($_SESSION['userdata'])){
         $userData = $_SESSION['userdata'];
     }
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -41,7 +40,7 @@
     <div class = "navbar">
         <ul>
             <li><a href="../../home.php">home</a></li>
-            <li><a href="">search</a></li>
+            <li><a href="blog_index.php">search</a></li>
             <li><a href="blog_userpage.php?status=logout">Log Out: <?php echo $_SESSION['userid'];?></a></li>
         </ul>
     </div>
