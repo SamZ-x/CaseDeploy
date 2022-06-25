@@ -53,7 +53,7 @@
             $sqlquery = "SELECT * FROM `Articles` a JOIN `Users` u ON a.UserId = u.UserId WHERE a.UserId = ?;";
             $stmt = $this->connect()->prepare($sqlquery);
             //$status = $stmt->execute([$uid]);
-
+            error_log($uid);
             //if database statment return false, redirect with error
             if(!$stmt->execute([$uid])){
                 $stmt = null;
