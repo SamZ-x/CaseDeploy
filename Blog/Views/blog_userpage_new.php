@@ -42,9 +42,11 @@
     </div>
     <div class="main">
         <div class="content">
-        <?php
-            include "_form_field.php";
-        ?>
+            <form class="artarticle-new" action="" method="post">
+                <?php
+                    include "_form_field.php";
+                ?>
+            </form>
         </div>
     </div>
     <div class="footer">
