@@ -39,8 +39,9 @@
     </div>
     <div class = "navbar">
         <ul>
-            <li><a href="../../home.php">home</a></li>
+            <li><a href="">New Article</a></li>
             <li><a href="blog_index.php">search</a></li>
+            <li><a href="../../home.php">home</a></li>
             <li><a href="blog_userpage.php?status=logout">Log Out: <?php echo $_SESSION['userid'];?></a></li>
         </ul>
     </div>
@@ -63,7 +64,7 @@
                 }
             }
             else
-             echo "<div><strong>No articles!</strong></div>"
+             echo "<div class=\"search-title\"><strong>No articles!</strong></div>"
             ?>
         </div>
     </div>
