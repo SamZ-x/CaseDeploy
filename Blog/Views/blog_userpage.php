@@ -1,9 +1,10 @@
 <?php
     //if no user login, back to login page
-    // if(!isset($_SESSION['userid'])){
-    //     header("location: blog_login.php");
-    //     exit();
-    // }
+    session_start();
+    if(!isset($_SESSION['userid'])){
+        header("location: blog_login.php");
+        exit();
+    }
 
     //log out
     if(isset($_GET['status'])&&$_GET['status']=="logout")
