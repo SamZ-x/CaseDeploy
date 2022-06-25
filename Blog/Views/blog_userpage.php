@@ -39,7 +39,7 @@
     </div>
     <div class = "navbar">
         <ul>
-            <li><a href="">New Article</a></li>
+            <li><a href="blog_userpage_new.php">New Article</a></li>
             <li><a href="blog_index.php">search</a></li>
             <li><a href="../../home.php">home</a></li>
             <li><a href="blog_userpage.php?status=logout">Log Out: <?php echo $_SESSION['userid'];?></a></li>
