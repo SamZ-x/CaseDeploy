@@ -1,7 +1,7 @@
 <!-- <?php
     //blog_index page (home page of the blog)
     //display search bar for searching specific user's blog or blog articles base on title key words
-    $data="";
+    $data= array();
     //resume the session;
     session_start();
     if(isset($_SESSION['data'])){
@@ -38,7 +38,7 @@
             <?php
             //iterate all retrieved article
             //fill into the template
-            if(!empty($data)){
+            if($data){
                 foreach($data as $article)
                 {
                     //display title
