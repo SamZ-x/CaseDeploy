@@ -7,18 +7,17 @@
     3, cancel button url
 -->
 
-
 <div class="article-new-title">
     <label for="title">Title</label>
-    <input type="text" name="title" id="title" placeholder="Article title">
+    <input type="text" name="title" id="title" placeholder="Article title" require>
 </div>
 <div class="article-new-description">
     <label for="decription">Decription</label>
-    <textarea name="decription" id="decription" rows="3" cols="100" placeholder="Description..."></textarea>     <!--preload the exist content( textarea prop: cols="30" rows="10")-->
+    <textarea name="decription" id="decription" rows="3" cols="100" placeholder="Description..." require></textarea>     <!--preload the exist content( textarea prop: cols="30" rows="10")-->
 </div>
 <div class="article-new-description">
     <label for="markdown">Content</label>
-    <textarea name="markdown" id="markdown" rows="20" cols="100" placeholder="Input content in Markdown format..."></textarea>         <!--preload the exist content( textarea prop: cols="30" rows="10")-->
+    <textarea name="markdown" id="markdown" rows="20" cols="100" placeholder="Input content in Markdown format..." require></textarea>         <!--preload the exist content( textarea prop: cols="30" rows="10")-->
 </div>
 <div class="article-new-description">
     <button class = "article-link-button" type="submit">Save</button>

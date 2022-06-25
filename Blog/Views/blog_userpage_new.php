@@ -42,7 +42,7 @@
     </div>
     <div class="main">
         <div class="content">
-            <form class="artarticle-new" action="" method="post">
+            <form class="artarticle-new" action="../Includes/articles.inc.php" method="post">
                 <?php
                     include "_form_field.php";
                 ?>
