@@ -9,13 +9,20 @@ if(isset($_POST['submit'])){
     include "../Classes/Dbh.class.php";
     include "../Classes/Login.class.php";
     include "../Classes/LoginContr.class.php";
-
-    
     $login = new LoginContr($uid, $pwd);
-
     //Running Error handlers and user login
-    $login->userLogin();   //if login successfully, scripte will continue
+    $uid = $login->userLogin();   
+
+    //Instantiate inloginview class if login successfully
+    include "../Classes/LoginView.class.php";
+    $loginedView = new LoginView($uid);
+    //get user data
+    $userData = $loginedView->getUserData();
+
+    //start session to send the data
+    session_start();
+    $_SESSION['userdata'] = $userData;
 
     //redirect
-    header("location: ../Views/index.php?error=none");
+    header("location: ../Views/blog_userpage.php?status=logined");
 }

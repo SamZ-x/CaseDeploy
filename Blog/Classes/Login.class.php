@@ -36,13 +36,42 @@
                 exit();
             }
             
-            //add new session and assign the user variable to session
+            //add new session and store the user info into session
             session_start();
             $_SESSION["userid"] =  $result[0]['UserId'];
             $_SESSION["nickname"] =  $result[0]['NickName'];
 
-            //clear the $stmt as database operation ending
+            //clear the $stmt and return the uid
             $stmt = null;
+            return $result[0]['UserId'];
         }
         
+
+        protected function getData($uid){
+            //run database query
+            $sqlquery = "SELECT * FROM `Articles` a JOIN `Users` u ON a.UserId = u.UserId WHERE a.UserId = ?;";
+            $stmt = $this->connect()->prepare($sqlquery);
+            $status = $stmt->execute([$uid]);
+            
+            //if database statment return false, redirect with error
+            if(!$status){
+                $stmt = null;
+                header("location: ../Views/blog_userpage.php?error=stmterror");
+                exit();
+            }
+
+            //otherwise
+            $result = $stmt->FETCHALL();    //return associate array/empty object.
+
+            //no related data, return dataEmpty message
+            if(empty($result)){
+                $stmt=null;
+                header("location: ../Views/blog_index.php?status=dataEmpty&error=none");
+                exit();
+            }
+
+            //if successfully retrieve data, clear the statment and return
+            $stmt=null;
+            return $result;
+        }
     }
