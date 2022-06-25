@@ -16,7 +16,7 @@
 
     //if login successfully
     $userData = "";
-    if(isset($_SESSION['userData'])){
+    if(isset($_SESSION['userData']) && !empty($_SESSION['userData'])){
         $data = $_SESSION['userData'];
     }
 
@@ -49,7 +49,8 @@
         <?php
             //iterate all retrieved article
             //fill into the template
-                foreach($data as $article)
+            if(!empty($userData)){
+                foreach($userData as $article)
                 {
                     //display title
                     echo "<div class=\"articles\"><div class=\"article-body\"><h1 class=\"article-title\">".$article['title']."</h1>";
@@ -60,6 +61,9 @@
                     //display the button and close tag
                     echo "<a class = \"article-link-button\" href=\"\">Read More</a></div></div>";
                 }
+            }
+            else
+             echo "<div><strong>No articles!</strong></div>"
             ?>
         </div>
     </div>

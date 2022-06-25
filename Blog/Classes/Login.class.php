@@ -64,11 +64,11 @@
             $result = $stmt->FETCHALL();    //return associate array/empty object.
 
             //no related data, return dataEmpty message
-            if(empty($result)){
-                $stmt=null;
-                header("location: ../Views/blog_index.php?status=dataEmpty&error=none");
-                exit();
-            }
+            // if(empty($result)){
+            //     $stmt=null;
+            //     header("location: ../Views/blog_userpage.php?status=dataEmpty&error=none");
+            //     exit();
+            // }
 
             //if successfully retrieve data, clear the statment and return
             $stmt=null;
