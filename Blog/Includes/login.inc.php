@@ -12,7 +12,7 @@ if(isset($_POST['submit'])){
     $login = new LoginContr($uid, $pwd);
     //Running Error handlers and user login
     $uid = $login->userLogin();
-    error_log($uid);   
+    error_log("uid: ".$uid);   
     //Instantiate inloginview class if login successfully
     include "../Classes/LoginView.class.php";
     $loginedUser = new LoginView($uid);

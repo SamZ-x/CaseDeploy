@@ -43,6 +43,7 @@
             <li><a href="../../home.php">home</a></li>
             <li><a href="">search</a></li>
             <li><a href="blog_userpage.php?status=logout">Log Out</a></li>
+            <li><a href=""><?php echo $_SESSION['userid'];?></a></li>
         </ul>
     </div>
     <div class="main">
