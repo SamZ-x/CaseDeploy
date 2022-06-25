@@ -15,11 +15,6 @@
         exit();
     }
 
-    //if login successfully
-    $userData = "";
-    if(isset($_SESSION['userdata']) && !empty($_SESSION['userdata'])){
-        $userData = $_SESSION['userdata'];
-    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -39,7 +34,7 @@
     </div>
     <div class = "navbar">
         <ul>
-            <li><a href="">New Article</a></li>
+            <li><a href="">Back</a></li>
             <li><a href="blog_index.php">search</a></li>
             <li><a href="../../home.php">home</a></li>
             <li><a href="blog_userpage.php?status=logout">Log Out: <?php echo $_SESSION['userid'];?></a></li>
@@ -48,24 +43,8 @@
     <div class="main">
         <div class="content">
         <?php
-            //iterate all retrieved article
-            //fill into the template
-            if(!empty($userData)){
-                foreach($userData as $article)
-                {
-                    //display title
-                    echo "<div class=\"articles\"><div class=\"article-body\"><h1 class=\"article-title\">".$article['title']."</h1>";
-                    //display subtitle
-                    echo "<div class=\"article-subtitle\">".$article['createdAt']."<a class=\"article-link\" href=\"\">".$article['Firstname']."</a></div>";
-                    //display description
-                    echo "<div class=\"article-text\">".$article['description']."<br></div>";
-                    //display the button and close tag
-                    echo "<a class = \"article-link-button\" href=\"\">Read More</a><a class = \"article-link-button\" href=\"\">Edit</a></div></div>";
-                }
-            }
-            else
-             echo "<div class=\"search-title\"><h1>Oop! No articles!</h1></div>"
-            ?>
+            include "_form_field.php";
+        ?>
         </div>
     </div>
     <div class="footer">

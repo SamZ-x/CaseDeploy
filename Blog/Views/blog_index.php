@@ -41,7 +41,7 @@
     <div class = "navbar">
         <ul>
             <li><a href="../../home.php">home</a></li>
-            <li><a href="blog_index.php">search</a></li>
+            <!-- <li><a href="blog_index.php">search</a></li> -->
             <?php
                 if(isset($_SESSION['userid']))
                     echo "<li><a href=\"blog_userpage.php\">ID: ".$_SESSION['userid']."</a></li>";

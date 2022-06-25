@@ -22,5 +22,5 @@
 </div>
 
 <br>
-<a href="" >Cancel</a>                                           <!--add url:back to the previous page -->
+<a href="blog_userpage.php" >Cancel</a>                                           <!--add url:back to the previous page -->
 <button type="submit">Save</button>
