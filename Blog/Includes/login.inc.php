@@ -11,7 +11,8 @@ if(isset($_POST['submit'])){
     include "../Classes/LoginContr.class.php";
     $login = new LoginContr($uid, $pwd);
     //Running Error handlers and user login
-    $uid = $login->userLogin();   
+    $uid = $login->userLogin();
+    error_log($uid);   
     //Instantiate inloginview class if login successfully
     include "../Classes/LoginView.class.php";
     $loginedUser = new LoginView($uid);

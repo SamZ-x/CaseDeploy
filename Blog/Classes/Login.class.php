@@ -12,6 +12,7 @@
             //if not, rediect to index.php with error param(invalid uid)
             $sqlquery = "SELECT * FROM `Users` WHERE UserID = ? OR Email = ?;";
             $stmt = $this->connect()->prepare($sqlquery);
+            error_log($stmt->queryString);
             //if database statment return false, redirect with error
             if(!$stmt->execute([$uid, $uid])){
                 $stmt = null;
