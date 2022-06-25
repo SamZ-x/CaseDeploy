@@ -23,7 +23,7 @@
             }
 
             //request database check
-            $this->userValidation($this->uid, $this->pwd);
+            return $this->userValidation($this->uid, $this->pwd);
         }
 
         //************************************ */
