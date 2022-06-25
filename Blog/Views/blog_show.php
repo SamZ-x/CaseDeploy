@@ -1,7 +1,7 @@
 <!-- <?php
     //blog_index page (home page of the blog)
     //display search bar for searching specific user's blog or blog articles base on title key words
-    $data= array();
+    $data= "";
     //resume the session;
     session_start();
     if(isset($_SESSION['data'])){

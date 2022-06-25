@@ -1,6 +1,8 @@
 <?php
     //blog_index page (home page of the blog)
     //display search bar for searching specific user's blog or blog articles base on title key words
+    session_start();
+
     $status = "";
     $error = "";
     
