@@ -12,12 +12,12 @@ if(isset($_POST['submit'])){
     $login = new LoginContr($uid, $pwd);
     //Running Error handlers and user login
     $uid = $login->userLogin();   
-
+    error_log("login good");
     //Instantiate inloginview class if login successfully
     include "../Classes/LoginView.class.php";
-    $loginedView = new LoginView($uid);
+    $loginedUser = new LoginView($uid);
     //get user data
-    $loginedView->getUserData();
+    $loginedUser->getUserData();
 
     //redirect
     header("location: ../Views/blog_userpage.php?status=logined");

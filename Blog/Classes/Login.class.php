@@ -64,6 +64,7 @@
             $result = $stmt->FETCHALL();    //return associate array/empty object.
 
             //start session to send the data
+            session_start();
             $_SESSION['userdata'] = $result;
 
             //if successfully retrieve data, clear the statment and return

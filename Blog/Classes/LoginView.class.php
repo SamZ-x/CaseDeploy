@@ -14,6 +14,6 @@ class LoginView extends Login{
 
     //get user data with the uid parameter
     public function getUserData(){
-        return $this->getData($this->uid);
+        $this->getData($this->uid);
     }
 }
