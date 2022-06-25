@@ -17,11 +17,7 @@ if(isset($_POST['submit'])){
     include "../Classes/LoginView.class.php";
     $loginedView = new LoginView($uid);
     //get user data
-    $userData = $loginedView->getUserData();
-
-    //start session to send the data
-    session_start();
-    $_SESSION['userdata'] = $userData;
+    $loginedView->getUserData();
 
     //redirect
     header("location: ../Views/blog_userpage.php?status=logined");
