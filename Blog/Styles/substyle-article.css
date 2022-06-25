@@ -1,3 +1,4 @@
+/* show article style */
 .articles{
     margin:8px auto ;
     padding: 20px;
@@ -51,3 +52,61 @@
     background-color: rgb(138, 222, 194);
     color: black;
 }
+
+/* new article style */
+.artarticle-new{
+    width: 95%;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.article-new-title{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: row;
+}
+
+.article-new-title label{
+    font-size: large;
+    font-weight: bold;
+    font-family: 'Roboto', sans-serif;
+    width: 100px;
+}
+
+.article-new-title input{
+    border: 2px solid gray;
+    border-radius: 5px;
+}
+
+/* style used in description, content, and buttons */
+.article-new-description{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+}
+
+.article-new-description label{
+    font-size: large;
+    font-weight: bold;
+    font-family: 'Roboto', sans-serif;
+    width: 100px;
+}
+
+.article-new-description textarea{
+    border: 2px solid gray;
+    border-radius: 5px;
+    font-size: 15px;
+}
+
+.article-new-description button,a{
+    border: 0;
+    width: 100px;  
+    text-align: center;
+}
+

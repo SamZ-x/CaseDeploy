@@ -7,20 +7,21 @@
     3, cancel button url
 -->
 
-
-<div>
-    <label for="title">Title</label>
-    <input type="text" name="title" id="title">
-</div>
-<div>
-    <label for="decription">Decription</label>
-    <textarea name="decription" id="decription"></textarea>     <!--preload the exist content( textarea prop: cols="30" rows="10")-->
-</div>
-<div>
-    <label for="markdown">Markdown</label>
-    <textarea name="markdown" id="markdown"></textarea>         <!--preload the exist content( textarea prop: cols="30" rows="10")-->
-</div>
-
-<br>
-<a href="blog_userpage.php" >Cancel</a>                                           <!--add url:back to the previous page -->
-<button type="submit">Save</button>
+<form class="artarticle-new" action="" method="post">
+    <div class="article-new-title">
+        <label for="title">Title</label>
+        <input type="text" name="title" id="title" placeholder="Article title">
+    </div>
+    <div class="article-new-description">
+        <label for="decription">Decription</label>
+        <textarea name="decription" id="decription" rows="3" cols="100" placeholder="Description..."></textarea>     <!--preload the exist content( textarea prop: cols="30" rows="10")-->
+    </div>
+    <div class="article-new-description">
+        <label for="markdown">Content</label>
+        <textarea name="markdown" id="markdown" rows="20" cols="100" placeholder="Input content in Markdown format..."></textarea>         <!--preload the exist content( textarea prop: cols="30" rows="10")-->
+    </div>
+    <div class="article-new-description">
+        <button class = "article-link-button" type="submit">Save</button>
+        <a class = "article-link-button" href="blog_userpage.php" >Cancel</a>                                           <!--add url:back to the previous page -->
+    </div>
+</form>
