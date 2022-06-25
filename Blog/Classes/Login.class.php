@@ -12,7 +12,7 @@
             //if not, rediect to index.php with error param(invalid uid)
             $sqlquery = "SELECT * FROM `Users` WHERE UserID = ? OR Email = ?;";
             $stmt = $this->connect()->prepare($sqlquery);
-            error_log($stmt->queryString);
+            
             //if database statment return false, redirect with error
             if(!$stmt->execute([$uid, $uid])){
                 $stmt = null;
@@ -53,7 +53,7 @@
             $sqlquery = "SELECT * FROM `Articles` a JOIN `Users` u ON a.UserId = u.UserId WHERE a.UserId = ?;";
             $stmt = $this->connect()->prepare($sqlquery);
             //$status = $stmt->execute([$uid]);
-            error_log($uid);
+
             //if database statment return false, redirect with error
             if(!$stmt->execute([$uid])){
                 $stmt = null;
