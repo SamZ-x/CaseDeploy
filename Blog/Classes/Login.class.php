@@ -49,7 +49,7 @@
 
         protected function getData($uid){
             //run database query
-            $sqlquery = "SELECT * FROM `Articles` a JOIN `Users` u ON a.UserId = u.UserId WHERE a.UserId = ?;";
+            $sqlquery = "SELECT * FROM `Articles` a JOIN `Users` u ON a.UserId = u.UserId WHERE a.UserId = ? ;";
             $stmt = $this->connect()->prepare($sqlquery);
             $status = $stmt->execute([$uid]);
             error_log($stmt->queryString);
