@@ -38,6 +38,7 @@
             <?php
             //iterate all retrieved article
             //fill into the template
+            if(!empty($data)){
                 foreach($data as $article)
                 {
                     //display title
@@ -49,6 +50,7 @@
                     //display the button and close tag
                     echo "<a class = \"article-link-button\" href=\"\">Read More</a></div></div>";
                 }
+            }
             ?>
         </div>
     </div>
