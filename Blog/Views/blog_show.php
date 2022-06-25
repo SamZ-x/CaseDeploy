@@ -30,7 +30,12 @@
         <ul>
             <li><a href="../../home.php">home</a></li>
             <li><a href="blog_index.php">search</a></li>
-            <li><a href="blog_login.php">Login</a></li>
+            <?php
+                if(isset($_SESSION['userid']))
+                    echo "<li><a href=\"blog_userpage.php\">ID: ".$_SESSION['userid']."</a></li>";
+                else
+                    echo "<li><a href=\"blog_login.php\">Login</a></li>";
+            ?>
         </ul>
     </div>
     <div class="main">
