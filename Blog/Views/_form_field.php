@@ -20,6 +20,6 @@
     <textarea name="markdown" id="markdown" rows="20" cols="100" placeholder="Input content in Markdown format..." required></textarea>         <!--preload the exist content( textarea prop: cols="30" rows="10")-->
 </div>
 <div class="article-new-description">
-    <button class = "article-link-button" type="submit">Save</button>
+    <button class = "article-link-button" type="submit" name="submit">Save</button>
     <a class = "article-link-button" href="blog_userpage.php" >Cancel</a>                                           <!--add url:back to the previous page -->
 </div>
