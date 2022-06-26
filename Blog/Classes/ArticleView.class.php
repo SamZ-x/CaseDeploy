@@ -1,6 +1,6 @@
 <?php
 
-class ArticleView extends Dbh{
+class ArticleView extends Article{
 
     //fields
     private $uid;
