@@ -15,7 +15,7 @@
 
         //Instantiate articleContr class
         include "../Classes/Dbh.class.php";
-        include "../Class/Article.class.php";
+        include "../Classes/Article.class.php";
         include "../Classes/ArticleContr.class.php";
         $article = new ArticleContr($title, $description, $markdown );
 
