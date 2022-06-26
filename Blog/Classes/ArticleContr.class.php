@@ -44,6 +44,7 @@
                 "title" => $this->title,
                 "description" => $this->description,
                 "markdown" => $this->markdown,
+                "userid" => $this->userid,
                 "sanitizedhtml" => $this->sanitizedhtml,
                 "slug" => $this->slug
             );
