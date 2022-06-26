@@ -15,6 +15,14 @@
         exit();
     }
 
+    if(isset($_GET['status'])&&$_GET['status']=="failed")
+    {
+        $error = $_GET['error'];
+        
+        if($error=="inputEmpty")
+            echo "<script>alert('Input can not be empty!');</script>";
+    }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">

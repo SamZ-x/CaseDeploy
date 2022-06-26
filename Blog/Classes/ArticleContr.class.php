@@ -1,6 +1,5 @@
 <?php
     
-    
     class ArticleContr extends Dbh{
 
         //fields
@@ -27,18 +26,33 @@
             //function assign
             $this->sanitizedhtml = $parsedwon->text($markdown);
             $this->slug = $this->slugify($title);
-
-            error_log("title: ".$this->title);
-            error_log("description: ".$this->description);
-            error_log("markdown: ".$this->markdown);
-            error_log("userid: ".$this->userid);
-            error_log("sanitizedhtml: ".$this->sanitizedhtml);
-            error_log("slug: ".$this->slug);
         }
+
+        public function AddArticle(){
+            //return error checking
+            if($this->IsEmpty()){
+                header("location: ../Views/blog_userpage_new.php?status=failed&error=inputEmpty");
+                $input = array("title" => $this->title,
+                               "description" => $this->description,
+                               "markdown" => $this->markdown);
+                $_SESSION['input'] = $input;
+                exit();   
+            }
+
+            error_log("pass empty");
+        }
+
+
 
         //replace all special char with '-'
         private function slugify($string){
             return strtolower(trim(preg_replace('/[^A-Za-z0-9]+/', '-', $string), '-'));
+        }
+
+        //********Error handler***********/
+        private function IsEmpty(){
+            //check empty input
+            return empty($this->title) || empty( $this->description) || empty($this->markdown);
         }
     }
 
