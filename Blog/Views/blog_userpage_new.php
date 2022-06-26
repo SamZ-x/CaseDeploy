@@ -21,6 +21,9 @@
         
         if($error=="inputEmpty")
             echo "<script>alert('Input can not be empty!');</script>";
+
+        if($error=="databaseError")
+            echo "<script>alert('System Error!');</script>";
     }
 
 ?>

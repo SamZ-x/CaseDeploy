@@ -1,6 +1,6 @@
 <?php
     
-    class ArticleContr extends Dbh{
+    class ArticleContr extends Article{
 
         //fields
         private $title;
@@ -39,7 +39,17 @@
                 exit();   
             }
 
-            error_log("pass empty");
+            //store all data into an array to pass to the insert function
+            $data = array(
+                "title" => $this->title,
+                "description" => $this->description,
+                "markdown" => $this->markdown,
+                "sanitizedhtml" => $this->sanitizedhtml,
+                "slug" => $this->slug
+            );
+
+            //reuqest to insert the data
+            $this->Insert( $data);
         }
 
 
@@ -50,8 +60,10 @@
         }
 
         //********Error handler***********/
+
+        //check empty input(include space)
         private function IsEmpty(){
-            //check empty input
+            //check the input
             return empty(trim($this->title)) || empty( trim($this->description)) || empty(trim($this->markdown));
         }
     }

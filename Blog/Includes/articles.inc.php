@@ -20,6 +20,13 @@
 
         //Running Error handlers and article function
         $article->AddArticle();
-        //redirect
-        
+
+        //Instantiate articleView class to retrieve the lastest collection
+        include "../Classes/ArticleView.class.php";
+        $uid = $_SESSION['userid'];
+        $articles = new ArticleView($uid );
+        $articles->getArticles();
+
+        //redirect if success=fully insert
+        header("location: ../Views/blog_userpage.php?status=inserted&error=none");
     }
