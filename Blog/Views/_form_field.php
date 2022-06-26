@@ -5,7 +5,6 @@
     $description="";
     $markdown="";
 
-    session_start();
     if(isset($_SESSION['input'])){
         $title = $_SESSION['input']['title'];
         $description = $_SESSION['input']['description'];

@@ -52,7 +52,7 @@
         //********Error handler***********/
         private function IsEmpty(){
             //check empty input
-            return empty($this->title) || empty( $this->description) || empty($this->markdown);
+            return empty(trim($this->title)) || empty( trim($this->description)) || empty(trim($this->markdown));
         }
     }
 
