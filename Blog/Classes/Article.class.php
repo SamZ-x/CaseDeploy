@@ -9,7 +9,7 @@ class Article extends Dbh{
         $sqlQuery = "INSERT INTO `Articles`(`title`, `UserId`, `description`, `markdown`, `sanitizedHtml`, `slug`) VALUES ( ?, ?, ?, ?, ?, ?);";
         $stmt = $this->connect()->prepare($sqlQuery);
         //excute query, handle error
-        if(!$stmt->execute([$dataArr['title'], $dataArr['UserId'],$dataArr['description'],$dataArr['markdown'],$dataArr['sanitizedhtml'],$dataArr['slug']])){
+        if(!$stmt->execute([$dataArr['title'], $dataArr['Userid'],$dataArr['description'],$dataArr['markdown'],$dataArr['sanitizedhtml'],$dataArr['slug']])){
             $stmt = null;
             header("location: ../Views/blog_userpage_new.php?status=failed&error=databaseError");
             exit();
