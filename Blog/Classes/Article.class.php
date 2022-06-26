@@ -22,7 +22,7 @@ class Article extends Dbh{
 
     protected function Retrieve($uid){
         //query
-        $sqlQuery = "SELECT * FROM `Articles` WHERE UserId = ?;";
+        $sqlquery = "SELECT * FROM `Articles` a JOIN `Users` u ON a.UserId = u.UserId WHERE a.UserId = ?;";
         $stmt = $this->connect()->prepare($sqlQuery);
         //excute query, handle error
         if(!$stmt->execute([$uid])){
