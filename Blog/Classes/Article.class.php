@@ -8,7 +8,7 @@ class Article extends Dbh{
         //query
         $sqlQuery = "INSERT INTO `Articles`(`title`, `UserId`, `description`, `markdown`, `sanitizedHtml`, `slug`) VALUES ( ?, ?, ?, ?, ?, ?);";
         $stmt = $this->connect()->prepare($sqlQuery);
-        error_log("uid(article class) : ".$dataArr['userid'] );
+        
         //excute query, handle error
         if(!$stmt->execute([$dataArr['title'], $dataArr['userid'], $dataArr['description'], $dataArr['markdown'], $dataArr['sanitizedhtml'], $dataArr['slug']])){
             $stmt = null;
@@ -23,7 +23,7 @@ class Article extends Dbh{
 
     protected function Retrieve($uid){
         //query
-        $sqlquery = "SELECT * FROM `Articles` a JOIN `Users` u ON a.UserId = u.UserId WHERE a.UserId = ?;";
+        $sqlQuery = "SELECT * FROM `Articles` a JOIN `Users` u ON a.UserId = u.UserId WHERE a.UserId = ?;";
         $stmt = $this->connect()->prepare($sqlQuery);
         //excute query, handle error
         if(!$stmt->execute([$uid])){
