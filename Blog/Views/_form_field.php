@@ -9,6 +9,7 @@
         $title = $_SESSION['input']['title'];
         $description = $_SESSION['input']['description'];
         $markdown = $_SESSION['input']['markdown'];
+        error_log("title: ". $title);
     }
 ?>
 <div class="article-new-title">

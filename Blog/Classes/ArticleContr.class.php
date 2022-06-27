@@ -19,7 +19,7 @@
             $this->markdown = $markdown;
             session_start();         //resume the current session get uid
             $this->userid = $_SESSION['userid'];            
-            
+            error_log("uid(constructor) : ".$this->userid );
             //use Parsedown lib
             include "../Lib/Parsedown.php";
             $parsedwon = new Parsedown();
@@ -48,9 +48,9 @@
                 "sanitizedhtml" => $this->sanitizedhtml,
                 "slug" => $this->slug
             );
-
+            error_log("uid(addarticle) : ".$data['userid'] );
             //reuqest to insert the data
-            $this->Insert( $data);
+            $this->Insert($data);
         }
 
 
