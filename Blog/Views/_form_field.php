@@ -6,9 +6,11 @@
     $markdown="";
 
     if(isset($_SESSION['input'])){
-        $title = $_SESSION['input']['title'];
-        $description = $_SESSION['input']['description'];
-        $markdown = $_SESSION['input']['markdown'];
+        $dataRec = $_SESSION['input'];
+        error_log(var_dump($dataRec));
+        $title = $dataRec['title'];
+        $description = $dataRec['description'];
+        $markdown = $dataRec['markdown'];
     }
 ?>
 <div class="article-new-title">

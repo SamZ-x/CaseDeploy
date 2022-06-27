@@ -20,6 +20,15 @@
     if(isset($_SESSION['userdata']) && !empty($_SESSION['userdata'])){
         $userData = $_SESSION['userdata'];
     }
+
+    if(isset($_GET['status'])&&$_GET['status']=="failed")
+    {
+        $error = $_GET['error'];
+        
+        if($error=="databaseError")
+            echo "<script>alert('Update article list error!');</script>";
+    }
+    
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -39,7 +48,7 @@
     </div>
     <div class = "navbar">
         <ul>
-            <li><a href="blog_userpage_new.php">New Article</a></li>
+            <li><a href="blog_userpage_new.php?status=new">New Article</a></li>
             <li><a href="blog_index.php">search</a></li>
             <li><a href="../../home.php">home</a></li>
             <li><a href="blog_userpage.php?status=logout">Log Out: <?php echo $_SESSION['userid'];?></a></li>

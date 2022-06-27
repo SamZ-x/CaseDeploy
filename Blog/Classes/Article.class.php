@@ -28,7 +28,7 @@ class Article extends Dbh{
         //excute query, handle error
         if(!$stmt->execute([$uid])){
             $stmt = null;
-            header("location: ../Views/blog_userpage_new.php?status=failed&error=databaseError");
+            header("location: ../Views/blog_userpage.php?status=failed&error=databaseError");
             exit();
         }
         //fetch all data, update session user data
