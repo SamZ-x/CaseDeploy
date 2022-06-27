@@ -38,7 +38,7 @@
                 $_SESSION['input'] = $input;
                 exit();   
             }
-
+            error_log("pass empty");
             //store all data into an array to pass to the insert function
             $data = array(
                 "title" => $this->title,
