@@ -37,7 +37,7 @@
                     "description" => $this->description,
                     "markdown" => $this->markdown
                 );
-                error_log(var_dump($input));
+                error_log($input['title']."&".$input['description']);
                 $_SESSION['input'] = $input;
                 exit();   
             }
