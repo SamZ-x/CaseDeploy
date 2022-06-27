@@ -10,7 +10,7 @@
 
         //retrieve data
         $title = $_POST['title'];
-        $description = $_POST['title'];
+        $description = $_POST['description'];
         $markdown = $_POST['markdown'];
 
         //Instantiate articleContr class
