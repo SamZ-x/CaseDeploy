@@ -23,7 +23,7 @@
 </div>
 <div class="article-new-description">
     <label for="markdown">Content</label>
-    <textarea name="markdown" id="markdown" rows="20" cols="100" placeholder="Input content in Markdown format..." required><?php echo $description;?></textarea>         <!--preload the exist content( textarea prop: cols="30" rows="10")-->
+    <textarea name="markdown" id="markdown" rows="20" cols="100" placeholder="Input content in Markdown format..." required><?php echo $markdown;?></textarea>         <!--preload the exist content( textarea prop: cols="30" rows="10")-->
 </div>
 <div class="article-new-description">
     <button class = "article-link-button" type="submit" name="submit">Save</button>
