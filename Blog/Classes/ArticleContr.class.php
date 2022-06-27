@@ -30,9 +30,12 @@
 
         public function AddArticle(){
             //return error checking
-            if($this->IsEmpty() == true){
+            if($this->IsEmpty()){
                 header("location: ../Views/blog_userpage_new.php?status=failed&error=inputEmpty");
                 
+                if(isset($input))
+                    unset($input);
+
                 $input = array(
                     "title" => $this->title,
                     "description" => $this->description,
