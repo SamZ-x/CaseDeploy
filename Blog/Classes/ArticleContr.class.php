@@ -37,11 +37,11 @@
                     "description" => $this->description,
                     "markdown" => $this->markdown
                 );
-
+                error_log(var_dump($input));
                 $_SESSION['input'] = $input;
                 exit();   
             }
-            error_log("keep pass empty");
+
             //store all data into an array to pass to the insert function
             $data = array(
                 "title" => $this->title,
