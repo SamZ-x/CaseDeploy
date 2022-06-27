@@ -18,8 +18,8 @@
     <input type="text" name="title" id="title" placeholder="Article title" required value="<?php echo $title;?>">
 </div>
 <div class="article-new-description">
-    <label for="decription">Decription</label>
-    <textarea name="decription" id="decription" rows="3" cols="100" placeholder="Description..." required><?php echo $description;?></textarea>     <!--preload the exist content( textarea prop: cols="30" rows="10")-->
+    <label for="description">Description</label>
+    <textarea name="description" id="description" rows="3" cols="100" placeholder="Description..." required><?php echo $description;?></textarea>     <!--preload the exist content( textarea prop: cols="30" rows="10")-->
 </div>
 <div class="article-new-description">
     <label for="markdown">Content</label>
