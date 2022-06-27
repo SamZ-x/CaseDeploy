@@ -65,7 +65,7 @@
         //check empty input(include space)
         private function IsEmpty(){
             //check the input
-            return empty(trim($this->title)) || empty( trim($this->description)) || empty(trim($this->markdown));
+            return (empty(trim($this->title)) || empty( trim($this->description)) || empty(trim($this->markdown)));
         }
     }
 
