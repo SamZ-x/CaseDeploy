@@ -31,7 +31,7 @@
         public function AddArticle(){
             //return error checking
             if($this->IsEmpty()){
-
+                header("location: ../Views/blog_userpage_new.php?status=failed&error=inputEmpty");
                 $input = array(
                     "title" => $this->title,
                     "description" => $this->description,
@@ -39,11 +39,9 @@
                 );
 
                 $_SESSION['input'] = $input;
-
-                header("location: ../Views/blog_userpage_new.php?status=failed&error=inputEmpty");
                 exit();   
             }
-            error_log("pass empty");
+            error_log("keep pass empty");
             //store all data into an array to pass to the insert function
             $data = array(
                 "title" => $this->title,
