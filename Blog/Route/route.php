@@ -22,7 +22,7 @@ if(isset($_GET['action']) || isset($_POST['action'])){
     //use 'action' and 'endpoint' parameters to determine the route
     switch($action){
 
-        case 'select':
+        case 'select'
             
             switch($endpoint){
                 
