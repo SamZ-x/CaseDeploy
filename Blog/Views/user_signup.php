@@ -1,24 +1,6 @@
 <?php
     require_once "head.view.php";
 ?>
-<!-- <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog Login</title>
-    <link rel="stylesheet" href="../Styles/blogstyle.css">
-    <link rel="stylesheet" href="../Styles/substyle_signup.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="../blog_Signup.js"></script>
-</head>
-<body class = "blogsite">
-    <div class="header">
-        <header>
-           <h1>Console.Blog</h1>
-        </header>
-    </div> -->
     <div class = "navbar">
         <ul>
             <li><a href="../../home.php">home</a></li>
@@ -32,7 +14,7 @@
                 <label  class="blog_signin_title_sub">You can always change this later on.</label>
                 <hr size="1" width="100%" color="grey">
             </div>
-            <form action="../Route/route" method="post">
+            <form action="../Route/route.php" method="post">
                 <!-- determine the route -->
                 <input type="hidden" name="action" value="insert">
                 <input type="hidden" name="endpoint" value="user">
@@ -80,12 +62,3 @@
         </div>
     </div>
     <?php require_once "foot.view.php"; ?>
-    <!-- <div class="footer">
-        <footer>
-            &#174; Xiaobin Zhu <br>
-            <script>document.write('Last Modified: '+document.lastModified);</script>
-        </footer>
-    </div>
-
-</body>
-</html> -->
