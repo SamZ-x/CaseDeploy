@@ -1,7 +1,6 @@
 <?php 
 
     //session_start();     
-
     require_once "../Models/User.class.php";     //use User model
 
     //handle user requests

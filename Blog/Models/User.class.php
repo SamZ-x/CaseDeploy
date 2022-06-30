@@ -37,7 +37,7 @@
             }
             
             //add new session and store the user info into session
-            session_start();
+            //session_start();
             $_SESSION["userid"] =  $result[0]['UserId'];
             $_SESSION["nickname"] =  $result[0]['NickName'];
             $_SESSION['loginstatus'] = "login";

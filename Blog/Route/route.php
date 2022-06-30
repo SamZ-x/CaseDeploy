@@ -59,6 +59,7 @@ if(isset($_GET['action']) || isset($_POST['action'])){
                 break;
             
                 case 'userlogin':
+                    error_log("Get into userlogin endpoint");
                     //get user input
                     $uid = $_POST['userid_email'];
                     $pwd = $_POST['password'];
@@ -70,7 +71,7 @@ if(isset($_GET['action']) || isset($_POST['action'])){
                     $uid = $user->userLogin();
         
                     //request article data retrieve if logined successfully
-                    header("location: route?action=select&endpoint=article&userid={$uid}&keyword=");
+                    header("location: route.php?action=select&endpoint=article&userid={$uid}&keyword=");
                 break;
 
             }//end of the 'endpoint' switch statement
