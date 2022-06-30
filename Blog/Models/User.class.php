@@ -100,6 +100,7 @@
                     //store user info in session
                     $_SESSION['userid'] = $newUser[0]['UserId'];
                     $_SESSION['nickname'] = $newUser[0]['NickName'];
+                    $_SESSION['loginstatus'] = "login";
                 }
             }
 
