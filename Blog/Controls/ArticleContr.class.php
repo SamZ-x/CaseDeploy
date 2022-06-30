@@ -1,7 +1,5 @@
 <?php
 
-    //session_start();         //resume the current session get uid
-
     require_once "../Lib/Parsedown.php";            //use Parsedown lib
     require_once "../Models/Article.class.php";     //use article model
 
@@ -17,22 +15,6 @@
         private $slug;
         private $category;
         private $keyword;
-
-        //constructor
-        // public function __construct($title, $description, $markdown){
-            
-        //     //directly assign;
-        //     $this->title = $title;
-        //     $this->description = $description;
-        //     $this->markdown = $markdown;
-        //     session_start();         //resume the current session get uid
-        //     $this->userid = $_SESSION['userid'];            
-            
-        //     $parsedwon = new Parsedown();
-        //     //function assign
-        //     $this->sanitizedhtml = $parsedwon->text($markdown);
-        //     $this->slug = $this->slugify($title);
-        // }
 
         //************************* constructor and static methods *************************//
 

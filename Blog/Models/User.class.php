@@ -3,6 +3,8 @@
     //User model
     class User extends Dbh{
 
+        /************************* SELECT ******************************/
+
         //function : userValidation
         //connect database to verify the user
         protected function userValidation($uid, $pwd){
@@ -73,6 +75,8 @@
             return $resultCheck;
         }
 
+        /************************* INSERT ******************************/
+
         //function : insertUser
         //insert a user into database with the given info
         protected function insertUser($fname,$lname,$nname,$email,$password,$phone,$region){
@@ -108,26 +112,4 @@
             return true;
         }
 
-        protected function getData($uid){
-            //run database query
-            $sqlquery = "SELECT * FROM `Articles` a JOIN `Users` u ON a.UserId = u.UserId WHERE a.UserId = ?;";
-            $stmt = $this->connect()->prepare($sqlquery);
-            //$status = $stmt->execute([$uid]);
-
-            //if database statment return false, redirect with error
-            if(!$stmt->execute([$uid])){
-                $stmt = null;
-                header("location: ../Views/blog_userpage.php?error=stmterror");
-                exit();
-            }
-
-            //otherwise
-            $result = $stmt->FETCHALL();    //return associate array/empty object.
-
-            //start session to send the data
-            $_SESSION['userdata'] = $result;
-
-            //if successfully retrieve data, clear the statment and return
-            $stmt=null;
-        }
     }

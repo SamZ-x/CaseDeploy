@@ -63,4 +63,4 @@
         ?>
     </div>
 </div>
-<?php     require_once "foot.view.php"; ?>
+<?php require_once "foot.view.php"; ?>

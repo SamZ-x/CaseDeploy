@@ -21,6 +21,7 @@ if(isset($_GET['action']) || isset($_POST['action'])){
     error_log($action);
     error_log($endpoint);
 
+    
     //use 'action' and 'endpoint' parameters to determine the route
     switch($action){
 

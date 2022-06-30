@@ -30,7 +30,6 @@
     }
 
     require_once "head.view.php";
-    
 ?>
 <div class = "navbar">
     <ul>
@@ -53,4 +52,4 @@
         </form>
     </div>
 </div>
-<?php     require_once "foot.view.php"; ?>
+<?php require_once "foot.view.php"; ?>

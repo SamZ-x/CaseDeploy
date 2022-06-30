@@ -5,7 +5,8 @@
 
     //handle user requests
     class UserContr extends User{
-        //properties
+        
+        //fields
         private $uid;
         private $pwd;
         private $fname;
