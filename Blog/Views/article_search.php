@@ -18,7 +18,7 @@
                 <img src="images/search.png" alt="searchicon">
             </div>
             <div class="search-bar">
-                <form action="Route/rout.php" method="get">
+                <form action="Route/route.php" method="get">
                     <!-- determine the route -->
                     <input type="hidden" name="action" value="select">
                     <input type="hidden" name="endpoint" value="globalsearch">
