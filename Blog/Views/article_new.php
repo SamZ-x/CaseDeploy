@@ -7,7 +7,7 @@
     }
 
     if(isset($_GET['status'])&&$_GET['status']=="new")
-        $_SESSION['input'] = null;
+        $_SESSION['inputRecord'] = null;
 
     //log out
     if(isset($_GET['status'])&&$_GET['status']=="logout")

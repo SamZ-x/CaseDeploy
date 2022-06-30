@@ -34,8 +34,8 @@
 ?>
 <div class = "navbar">
     <ul>
-        <li><a href="aticle_new.php?status=new">New Article</a></li>
-        <li><a href="blog_index.php">search</a></li>
+        <li><a href="article_new.php?status=new">New Article</a></li>
+        <li><a href="../index.php">search</a></li>
         <li><a href="../../home.php">home</a></li>
         <li><a href="user_show.php?status=logout">Log Out: <?=$_SESSION['nickname'];?></a></li>
     </ul>
