@@ -98,8 +98,8 @@
                 if($stmt->execute([$email])){
                     $newUser = $stmt->FETCHALL();
                     //store user info in session
-                    $_SESSION['userid'] = $newUser['UserId'];
-                    $_SESSION['nickname'] = $newUser['NickName'];
+                    $_SESSION['userid'] = $newUser[0]['UserId'];
+                    $_SESSION['nickname'] = $newUser[0]['NickName'];
                 }
             }
 
