@@ -4,7 +4,7 @@
             <li><a href="index.php">search</a></li>
             <?php
                 if(isset($_SESSION['userid']))
-                    echo "<li><a href=\"blog_userpage.php\">ID: ".$_SESSION['userid']."</a></li>";
+                    echo "<li><a href=\"user_show.php\">ID: ".$_SESSION['userid']."</a></li>";
                 else
                     echo "<li><a href=\"Views/user_login.php\">Login</a></li>";
             ?>
