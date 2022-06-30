@@ -18,6 +18,8 @@ if(isset($_GET['action']) || isset($_POST['action'])){
     if(!$endpoint)
         $endpoint = filter_input(INPUT_POST, "endpoint", FILTER_SANITIZE_STRING);
 
+    error_log($action);
+    error_log($endpoint);
 
     //use 'action' and 'endpoint' parameters to determine the route
     switch($action){
