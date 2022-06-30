@@ -32,50 +32,25 @@
     require_once "head.view.php";
     
 ?>
-<!-- <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog</title>
-    <link rel="stylesheet" href="../Styles/blogstyle.css">
-    <link rel="stylesheet" href="../Styles/substyle-article.css">
-</head>
-<body class = "blogsite">
-    <div class="header">
-        <header>
-           <h1>Console.Blog</h1>
-        </header>
-    </div> -->
-    <div class = "navbar">
-        <ul>
-            <li><a href="">Back</a></li>
-            <li><a href="blog_index.php">search</a></li>
-            <li><a href="../../home.php">home</a></li>
-            <li><a href="blog_userpage.php?status=logout">Log Out: <?php echo $_SESSION['userid'];?></a></li>
-        </ul>
-    </div>
-    <div class="main">
-        <div class="content">
-            <form class="artarticle-new" action="../Route/route" method="post">
-                <!-- determine the route -->
-                <input type="hidden" name="action" value="insert">
-                <input type="hidden" name="endpoint" value="article">
+<div class = "navbar">
+    <ul>
+        <li><a href="">Back</a></li>
+        <li><a href="../index.php">search</a></li>
+        <li><a href="../../home.php">home</a></li>
+        <li><a href="user_show.php?status=logout">Log Out: <?= $_SESSION['nickname'];?></a></li>
+    </ul>
+</div>
+<div class="main">
+    <div class="content">
+        <form class="artarticle-new" action="../Route/route.php" method="post">
+            <!-- determine the route -->
+            <input type="hidden" name="action" value="insert">
+            <input type="hidden" name="endpoint" value="article">
 
-                <?php
-                    require_once "_form_field.php";
-                ?>
-            </form>
-        </div>
+            <?php
+                require_once "_form_field.php";
+            ?>
+        </form>
     </div>
-    <?php     require_once "foot.view.php"; ?>
-    <!-- <div class="footer">
-        <footer>
-            &#174; Xiaobin Zhu <br>
-            <script>document.write('Last Modified: '+document.lastModified);</script>
-        </footer>
-    </div>
-
-</body>
-</html> -->
+</div>
+<?php     require_once "foot.view.php"; ?>
