@@ -129,7 +129,7 @@
         //run error checking and request insert data to database
         public function addArticle(){
             //return error checking
-            if($this->IsEmpty()){
+            if($this->IsEmpty_Add()){
                 header("location: ../Views/article_new.php?status=failed&error=inputEmpty");
                 $inputRecord = array(
                     "title" => $this->title,
