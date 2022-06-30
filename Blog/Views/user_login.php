@@ -9,7 +9,7 @@
     </ul>
 </div>
 <div class="main" >
-    <form  class="blog_login" action="../Route/route" method="post">
+    <form  class="blog_login" action="../Route/route.php" method="post">
         <!-- determine the route -->
         <input type="hidden" name="action" value="select">
         <input type="hidden" name="endpoint" value="userlogin">
