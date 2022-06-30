@@ -70,7 +70,7 @@ if(isset($_GET['action']) || isset($_POST['action'])){
                     $uid = $user->userLogin();
         
                     //request article data retrieve if logined successfully
-                    header("location: .?action=select&endpoint=article&userid={$uid}&keyword=");
+                    header("location: route?action=select&endpoint=article&userid={$uid}&keyword=");
                 break;
 
             }//end of the 'endpoint' switch statement
@@ -92,7 +92,7 @@ if(isset($_GET['action']) || isset($_POST['action'])){
                     $article->addArticle();
                     
                     //request article data retrieve if logined successfully
-                    header("location: .?action=select&endpoint=article&userid={$article->userid}&keyword=");
+                    header("location: route?action=select&endpoint=article&userid={$article->userid}&keyword=");
                 break;  
 
                 case "role":
