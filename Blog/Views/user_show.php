@@ -1,8 +1,9 @@
 <?php
     //if no user login, back to login page
     session_start();
+
     if(!isset($_SESSION['userid'])){
-        header("location: blog_login.php");
+        header("location: user_login.php");
         exit();
     }
 
@@ -11,13 +12,13 @@
     {
         session_unset();
         session_destroy();
-        header("location: blog_index.php");
+        header("location: ../index.php");
         exit();
     }
 
     //if login successfully
     $userData = "";
-    if(isset($_SESSION['userdata']) && !empty($_SESSION['userdata'])){
+    if(isset($_SESSION['userdata'])){
         $userData = $_SESSION['userdata'];
     }
 
@@ -29,8 +30,9 @@
             echo "<script>alert('Update article list error!');</script>";
     }
     
+    require_once "head.view.php";
 ?>
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -45,13 +47,13 @@
         <header>
            <h1>Console.Blog</h1>
         </header>
-    </div>
+    </div> -->
     <div class = "navbar">
         <ul>
-            <li><a href="blog_userpage_new.php?status=new">New Article</a></li>
+            <li><a href="aticle_new.php?status=new">New Article</a></li>
             <li><a href="blog_index.php">search</a></li>
             <li><a href="../../home.php">home</a></li>
-            <li><a href="blog_userpage.php?status=logout">Log Out: <?php echo $_SESSION['userid'];?></a></li>
+            <li><a href=".?status=logout">Log Out: <?=$_SESSION['nickname'];?></a></li>
         </ul>
     </div>
     <div class="main">
@@ -77,7 +79,8 @@
             ?>
         </div>
     </div>
-    <div class="footer">
+    <?php     require_once "foot.view.php"; ?>
+    <!-- <div class="footer">
         <footer>
             &#174; Xiaobin Zhu <br>
             <script>document.write('Last Modified: '+document.lastModified);</script>
@@ -85,4 +88,4 @@
     </div>
 
 </body>
-</html>
+</html> -->

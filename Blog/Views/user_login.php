@@ -1,6 +1,7 @@
 <?php
+    require_once "head.view.php";
 ?>
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -14,16 +15,20 @@
         <header>
            <h1>Console.Blog</h1>
         </header>
-    </div>
+    </div> -->
     <div class = "navbar">
         <ul>
             <li><a href="../../home.php">home</a></li>
-            <li><a href="blog_index.php">search</a></li>
+            <li><a href="../index.php">search</a></li>
             <li><a href="">Login</a></li>
         </ul>
     </div>
     <div class="main" >
-        <form  class="blog_login" action="../Includes/login.inc.php" method="post">
+        <form  class="blog_login" action="../Route/route" method="post">
+            <!-- determine the route -->
+            <input type="hidden" name="action" value="select">
+            <input type="hidden" name="endpoint" value="userlogin">
+
             <label class="blog_login_title">Sign in</label>
             <div class="blog_login_input">
                 <input type="text" name="userid_email" placeholder="UserId/Email">
@@ -35,11 +40,12 @@
             <button class = "blog_login_submit_button" type="submit" name="submit">Sign in</button>
             <div class="blog_login_link">
                 <a href="">Reset Password?</a>
-                <a href="blog_Signup.php">Join</a>
+                <a href="user_signup.php">Join</a>
             </div>
         </form>
     </div>
-    <div class="footer">
+    <?php     require_once "foot.view.php"; ?>
+    <!-- <div class="footer">
         <footer>
             &#174; Xiaobin Zhu <br>
             <script>document.write('Last Modified: '+document.lastModified);</script>
@@ -47,4 +53,4 @@
     </div>
 
 </body>
-</html>
+</html> -->

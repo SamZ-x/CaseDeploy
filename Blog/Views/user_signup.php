@@ -1,4 +1,7 @@
-<!DOCTYPE html>
+<?php
+    require_once "head.view.php";
+?>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -15,7 +18,7 @@
         <header>
            <h1>Console.Blog</h1>
         </header>
-    </div>
+    </div> -->
     <div class = "navbar">
         <ul>
             <li><a href="../../home.php">home</a></li>
@@ -29,7 +32,11 @@
                 <label  class="blog_signin_title_sub">You can always change this later on.</label>
                 <hr size="1" width="100%" color="grey">
             </div>
-            <form action="../Includes/signup.inc.php" method="post">
+            <form action="../Route/route" method="post">
+                <!-- determine the route -->
+                <input type="hidden" name="action" value="insert">
+                <input type="hidden" name="endpoint" value="user">
+
                 <div class="blog_signup_item">
                     <label >Firstname</label>
                     <input type="text" name="firstname" placeholder="First Name">
@@ -72,7 +79,8 @@
 
         </div>
     </div>
-    <div class="footer">
+    <?php require_once "foot.view.php"; ?>
+    <!-- <div class="footer">
         <footer>
             &#174; Xiaobin Zhu <br>
             <script>document.write('Last Modified: '+document.lastModified);</script>
@@ -80,4 +88,4 @@
     </div>
 
 </body>
-</html>
+</html> -->

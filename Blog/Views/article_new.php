@@ -2,7 +2,7 @@
     //if no user login, back to login page
     session_start();
     if(!isset($_SESSION['userid'])){
-        header("location: blog_login.php");
+        header("location: user_login.php");
         exit();
     }
 
@@ -28,9 +28,11 @@
         if($error=="databaseError")
             echo "<script>alert('System Error!');</script>";
     }
+
+    require_once "head.view.php";
     
 ?>
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -45,7 +47,7 @@
         <header>
            <h1>Console.Blog</h1>
         </header>
-    </div>
+    </div> -->
     <div class = "navbar">
         <ul>
             <li><a href="">Back</a></li>
@@ -56,14 +58,19 @@
     </div>
     <div class="main">
         <div class="content">
-            <form class="artarticle-new" action="../Includes/articles.inc.php" method="post">
+            <form class="artarticle-new" action="../Route/route" method="post">
+                <!-- determine the route -->
+                <input type="hidden" name="action" value="insert">
+                <input type="hidden" name="endpoint" value="article">
+
                 <?php
-                    include "_form_field.php";
+                    require_once "_form_field.php";
                 ?>
             </form>
         </div>
     </div>
-    <div class="footer">
+    <?php     require_once "foot.view.php"; ?>
+    <!-- <div class="footer">
         <footer>
             &#174; Xiaobin Zhu <br>
             <script>document.write('Last Modified: '+document.lastModified);</script>
@@ -71,4 +78,4 @@
     </div>
 
 </body>
-</html>
+</html> -->
