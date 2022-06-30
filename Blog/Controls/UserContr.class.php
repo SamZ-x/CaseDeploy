@@ -111,7 +111,7 @@
         private function IsValidEmail(){
 
             //check email format
-            return filter_var($this->email, FILTER_VALIDATE_EMAIL)
+            return filter_var($this->email, FILTER_VALIDATE_EMAIL);
         }
 
         //check email info
