@@ -55,7 +55,7 @@
             //use function to assign
             $parsedwon = new Parsedown();
             $instance->sanitizedhtml = $parsedwon->text($markdown);
-            $instance->slug = $this->slugify($title);
+            $instance->slug = $instance->slugify($title);
             return $instance;
         }
 
