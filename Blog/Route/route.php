@@ -95,7 +95,7 @@ if(isset($_GET['action']) || isset($_POST['action'])){
                     $article->addArticle();
                     
                     //request article data retrieve if logined successfully
-                    header("location: route?action=select&endpoint=article&userid={$article->userid}&keyword=");
+                    header("location: route.php?action=select&endpoint=article&userid={$_SESSION['userid']}&keyword=");
                 break;  
 
                 case "role":
