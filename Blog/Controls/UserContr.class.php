@@ -1,6 +1,6 @@
 <?php 
 
-    session_start();     
+    //session_start();     
 
     require_once "../Models/User.class.php";     //use User model
 

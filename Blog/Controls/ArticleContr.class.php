@@ -1,6 +1,6 @@
 <?php
-    
-    session_start();         //resume the current session get uid
+
+    //session_start();         //resume the current session get uid
 
     require_once "../Lib/Parsedown.php";            //use Parsedown lib
     require_once "../Models/Article.class.php";     //use article model
