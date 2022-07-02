@@ -282,7 +282,7 @@
                 <div class="col-md-6 col-lg-3">
                     <div class="card bg-light">
                         <div class="card-body text-center">
-                            <img src="images/pic_self.jpg"  class="rounded-circle mb-3"alt="pic">
+                            <img src="images/pic_profile.jpg" class="rounded-circle mb-3" alt="pic">
                             <h3 class="card-title mb-3">Xiaobin Zhu</h3>
                             <p class="card-text">
                                 Computer Engineering Technology
