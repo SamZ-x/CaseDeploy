@@ -49,7 +49,7 @@
             <div class="collapse navbar-collapse" id="navmenu">
                 <ul class="navbar-nav me-auto">
                     <li class="nav-item">
-                        <a href="index.php" class="nav-link">Home</a>
+                        <a href="./home.php" class="nav-link">Home</a>
                     </li>
                     <!-- dropdown menu item -->
                     <li class="nav-item dropdown">
@@ -100,7 +100,7 @@
                     data-bs-toggle="modal" 
                     data-bs-target="#enroll"
                 >
-                    start the blog
+                    Start To Deploy
                 </button>
             </div>
             <img class="img-fluid w-25 mx-auto d-none d-sm-block" src="images/sign.png" alt="sign">
