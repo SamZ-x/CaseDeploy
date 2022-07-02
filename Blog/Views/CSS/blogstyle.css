@@ -168,6 +168,7 @@ ul{
         font-size: medium;
     }
     .blog_login_link a{
+        width: auto;
         color: black;
         margin: auto 3px;
     }
