@@ -33,7 +33,7 @@
     <!-- a collapse navbar -->
     <nav class="navbar navbar-expand-md bg-dark navbar-dark fixed-top">
         <div class="container">
-            <a href="home.php" class="navbar-brand h1">CaseDeploy</a>
+            <a href="./home.php" class="navbar-brand h1">CaseDeploy</a>
             
             <!-- open button for collapsed menu display less then breakpoint md(768px) -->
             <button 
@@ -319,7 +319,7 @@
             <!-- &#174; CaseDeploy  -->
             <script>document.write('Last Modified: '+document.lastModified);</script>
             </p>
-            <a href="home.php" class="position-absolute bottom-0 end-0 p-5">
+            <a href="./home.php" class="position-absolute bottom-0 end-0 p-5">
                 <i class="bi bi-arrow-up-circle h1"></i>
             </a>
         </div>
