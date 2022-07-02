@@ -319,7 +319,7 @@
             <!-- &#174; CaseDeploy  -->
             <script>document.write('Last Modified: '+document.lastModified);</script>
             </p>
-            <a href="." class="position-absolute bottom-0 end-0 p-5">
+            <a href="home.php" class="position-absolute bottom-0 end-0 p-5">
                 <i class="bi bi-arrow-up-circle h1"></i>
             </a>
         </div>
