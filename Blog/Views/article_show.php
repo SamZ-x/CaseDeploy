@@ -7,7 +7,8 @@
     $data = "";
 
     if(isset($_SESSION['data'])){
-        $data = $_SESSION['data'];
+        $data = $_SESSION['data']['data'];
+        $rowcount = $_SESSION['data']['rowcount'];
     }
 
     if(!$data){
@@ -15,35 +16,46 @@
     }
     require_once "head.view.php";
 ?>
-<div class = "navbar">
-    <ul>
-        <li><a href="../../home.php">home</a></li>
-        <li><a href="../index.php">search</a></li>
-        <?php
-            if(isset($_SESSION['userid']))
-                echo "<li><a href=\"user_show.php\">ID: ".$_SESSION['nickname']."</a></li>";
-            else
-                echo "<li><a href=\"user_login.php\">Login</a></li>";
-        ?>
-    </ul>
-</div>
-<div class="main">
-    <div class="content">
-        <?php
-        //iterate all retrieved article
-        //fill into the template  
-            foreach($data as $article)
-            {
-                //display title
-                echo "<div class=\"articles\"><div class=\"article-body\"><h1 class=\"article-title\">".$article['title']."</h1>";
-                //display subtitle
-                echo "<div class=\"article-subtitle\">".$article['createdAt']."<a class=\"article-link\" href=\"\">".$article['Firstname']."</a></div>";
-                //display description
-                echo "<div class=\"article-text\">".$article['description']."<br></div>";
-                //display the button and close tag
-                echo "<a class = \"article-link-button\" href=\"\">Read More</a></div></div>";
+
+<!-- search result info -->
+<section class="pt-5 bg-info pb-1">
+      <div class="container pt-3">
+        <div class="text-center text-light h3">
+            <p class="mb-1">
+                <?php
+                    echo "Search Result: ". $rowcount ." records.";
+                ?>
+            </p>
+        </div>
+      </div>  
+    </section>
+
+<section class="p-3">
+        <div class="container">
+            <div class="row row-cols-2 g-2 text-center">
+            <?php
+            //iterate all retrieved article
+            //fill into the template
+            if(!empty($data)){
+                foreach($data as $article)
+                {
+                    //style head
+                    echo "<div class=\"col-md-6 \"><div class=\"card bg-light h-100\"><div class=\"card-body text-start\"><h2 class=\"card-title mb-2\">";
+                    //display title
+                    echo $article['title']."</h2>";
+                    //display subtitle
+                    echo "<p class=\"card-text\">".$article['createdAt']."<a class=\"mx-2\"href=\"\">".$article['Firstname']."</a></p>";
+                    //display description
+                    echo "<p class=\"card-text\">".$article['description']."</p>";
+                    //display the button and close tag
+                    echo "<a class = \"btn btn-primary mx-1\" href=\"\">Read More</a><a class = \"btn btn-primary mx-1\" href=\"\">Edit</a></div></div></div>";
+                }
             }
-        ?>
-    </div>
-</div>
+            else
+                echo "<div class=\"col-md-12 p-5\"><h1>Oop! No articles!</h1></div>"
+            ?>
+
+        </div>
+    </section>
+
 <?php     require_once "foot.view.php"; ?>

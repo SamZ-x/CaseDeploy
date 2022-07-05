@@ -1,32 +1,33 @@
 <?php
     require_once "head.view.php";
 ?>
-<div class = "navbar">
-    <ul>
-        <li><a href="../../home.php">home</a></li>
-        <li><a href="../index.php">search</a></li>
-        <li><a href="">Login</a></li>
-    </ul>
-</div>
-<div class="main" >
-    <form  class="blog_login" action="../Route/route.php" method="post">
-        <!-- determine the route -->
-        <input type="hidden" name="action" value="select">
-        <input type="hidden" name="endpoint" value="userlogin">
 
-        <label class="blog_login_title">Sign in</label>
-        <div class="blog_login_input">
-            <input type="text" name="userid_email" placeholder="UserId/Email">
+<!-- login section -->
+<section class="bg-light p-5">
+    <div class="container p-5">
+        <div class="text-center m-5">
+            <h1 >Sign In</h1>
         </div>
-        <div class="blog_login_input">
-            <input  class="blog_login_input_pwd" type="password" name="password" placeholder="Password" >
-            <span class="blog_login_input_pwdshow">Show</span>
-        </div>
-        <button class = "blog_login_submit_button" type="submit" name="submit">Sign in</button>
-        <div class="blog_login_link">
-            <a href="">Reset Password?</a>
-            <a href="user_signup.php">Join</a>
-        </div>
-    </form>
-</div>
+        <form action="../Route/route.php" method="post" class="d-flex flex-column form-floating justify-content-center align-items-center">
+            <!-- determine the route -->
+            <input type="hidden" name="action" value="select">
+            <input type="hidden" name="endpoint" value="userlogin">
+
+            <div class="form-floating mb-2 w-40">
+                <input type="email" class="form-control" id="floatingInput" name="userid_email" placeholder="UserId/Email">
+                <label for="floatingInput">Email address</label>
+            </div>
+            <div class="form-floating mb-2">
+                <input type="password" class="form-control" id="floatingPassword" name="password" placeholder="Password">
+                <label for="floatingPassword">Password</label>
+            </div>
+            <button class = "btn btn-primary btn-md" type="submit" name="submit">Sign in</button>
+            <div>
+                <a href="">Reset Password?</a>
+                <a href="user_signup.php">Join</a>
+            </div>
+        </form>
+    </div>
+</section>
+
 <?php     require_once "foot.view.php"; ?>

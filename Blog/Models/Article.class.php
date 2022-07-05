@@ -35,11 +35,14 @@
                 header("location: ../index.php?status=failed&error=databaseError");
                 exit();
             }
-            //otherwise
-            $result = $stmt->FETCHALL();    //return associate array/empty object.
-
+            //otherwise, store the query result
+            $result = array();
+            $result['data'] =$stmt->FETCHALL();
+            $result['rowcount'] = $stmt->rowCount();
+            
             //if successfully retrieve data, clear the statment and return
             $stmt=null;
+            //return associate array/empty object.
             return $result;
         }
 

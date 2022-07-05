@@ -31,25 +31,31 @@
 
     require_once "head.view.php";
 ?>
-<div class = "navbar">
-    <ul>
-        <li><a href="">Back</a></li>
-        <li><a href="../index.php">search</a></li>
-        <li><a href="../../home.php">home</a></li>
-        <li><a href="user_show.php?status=logout">Log Out: <?= $_SESSION['nickname'];?></a></li>
-    </ul>
-</div>
-<div class="main">
-    <div class="content">
-        <form class="artarticle-new" action="../Route/route.php" method="post">
-            <!-- determine the route -->
-            <input type="hidden" name="action" value="insert">
-            <input type="hidden" name="endpoint" value="article">
 
-            <?php
-                require_once "_form_field.php";
-            ?>
-        </form>
-    </div>
-</div>
+    <!-- section1: user menu section -->
+    <section class="pt-5 bg-primary pb-1">
+      <div class="container p-3">
+        <div class="d-flex align-items-center justify-content-center">
+            <a href="./user_show.php" class="mx-2 btn btn-md btn-outline-success text-white border border-white">Back</a>
+            <a href="#" class="mx-2 btn btn-md btn-outline-info text-white border border-white">Setting</a>
+            <a href="user_show.php?status=logout" class="mx-2 btn btn-md btn-outline-info text-white border border-white">LogOut</a>
+        </div>
+      </div>  
+    </section>
+
+    <section class="p-3">
+        <div class="container bg-secondary text-white">
+            <form class=" p-2"action="../Route/route.php" method="post">
+                <!-- determine the route -->
+                <input type="hidden" name="action" value="insert">
+                <input type="hidden" name="endpoint" value="article">
+                
+                <?php require_once "_form_field.php"; ?>
+            </form>
+
+        </div>
+
+    </section>
+
+
 <?php require_once "foot.view.php"; ?>
