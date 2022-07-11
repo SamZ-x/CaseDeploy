@@ -1,4 +1,3 @@
-"invalid"
 # Access the mod_rewrite.c module of Apache Web Server
 # Enable rewriting on for this driectory
 RewriteEngine On

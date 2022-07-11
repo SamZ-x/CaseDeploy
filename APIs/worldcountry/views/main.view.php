@@ -19,7 +19,7 @@
                                         'M49_Code','Region','Countinent'</p>
                                 </div>
                                 <div class="col-3">
-                                    <a href="http://www.casedelploy.com/CaseDeploy/APIs/worldcountry/api/country/getAllCountries">JSON</a>
+                                    <a href="http://www.casedeploy.com/CaseDeploy/APIs/worldcountry/api/country/getAllCountries">JSON</a>
                                 </div>
                             </div> 
                         </div>
@@ -40,7 +40,7 @@
                                     <p class="m-1">Get a single country data with provided ISO Alpha3 Code parameter</p>
                                 </div>
                                 <div class="col-3">
-                                    <a href="http://www.casedelploy.com/CaseDeploy/APIs/worldcountry/api/country/getSingleCountyByAlphaCode?alphaCode=ALA">JSON</a>
+                                    <a href="http://www.casedeploy.com/CaseDeploy/APIs/worldcountry/api/country/getSingleCountyByAlphaCode?alphaCode=ALA">JSON</a>
                                 </div>
                             </div> 
                         </div>
@@ -61,7 +61,7 @@
                                     <p class="m-1">Get a single country data with provided M49 Code parameter</p>
                                 </div>
                                 <div class="col-3">
-                                    <a href="http://www.casedelploy.com/CaseDeploy/APIs/worldcountry/api/country/getSingleCountyByM49Code?m49Code=248">JSON</a>
+                                    <a href="http://www.casedeploy.com/CaseDeploy/APIs/worldcountry/api/country/getSingleCountyByM49Code?m49Code=248">JSON</a>
                                 </div>
                             </div> 
                         </div>
@@ -82,7 +82,7 @@
                                     <p class="m-1">Provide countries data grouped by countinent</p>
                                 </div>
                                 <div class="col-3">
-                                    <a href="http://www.casedelploy.com/CaseDeploy/APIs/worldcountry/api/country/getCountyByCountinent?countinentTitle=asia">JSON</a>
+                                    <a href="http://www.casedeploy.com/CaseDeploy/APIs/worldcountry/api/country/getCountyByCountinent?countinentTitle=asia">JSON</a>
                                 </div>
                             </div> 
                         </div>
@@ -103,7 +103,7 @@
                                     <p class="m-1">Provide countries data grouped by region</p>
                                 </div>
                                 <div class="col-3">
-                                    <a href="http://www.casedelploy.com/CaseDeploy/APIs/worldcountry/api/country/getCountyByRegion?regionTitle=Eastern Asia">JSON</a>
+                                    <a href="http://www.casedeploy.com/CaseDeploy/APIs/worldcountry/api/country/getCountyByRegion?regionTitle=Eastern Asia">JSON</a>
                                 </div>
                             </div> 
                         </div>
