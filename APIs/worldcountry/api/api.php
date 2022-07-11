@@ -11,6 +11,10 @@
     $endpoint = $api->getEndpoint();        //endpoint :target the model
     $verb     = $api->getVerb();            //verb     :speify the action
     
+    error_log("endpoint:".$method);
+    error_log("endpoint:".$endpoint);
+    error_log("endpoint:".$verb);
+
     //api process
     switch($method)
     {
