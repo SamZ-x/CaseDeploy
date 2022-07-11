@@ -4,7 +4,7 @@
     //get the request path
 
     $request = $_REQUEST['request'];
-    // $request = "country/getAllCountries";
+    $request = "country/getAllCountries";
     //create an API object
     $api = new API($request);
     $method   = $api->getMethod();          //method   :target operation
