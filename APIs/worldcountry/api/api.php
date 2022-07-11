@@ -3,18 +3,14 @@
 
     //get the request path
 
-    //$request = $_REQUEST['request'];
-    $request = "country/getAllCountries";
+    $request = $_REQUEST['request'];
+    // $request = "country/getAllCountries";
     //create an API object
     $api = new API($request);
     $method   = $api->getMethod();          //method   :target operation
     $endpoint = $api->getEndpoint();        //endpoint :target the model
     $verb     = $api->getVerb();            //verb     :speify the action
-    error_log(Var_dump($_REQUEST));
-    error_log("method: ".$method);
-    error_log("endpoint: ".$endpoint);
-    error_log("verb: ".$verb );
-
+    
     //api process
     switch($method)
     {
