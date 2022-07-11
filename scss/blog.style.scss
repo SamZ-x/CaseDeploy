@@ -1,0 +1,62 @@
+
+@import '../node_modules/bootstrap/scss/bootstrap.scss';
+@import '_config.scss';
+
+body::before{
+    display: block;
+    content: '';
+    height:50px;
+}
+
+.site-title{
+    font-size: $title-font;
+}
+
+.search-option{
+    width: fit-content;
+    text-align: center;
+}
+
+.blog_signup_item{
+    display: flex;
+    flex-direction: column;
+    margin: 5px auto;
+    
+    label{
+        width: auto;
+        margin-bottom: 2px;
+    }
+
+    input, select{
+        font-size: large;
+        width: auto;
+    }
+}
+
+.site-subtitle{
+    font-size: $subtitle-font;
+}
+
+
+@media screen and (min-width : 700px) {
+    .blog_signup_item{
+        margin: 10px 5px ;
+        display: flex;
+        flex-direction: row;
+        justify-content: start;
+        align-items: center;
+        font-size: large;
+
+        label{
+            width: 100px;
+            margin-right: 2px;
+        }
+
+        input, select{
+            font-size: large;
+            width: 300px;
+        }
+
+    }
+    
+}

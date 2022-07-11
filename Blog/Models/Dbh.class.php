@@ -11,11 +11,22 @@
             //catch exception if show up
             try {
                 //database info (limited in connect() scope)
+                
+                ////////// TEST //////////////
+                // $host = "localhost";
+                // $user = "test";
+                // $pwd = "test";
+                // $dbName = "blog";
+                /////////////////////////////
+
+                ////////// DEPLOY //////////////
                 $host = "localhost";
                 $user = "xzhu20_blog";
                 $pwd = "Xzhu20_blog@mysql";
                 $dbName = "blog";
+                /////////////////////////////
 
+                
                 //database server name
                 $dsn = 'mysql:host='.$host.';dbname='.$dbName;
                 //create database handler and return

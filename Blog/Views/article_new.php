@@ -20,12 +20,12 @@
 
     if(isset($_GET['status'])&&$_GET['status']=="failed")
     {
-        $error = $_GET['error'];
+        $message = $_GET['message'];
         
-        if($error=="inputEmpty")
+        if($message=="inputEmpty")
             echo "<script>alert('Input can not be empty!');</script>";
 
-        if($error=="databaseError")
+        if($message=="databaseError")
             echo "<script>alert('System Error!');</script>";
     }
 

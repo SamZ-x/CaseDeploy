@@ -3,7 +3,26 @@
     //manipulate articles
     class Article extends Dbh{
 
-        /************************* SELECT ******************************/
+        /************************* SELECT ******************************/     
+        //function : Retrieve_signle
+        //take 2 parameters :'articleid'
+        //retrieve data from database table 'Articles' base on the 'category' and'keyword'
+        protected function Retrieve_signle($articleid){
+            //query
+            $sqlQuery = "SELECT * FROM `Articles` WHERE `articleId` = ? ";
+            //fill the query with parameters
+            $stmt = $this->connect()->prepare($sqlQuery);
+            $stmt->execute([$articleid]);
+            //store the query result
+            $result = array();
+            $result['data'] =$stmt->FETCHALL();
+            $result['rowcount'] = $stmt->rowCount();
+            
+            //if successfully retrieve data, clear the statment and return
+            $stmt=null;
+            //return associate array/empty object.
+            return $result;
+        } 
 
         //function : Retrieve_globalSearch
         //take 2 parameters :'category', 'keyword'

@@ -66,7 +66,7 @@
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <li><a class="dropdown-item" href="#category-webapp">Web Application</a></li>
                             <li><a class="dropdown-item" href="#category-winform">Win Form Application</a></li>
-                            <li><a class="dropdown-item" href="#">APIs</a></li>
+                            <li><a class="dropdown-item" href="#category-api">APIs</a></li>
                             <li><a class="dropdown-item" href="#">IOTs</a></li>
                         </ul>
                     </li>
@@ -181,6 +181,78 @@
 
      <!-- web application text -->    
      <section id="learn" class="p-5 bg-light">
+        <div class="container">
+            <div class="row align-items-center justify-content-bewteen">
+                <div class="col-md p-5">
+                    <img src="images/coding.jpg" alt="coding" class="img-fluid">
+                </div>
+                <div class="col-md p-5">
+                    <h2 class="mb-5">Techniques in Web App projects</h2>
+                    <p class="lead"><span class="fw-bold"> Language: </span>  HTML, CSS, JavaScript, PHP, MarkDown</p>
+                    <p class="lead"><span class="fw-bold"> Deploy:</span>  (Azure) Ubuntu 22.04, Apache 2.4.29</p>
+                    <p class="lead"><span class="fw-bold"> Datebase: </span> MySQL</p>
+                    <p class="lead"><span class="fw-bold"> Framework: </span> Bootstrap, Node.js, Rest API</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+        <!-- *** APIs section  *** -->    
+    <section class="bg-primary text-light p-3" id="category-api">
+        <div class="container">
+            <div class="d-flex align-items-center justify-content-between">
+                <h3 class="mb-md-0"> APIs</h3>
+            </div>
+        </div>
+    </section>
+
+    <!-- *** content *** -->   
+     <!-- display as card style -->
+    <section class="p-4">
+        <div class="container">
+            <div class="row text-center gy-4 d-flex">
+                <!-- column change break point md -->
+                <!-- bg: drak/light -->
+                <div class="col-md">
+                    <div class="card bg-dark text-light">
+                        <div class="card-body text-center">
+                            <div class="h1 mb-3">
+                                <i class="bi bi-collection"></i>
+                            </div>
+                            <h3 class="card-title mb-3">
+                                World Coutry API
+                            </h3>
+                            <p class="card-text">
+                                Provide basic country information
+                            </p>
+                            <a href="./APIs/worldcountry/index.php" class="btn btn-primary">Read more</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md">
+                    <div class="card bg-dark text-light">
+                        <div class="card-body text-center">
+                            <div class="h1 mb-3">
+                                <i class="bi bi-collection"></i>
+                            </div>
+                            <h3 class="card-title mb-3">
+                                Other API
+                            </h3>
+                            <p class="card-text">
+                                Provide basic some information
+                            </p>
+                            <a href="./APIs/index.php" class="btn btn-primary">Read more</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+     <!-- web application text -->    
+     <section id="learn" class="p-5 bg-light d-none">
         <div class="container">
             <div class="row align-items-center justify-content-bewteen">
                 <div class="col-md p-5">

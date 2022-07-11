@@ -28,7 +28,7 @@ if(isset($_GET['action']) || isset($_POST['action'])){
         case 'select':
             
             switch($endpoint){
-                
+
                 case "article":
                     $userid = $_GET['userid'];
                     $keyword= $_GET['keyword'];
@@ -38,12 +38,27 @@ if(isset($_GET['action']) || isset($_POST['action'])){
                     require_once "../Controls/ArticleContr.class.php";
                     $article = ArticleContr::_localSearch($userid, $keyword);
                     $data = $article->localSearchArticles();
-
+                    
                     //store the data and redirect to present the data
                     $_SESSION['userdata'] = $data;
                     if($_SESSION['loginstatus'])
                         header("location: ../Views/user_show.php?status=done&error=none");
                 break;
+
+                // case "single_article":
+                //     $articleid = $_GET['articleid'];
+
+                //     //request control to select data base on the parameter
+                //     require_once "../Models/Dbh.class.php";
+                //     require_once "../Controls/ArticleContr.class.php";
+                //     $article = ArticleContr::getArticle_single($articleid);
+                //     $data = $article->Retrieve_signle();
+                    
+                //     //store the data and redirect to present the data
+                //     $_SESSION['single_article'] = $data;
+                //     // if($_SESSION['loginstatus'])
+                //     //     header("location: ../Views/user_show.php?status=done&error=none");
+                // break;
 
                 case 'globalsearch':
                     //get the search info

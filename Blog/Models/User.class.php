@@ -1,4 +1,5 @@
 <?php
+    session_start();
 
     //User model
     class User extends Dbh{
@@ -17,7 +18,7 @@
             //if database statment return false, redirect with error
             if(!$stmt->execute([$uid, $uid])){
                 $stmt = null;
-                header("location: ../Views/user_login.php?error=stmterror");
+                header("location: ../Views/user_login.php?message=stmterror");
                 exit();
             }
 
@@ -26,7 +27,7 @@
             //if query return object empty, means invalid uid
             if(empty($result)){
                 $stmt = null;
-                header("location: ../Views/user_login.php?error=InvalidUid");
+                header("location: ../Views/user_login.php?message=InvalidUid");
                 exit();
             }
 
@@ -34,7 +35,7 @@
             //if not equal, rediect to index.php with error param(invalid pwd)
             if(!password_verify($pwd, $result[0]['Password'])){
                 $stmt = null;
-                header("location: ../Views/user_login.php?error=InvalidPassword");
+                header("location: ../Views/user_login.php?message=InvalidPassword");
                 exit();
             }
             
@@ -59,7 +60,7 @@
             //if the excute shows error, show the error
             if(!$stmt->execute([$email])){
                 $stmt = null;    //close the connection statment
-                header("location: ../Views/user_signup.php?error=stmtfailed-Usercheck");    //return index page with error parameter
+                header("location: ../Views/user_signup.php?message=stmtfailed-Usercheck");    //return index page with error parameter
                 exit();
             }
 
@@ -90,7 +91,7 @@
             //if the excute shows error, show the error
             if(!$stmt->execute([$email,$hashpassword,$nname,$fname,$lname,$region,$phone])){     //add info array to statement execute()
                 $stmt = null;    //close the connection statment
-                header("location: ../Views/user_signup.php?error=stmtfailed-insert");    //return index page with error parameter
+                header("location: ../Views/user_signup.php?message=stmtfailed-insert");    //return index page with error parameter
                 exit();
             }
 

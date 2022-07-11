@@ -6,6 +6,7 @@
     class ArticleContr extends Article{
 
         //************************* fields *************************//
+        private $articleid;
         private $title;
         private $userid;
         private $username;
@@ -15,6 +16,7 @@
         private $slug;
         private $category;
         private $keyword;
+        
 
         //************************* constructor and static methods *************************//
 
@@ -63,15 +65,26 @@
             return $instance;
         }
 
+        //function : _getSingle
+        //take 2 parameters :'articleid'
+        //create an instance for single search 
+        public static function _getSingle($articleid){
+            $instance = new self();
+            //assign values to relative fields
+            $instance->articleid = $articleid;
+            return $instance;
+        }
+
 
 
         //************************* public Methods *************************//
 
         //function : GetArticles
         //run error checking and request insert data to database
-        public function GetArticles(){
+        public function getSingleArticle(){
             //all Articles class function to get the articles
-            $this->Retrieve($this->userid);
+            $result = $this->Retrieve_signle($this->articleid);
+            return $result;
         }
 
         //function : globalSearchArticles
@@ -81,7 +94,7 @@
     
             //back to index page with error message if input empty
             if($this->IsEmpty_globalsearch()){
-                header("location:../index.php?status=failed&error=inputEmpty");
+                header("location:../index.php?status=failed&message=inputEmpty");
                 exit();
             }
 
@@ -97,7 +110,7 @@
     
             //back to login page with error message if input empty
             if($this->IsEmpty_localsearch()){
-                header("location:../Views/user_login.php?status=failed&error=inputEmpty");
+                header("location:../Views/user_login.php?status=failed&message=inputEmpty");
                 exit();
             }
 
@@ -112,7 +125,7 @@
         public function addArticle(){
             //return error checking
             if($this->IsEmpty_Add()){
-                header("location: ../Views/article_new.php?status=failed&error=inputEmpty");
+                header("location: ../Views/article_new.php?status=failed&message=inputEmpty");
                 $inputRecord = array(
                     "title" => $this->title,
                     "description" => $this->description,

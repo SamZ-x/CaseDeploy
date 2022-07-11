@@ -32,7 +32,7 @@
                 <input type="hidden" name="action" value="select">
                 <input type="hidden" name="endpoint" value="globalsearch">
                 
-                <select name="searchCategory" id="searchCategory" class="form-select w-25">
+                <select name="searchCategory" id="searchCategory" class="form-select search-option">
                     <option value="username">User Name</option>
                     <option value="articletitle">Article Title</option>
                 </select>

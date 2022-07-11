@@ -54,10 +54,13 @@
         //function : userLogin
         //run error checking and database validation request.
         public function userLogin(){
+            $_SESSION['loginInput'] = array(
+                "uid" => $this->uid
+            );
             //if login info valid, requet the database validation
             //if login info empty, redirect to index.php with error param
             if($this->IsEmpty_login()){
-                header("location: ../Views/user_login.php?error=empty-input");
+                header("location: ../Views/user_login.php?message=emptyinput");
                 exit();    //terminate the current scripte
             }
 
@@ -71,19 +74,19 @@
             //use exception handler to check first
             if($this->IsEmpty_signup()){
                 //echo empty input
-                header("location:../Views/user_signup.php?error=emptyinput");
+                header("location:../Views/user_signup.php?message=emptyinput");
                 exit();
             }
 
             if(!$this->IsValidEmail()){
                 //echo invali email
-                header("location:../Views/user_signup.php?error=invalidemail");
+                header("location:../Views/user_signup.php?message=invalidemail");
                 exit();
             }
             
             if($this->ExistenceCheck()){
                 //echo user existed
-                header("location:../Views/user_signup.php?error=userexisted");
+                header("location:../Views/user_signup.php?message=userexisted");
                 exit();
             }
 
