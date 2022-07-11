@@ -10,6 +10,10 @@
     $endpoint = $api->getEndpoint();        //endpoint :target the model
     $verb     = $api->getVerb();            //verb     :speify the action
 
+    echo "method: ".$method .";";
+    echo "method: ".$endpoint .";";
+    echo "method: ".$verb .";";
+
     //api process
     switch($method)
     {
@@ -59,5 +63,4 @@
             break;
     }//method switch
 
-   
 ?>
