@@ -2,8 +2,9 @@
     include_once('../core/initialize.php');
 
     //get the request path
-    $request = $_REQUEST['request'];
-
+    echo Var_dump($_REQUEST);
+    //$request = $_REQUEST['request'];
+    $request = "country/getAllCountries";
     //create an API object
     $api = new API($request);
     $method   = $api->getMethod();          //method   :target operation
