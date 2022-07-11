@@ -2,7 +2,7 @@
     include_once('../core/initialize.php');
 
     //get the request path
-    echo Var_dump($_REQUEST);
+
     //$request = $_REQUEST['request'];
     $request = "country/getAllCountries";
     //create an API object
@@ -10,10 +10,10 @@
     $method   = $api->getMethod();          //method   :target operation
     $endpoint = $api->getEndpoint();        //endpoint :target the model
     $verb     = $api->getVerb();            //verb     :speify the action
-
-    echo "method: ".$method .";";
-    echo "method: ".$endpoint .";";
-    echo "method: ".$verb .";";
+    error_log(Var_dump($_REQUEST));
+    error_log("method: ".$method);
+    error_log("endpoint: ".$endpoint);
+    error_log("verb: ".$verb );
 
     //api process
     switch($method)
