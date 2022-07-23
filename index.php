@@ -68,11 +68,11 @@
                             <li><a class="dropdown-item" href="#category-webapp">Web Application</a></li>
                             <li><a class="dropdown-item" href="#category-winform">Win Form Application</a></li>
                             <li><a class="dropdown-item" href="#category-api">APIs</a></li>
-                            <li><a class="dropdown-item" href="#">IOTs</a></li>
+                            <!-- <li><a class="dropdown-item" href="#">IOTs</a></li> -->
                         </ul>
                     </li>
                     <li class="nav-item">
-                        <a href="Blog" class="nav-link">Blog</a>
+                        <a href="./webapp/Blog" class="nav-link">Blog</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#about">About</a>
@@ -191,8 +191,8 @@
                     <h2 class="mb-5">Techniques in Web App projects</h2>
                     <p class="lead"><span class="fw-bold"> Language: </span>  HTML, CSS, JavaScript, PHP, MarkDown</p>
                     <p class="lead"><span class="fw-bold"> Deploy:</span>  (Azure) Ubuntu 22.04, Apache 2.4.29</p>
-                    <p class="lead"><span class="fw-bold"> Datebase: </span> MySQL</p>
-                    <p class="lead"><span class="fw-bold"> Framework: </span> Bootstrap, Node.js, Rest API</p>
+                    <p class="lead"><span class="fw-bold"> Datebase: </span> MySQL MongoDB</p>
+                    <p class="lead"><span class="fw-bold"> Framework: </span> Bootstrap, Node.js, express</p>
                 </div>
             </div>
         </div>
@@ -222,10 +222,10 @@
                                 <i class="bi bi-collection"></i>
                             </div>
                             <h3 class="card-title mb-3">
-                                World Coutry API
+                                WorldCoutry API
                             </h3>
                             <p class="card-text">
-                                Provide basic country information
+                                Provide basic country information 
                             </p>
                             <a href="./APIs/worldcountry/index.php" class="btn btn-primary">Read more</a>
                         </div>
@@ -242,9 +242,9 @@
                                 Other API
                             </h3>
                             <p class="card-text">
-                                Provide basic some information
+                                upcoming....
                             </p>
-                            <a href="../node" class="btn btn-primary">Read more</a>
+                            <a href="" class="btn btn-primary">Read more</a>
                         </div>
                     </div>
                 </div>
@@ -253,18 +253,18 @@
     </section>
 
      <!-- web application text -->    
-     <section id="learn" class="p-5 bg-light d-none">
+     <section id="learn" class="p-5 bg-light">
         <div class="container">
             <div class="row align-items-center justify-content-bewteen">
                 <div class="col-md p-5">
-                    <img src="images/coding.jpg" alt="coding" class="img-fluid">
+                    <h2 class="mb-5">Techniques in API projects</h2>
+                    <p class="lead"><span class="fw-bold"> Language: </span> JavaScript, PHP</p>
+                    <p class="lead"><span class="fw-bold"> Design Pattern:</span> MVC </p>
+                    <p class="lead"><span class="fw-bold"> Datebase: </span> MySQL, MongoDB</p>
+                    <p class="lead"><span class="fw-bold"> Framework: </span> Node.js, express</p>
                 </div>
                 <div class="col-md p-5">
-                    <h2 class="mb-5">Techniques in Web App projects</h2>
-                    <p class="lead"><span class="fw-bold"> Language: </span>  HTML, CSS, JavaScript, PHP, MarkDown</p>
-                    <p class="lead"><span class="fw-bold"> Deploy:</span>  (Azure) Ubuntu 22.04, Apache 2.4.29</p>
-                    <p class="lead"><span class="fw-bold"> Datebase: </span> MySQL</p>
-                    <p class="lead"><span class="fw-bold"> Framework: </span> Bootstrap, Node.js, Rest API</p>
+                    <img src="images/coding.jpg" alt="coding" class="img-fluid">
                 </div>
             </div>
         </div>
@@ -295,9 +295,9 @@
                                 Serial Port Terminal
                             </h3>
                             <p class="card-text">
-                                A data reciever for hard ware and PC via serial port protacol.
+                                A data reciever for MCU and PC via serial port protacol.
                             </p>
-                            <a href="SCI/index.php" class="btn btn-primary">Read more</a>
+                            <a href="./wfapp/sci" class="btn btn-primary">Read more</a>
                         </div>
                     </div>
                 </div>
@@ -325,15 +325,15 @@
     <section id="learn" class="p-5 bg-dark">
         <div class="container">
             <div class="row align-items-center justify-content-bewteen text-light">
+            <div class="col-md p-5">
+                    <img src="images/coding.jpg" alt="coding" class="img-fluid">
+                </div>
                 <div class="col-md p-5">
                     <h2 class="mb-5">Techniques in WFA projects</h2>
                     <p class="lead"><span class="fw-bold"> Language: </span> C#</p>
                     <p class="lead"><span class="fw-bold"> Platform:</span>  Windows</p>
                     <p class="lead"><span class="fw-bold"> Datebase: </span> MySQL, SQL server</p>
                     <p class="lead"><span class="fw-bold"> Framework: </span> .NET</p>
-                </div>
-                <div class="col-md p-5">
-                    <img src="images/coding.jpg" alt="coding" class="img-fluid">
                 </div>
             </div>
         </div>

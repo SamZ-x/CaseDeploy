@@ -30,7 +30,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blog</title>
-    <link rel="stylesheet" href="../css/blog.style.min.css">
+    <link rel="stylesheet" href="../../css/blog.style.min.css">
     <!-- JavaScript Bundle with Popper -->
     <script 
         src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" 
@@ -61,7 +61,7 @@
                         <a href="./index.php" class="nav-link">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a href="http://www.casedeploy.com" class="nav-link">CaseDeploy</a>
+                        <a href="../../" class="nav-link">CaseDeploy</a>
                     </li>
                     <li class="nav-item">
                         <a href="#searchbar" class="nav-link">Search</a>
