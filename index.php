@@ -10,6 +10,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CaseDeploy</title>
+    <link rel="shortcut icon" href="./images/favicon.ico" type="image/x-icon" />
     <!-- CSS only -->
     <link 
         href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" 
@@ -33,7 +34,7 @@
     <!-- a collapse navbar -->
     <nav class="navbar navbar-expand-md bg-dark navbar-dark fixed-top">
         <div class="container">
-            <a href="./home.php" class="navbar-brand h1">CaseDeploy</a>
+            <a href="./" class="navbar-brand h1">CaseDeploy</a>
             
             <!-- open button for collapsed menu display less then breakpoint md(768px) -->
             <button 
