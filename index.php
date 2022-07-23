@@ -243,7 +243,7 @@
                             <p class="card-text">
                                 Provide basic some information
                             </p>
-                            <a href="./APIs/index.php" class="btn btn-primary">Read more</a>
+                            <a href="../node" class="btn btn-primary">Read more</a>
                         </div>
                     </div>
                 </div>
