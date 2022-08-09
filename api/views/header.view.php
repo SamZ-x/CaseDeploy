@@ -51,10 +51,10 @@
                         </ul>
                     </li>
                     <li class="nav-item">
-                        <a href="../../home.php" class="nav-link">CaseDeploy</a>
+                        <a href="../" class="nav-link">CaseDeploy</a>
                     </li>
                     <li class="nav-item">
-                        <a href="../../Blog" class="nav-link">Console.Blog</a>
+                        <a href="../webapp/Blog" class="nav-link">Console.Blog</a>
                     </li>
                     <li class="nav-item">
                         <a href="#" class="nav-link">Search</a>
