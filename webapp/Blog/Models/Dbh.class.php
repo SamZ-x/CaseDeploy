@@ -14,7 +14,7 @@
 
                 
                 //get the database connection credential for external json file
-                $DBcredential = json_decode(file_get_contents('../Models/Dbh.json', true), true);
+                $DBcredential = json_decode(file_get_contents('../Dbh.json', true), true);
                 
                 ////////// TEST //////////////
                 // $host = "localhost";
