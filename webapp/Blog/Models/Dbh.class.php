@@ -11,6 +11,10 @@
             //catch exception if show up
             try {
                 //database info (limited in connect() scope)
+
+                
+                //get the database connection credential for external json file
+                $DBcredential = json_decode(file_get_contents('./Dbh.json', true), true);
                 
                 ////////// TEST //////////////
                 // $host = "localhost";
@@ -20,12 +24,16 @@
                 /////////////////////////////
 
                 ////////// DEPLOY //////////////
-                $host = "localhost";
-                $user = "xzhu20_blog";
-                $pwd = "Xzhu20_blog@mysql";
-                $dbName = "blog";
+                $host = $DBcredential['host'];
+                $user = $DBcredential['user'];
+                $pwd = $DBcredential['pwd'];
+                $dbName = $DBcredential['dbName'];
                 /////////////////////////////
 
+                // $host = "localhost";
+                // $user = "xzhu20_blog";
+                // $pwd = "Xzhu20_blog@mysql";
+                // $dbName = "blog";
                 
                 //database server name
                 $dsn = 'mysql:host='.$host.';dbname='.$dbName;
