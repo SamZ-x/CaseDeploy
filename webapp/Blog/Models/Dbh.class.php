@@ -29,15 +29,6 @@
                 $pwd = $DBcredential['pwd'];
                 $dbName = $DBcredential['dbName'];
                 /////////////////////////////
-
-                error_log($host);
-                error_log($user);
-                error_log($pwd);
-                error_log($dbName);
-                // $host = "localhost";
-                // $user = "xzhu20_blog";
-                // $pwd = "Xzhu20_blog@mysql";
-                // $dbName = "blog";
                 
                 //database server name
                 $dsn = 'mysql:host='.$host.';dbname='.$dbName;
