@@ -30,6 +30,10 @@
                 $dbName = $DBcredential['dbName'];
                 /////////////////////////////
 
+                error_log($host);
+                error_log($user);
+                error_log($pwd);
+                error_log($dbName);
                 // $host = "localhost";
                 // $user = "xzhu20_blog";
                 // $pwd = "Xzhu20_blog@mysql";
