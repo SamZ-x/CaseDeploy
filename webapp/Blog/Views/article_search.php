@@ -89,7 +89,7 @@
                 <h1>Article Search</h1>
                 <img src="../images/search.png" alt="searchicon">
             </div>
-            <form action="Route/route.php" method="get" class="d-flex justify-content-center">
+            <form action="../Route/route.php" method="get" class="d-flex justify-content-center">
                 <!-- determine the route -->
                 <input type="hidden" name="action" value="select">
                 <input type="hidden" name="endpoint" value="globalsearch">
