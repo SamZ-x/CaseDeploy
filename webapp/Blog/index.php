@@ -2,23 +2,23 @@
     //index page (home page of the blog)
     session_start();
 
-    $status = "";
-    $error = "";
+    // $status = "";
+    // $error = "";
     
-    if(isset($_GET['status']))
-    {
-        $status = $_GET['status'];
-        $message = $_GET['message'];
+    // if(isset($_GET['status']))
+    // {
+    //     $status = $_GET['status'];
+    //     $message = $_GET['message'];
         
-        if($message=="inputEmpty")
-            echo "<script>alert('Please Input a keyword!');</script>";
+    //     if($message=="inputEmpty")
+    //         echo "<script>alert('Please Input a keyword!');</script>";
         
-        if($message=="databaseError")
-            echo "<script>alert('System Error!');</script>";
+    //     if($message=="databaseError")
+    //         echo "<script>alert('System Error!');</script>";
 
-        if($message=="dataEmpty")
-            echo "<script>alert('No relative article!');</script>";
-    }
+    //     if($message=="dataEmpty")
+    //         echo "<script>alert('No relative article!');</script>";
+    // }
 ?>
 
 
@@ -41,9 +41,11 @@
         src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"
     >
     </script>
+    
+
   </head>
 <!-- <body  class = "blogsite"> -->
-<body>
+<body class="d-flex flex-column min-vh-100">
     <nav class="navbar navbar-expand-lg bg-dark navbar-dark fixed-top">
         <div class="container">
             <a href="./index.php" class="navbar-brand site-title">Console.Blog</a> -->
@@ -71,10 +73,20 @@
                     </li>
                     <li class="nav-item">
                       <?php
-                          if(isset($_SESSION['userid']))
-                              echo "<a class=\"nav-link\" href=\"Views/user_show.php\">ID: ".$_SESSION['nickname']."</a>";
+                          if(isset($_SESSION['loginRes']))
+                              echo "<a 
+                                    class=\"nav-link\" 
+                                    href=\"Views/account.view.php\">
+                                        <span class=\"text-warning\">User: "
+                                        .$_SESSION['loginRes']['nickname']
+                                        ."</span>
+                                    </a>";
                           else
-                              echo "<a class=\"nav-link\" href=\"Views/user_login.php\">Login / Join</a>";
+                              echo "<a 
+                                    class=\"nav-link\" 
+                                    href=\"Views/user_login.php\">
+                                        <span class=\"text-warning\">Login / Join</span>
+                                    </a>";
                       ?>
                     </li>
                 </ul>

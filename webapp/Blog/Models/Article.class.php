@@ -55,10 +55,10 @@
                 exit();
             }
             //otherwise, store the query result
-            $result = array();
-            $result['data'] =$stmt->FETCHALL();
-            $result['rowcount'] = $stmt->rowCount();
-            
+            // $result = array();
+            // $result['data'] =$stmt->FETCHALL();
+            // $result['rowcount'] = $stmt->rowCount();
+            $result = $stmt->FETCHALL();
             //if successfully retrieve data, clear the statment and return
             $stmt=null;
             //return associate array/empty object.
@@ -84,7 +84,7 @@
 
             //otherwise
             $result = $stmt->FETCHALL();    //return associate array/empty object.
-
+            error_log(json_encode($result));
             //if successfully retrieve data, clear the statment and return
             $stmt=null;
             return $result;
@@ -114,7 +114,6 @@
                 
                 $stmt = null;
                 header("location: ../Views/article_new.php?status=failed&error=databaseError");
-                exit();
             }
 
             //clear the $statement

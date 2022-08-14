@@ -91,7 +91,7 @@
             }
 
             //add user
-            $this->insertUser($this->fname,$this->lname,$this->nname,$this->email,$this->pwd,$this->phone,$this->region);
+            return $this->insertUser($this->fname,$this->lname,$this->nname,$this->email,$this->pwd,$this->phone,$this->region);
         }
         
         //************************* helper methods *************************//

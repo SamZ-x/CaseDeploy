@@ -5,6 +5,9 @@
 //start the session for store the result data
 session_start();
 
+global $data, $status, $NumRows;
+
+
 //passing non-sensitive info to retrieve data.
 if(isset($_GET['action']) || isset($_POST['action'])){
 
@@ -38,11 +41,12 @@ if(isset($_GET['action']) || isset($_POST['action'])){
                     require_once "../Controls/ArticleContr.class.php";
                     $article = ArticleContr::_localSearch($userid, $keyword);
                     $data = $article->localSearchArticles();
-                    
+                    $status = "success";
+                    error_log(json_encode($data));
                     //store the data and redirect to present the data
-                    $_SESSION['userdata'] = $data;
-                    if($_SESSION['loginstatus'])
-                        header("location: ../Views/user_show.php?status=done&error=none");
+                    //$_SESSION['userdata'] = $data;
+                    // if($_SESSION['loginRes']['loginstatus'])
+                    //     header("location: ../Views/account.view.php?status=done&error=none");
                 break;
 
                 // case "single_article":
@@ -70,11 +74,11 @@ if(isset($_GET['action']) || isset($_POST['action'])){
                     require_once "../Controls/ArticleContr.class.php";
                     $article = ArticleContr::_globalSearch($category, $keyword);
                     $data = $article->globalSearchArticles();
-                    
+                    $status = "success";
+                    //header("location: ../Views/article_show.php?status=done&error=none");
                     //store the data and redirect to present the data
-                    $_SESSION['data'] = $data;
-                    header("location: ../Views/article_show.php?status=done&error=none");
-                break;
+                    //$_SESSION['data'] = $data;
+                    break;
             
                 case 'userlogin':
            
@@ -86,10 +90,14 @@ if(isset($_GET['action']) || isset($_POST['action'])){
                     require_once "../Models/Dbh.class.php";
                     require_once "../Controls/UserContr.class.php";
                     $user = UserContr::_userLogin($uid, $pwd);
-                    $uid = $user->userLogin();
-        
+                    $response = $user->userLogin();
+
+
+                    $_SESSION['loginRes'] = $response;
+                    
                     //request article data retrieve if logined successfully
-                    header("location: route.php?action=select&endpoint=article&userid={$uid}&keyword=");
+                    //header("location: route.php?action=select&endpoint=article&userid={$uid}&keyword=");
+                    header("location: ../Views/account.view.php");
                 break;
 
             }//end of the 'endpoint' switch statement
@@ -104,14 +112,16 @@ if(isset($_GET['action']) || isset($_POST['action'])){
                     $title = $_POST['title'];
                     $description = $_POST['description'];
                     $markdown = $_POST['markdown'];
+                    $userid = $_SESSION['loginRes']['userid'];
                     //request control to insert data base on the parameter
                     require_once "../Models/Dbh.class.php";
                     require_once "../Controls/ArticleContr.class.php";
-                    $article = ArticleContr::_newAritcle($title, $description, $markdown);
+                    $article = ArticleContr::_newAritcle($title, $description, $userid, $markdown);
                     $article->addArticle();
                     
                     //request article data retrieve if logined successfully
-                    header("location: route.php?action=select&endpoint=article&userid={$_SESSION['userid']}&keyword=");
+                    //header("location: route.php?action=select&endpoint=article&userid={$_SESSION['userid']}&keyword=");
+                    header("location: ../Views/account.view.php");
                 break;  
 
                 case "role":
@@ -133,10 +143,10 @@ if(isset($_GET['action']) || isset($_POST['action'])){
                     require_once "../Models/Dbh.class.php";
                     require_once "../Controls/UserContr.class.php";
                     $user = UserContr:: _userSignup($fname,$lname,$nname,$email,$password,$phone,$region);
-                    $user->signupUser();
-                    
+                    $response = $user->signupUser();
+                    $_SESSION['loginRes'] = $response;
                     //redirect to user page
-                    header("location: ../Views/user_show.php");
+                    header("location: ../Views/account.view.php");
 
                 break;
             }
@@ -189,4 +199,27 @@ if(isset($_GET['action']) || isset($_POST['action'])){
 }
 else{
     header("location: ../index");
+}
+
+Done();
+die();
+
+/*****************************
+Function Name: Done
+Description: Package up our data and operation status for return to the client
+Parameters: no parameters
+Return: data array in JSON format
+*****************************/
+function Done()
+{
+    global $data, $status, $NumRows;
+
+    //package the data and message into the associative array
+    $result = [];
+    $result['data'] = $data;
+    $result['status'] = $status;
+    $result['rowcount'] = $NumRows;
+
+    //echo back to the client
+    echo json_encode($result);
 }

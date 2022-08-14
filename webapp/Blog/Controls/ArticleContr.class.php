@@ -1,5 +1,5 @@
 <?php
-
+  
     require_once "../Lib/Parsedown.php";            //use Parsedown lib
     require_once "../Models/Article.class.php";     //use article model
 
@@ -28,13 +28,13 @@
         //function : _newAritcle
         //take 2 parameters :'title', 'username'
         //create an instance for local search (logined user)
-        public static function _newAritcle($title, $description, $markdown){
+        public static function _newAritcle($title, $description, $userid, $markdown){
             $instance = new self();
             //directly assign values to relative fields
             $instance->title = $title;
             $instance->description = $description;
             $instance->markdown = $markdown;
-            $instance->userid = $_SESSION['userid'];            
+            $instance->userid =$userid;            
         
             //use function to assign
             $parsedwon = new Parsedown();

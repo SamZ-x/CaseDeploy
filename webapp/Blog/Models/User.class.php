@@ -1,5 +1,5 @@
 <?php
-    session_start();
+    //session_start();
 
     //User model
     class User extends Dbh{
@@ -40,14 +40,22 @@
             }
             
             //add new session and store the user info into session
-            //session_start();
-            $_SESSION["userid"] =  $result[0]['UserId'];
-            $_SESSION["nickname"] =  $result[0]['NickName'];
-            $_SESSION['loginstatus'] = "login";
+            $Response = array(
+                "userid" => $result[0]['UserId'],
+                "nickname" => $result[0]['NickName'],
+                "roleid" => $result[0]['RoleId'],
+                "loginstatus" => "login"
+            );
+
+            // $_SESSION["userid"] =  $result[0]['UserId'];
+            // $_SESSION["nickname"] =  $result[0]['NickName'];
+            // $_SESSION['loginstatus'] = "login";
+
+            //$_SESSION['loginRes'] = $Response; 
 
             //clear the $stmt and return the uid
             $stmt = null;
-            return $result[0]['UserId'];
+            return $Response;//$result[0]['UserId'];
         }
         
         //function : checkUser
@@ -101,16 +109,23 @@
                 $sqlquery = "SELECT `UserId`,`NickName` FROM `Users` WHERE `Email` = ?";
                 $stmt = $this->connect()->prepare($sqlquery);
                 if($stmt->execute([$email])){
-                    $newUser = $stmt->FETCHALL();
+                    $result = $stmt->FETCHALL();
                     //store user info in session
-                    $_SESSION['userid'] = $newUser[0]['UserId'];
-                    $_SESSION['nickname'] = $newUser[0]['NickName'];
-                    $_SESSION['loginstatus'] = "login";
+                    // $_SESSION['userid'] = $newUser[0]['UserId'];
+                    // $_SESSION['nickname'] = $newUser[0]['NickName'];
+                    // $_SESSION['loginstatus'] = "login";
+
+                    $Response = array(
+                        "userid" => $result[0]['UserId'],
+                        "nickname" => $result[0]['NickName'],
+                        "roleid" => $result[0]['RoleId'],
+                        "loginstatus" => "login"
+                    );
                 }
             }
 
             //return result 
-            return true;
+            return $Response;
         }
 
     }

@@ -1,8 +1,31 @@
 <?php
-    require_once "head.view.php";
+ //   require_once "head.view.php";
 ?>
-    <section class = "p-5">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog</title>
+    <link rel="stylesheet" href="../../../css/blog.style.min.css">
+    <!-- JavaScript Bundle with Popper -->
+    <script 
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" 
+        integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" 
+        crossorigin="anonymous"
+    >
+    </script>
+    <script 
+        src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+    >
+    </script>
+    <script src="../Js/signup.js"></script>
+  </head>
 
+  <?php require_once "./nav.view.php"; ?>
+
+<section class = "p-5">
     <div class="container text-center mx-auto">
         <div class="d-flex flex-column ">
                 <label class="text-lg-center md-2 site-subtitle">Provide some details for your blog</label>
@@ -43,12 +66,10 @@
                     <label>Region</label>
                     <select class="form-select " name="Region">
                         <option value="none">Please Select</option>
-                        <option value="1">CA</option>
-                        <option value="2">USA</option>
                     </select>
                 </div>
                 <div class="text-center mt-5">
-                    <input class="me-2" type="checkbox" name="agreement"><label>I agree to <a href="">terms of service.</a></label>
+                    <input class="me-2" type="checkbox" name="agreement" required><label>I agree to <a href="">terms of service.</a></label>
                 </div>    
                 <button class="btn btn-primary w-100 mt-2 " type="submit" name="submit">Join</button>
 
@@ -66,4 +87,4 @@
 
         </div>
     </div>
-    <?php require_once "foot.view.php"; ?>
+    <?php require_once "footer.view.php"; ?>

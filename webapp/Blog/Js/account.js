@@ -1,9 +1,10 @@
 var articles;
 
 $(function(ev){
-    
+    console.log(articles);
     //load current account data
-    $('button[name="submit"]').on('click', SearchArticles)
+    GetAccountData();
+    console.log(articles);
 });
 
 
@@ -13,21 +14,20 @@ Description: get the articles of the current logined account
 Parameters: no parameter
 Return: no return, display users info in table format
 *****************************/
-function SearchArticles(){
+function GetAccountData(){
 
     //prepare data for server
-    let searchInfo = $('input#searchInfo').val();
-    let searchCategory = $('select#searchCategory option:selected').val();
-    let sendData = {
-        'action':'select',
-        'endpoint':'globalsearch',
-        'searchCategory': searchCategory,
-        'searchInfo':searchInfo
-    };
+    let userid = $('#loginId').attr('value');
+    let sendData = {};
+    sendData['action'] = 'select';
+    sendData['endpoint'] = 'article';
+    sendData['userid'] = userid;
+    sendData['keyword'] = " ";
 
     console.log(sendData);
     //request data
-    AjaxRequest('../Route/route.php', 'GET', sendData, 'json', SearchArticlesSuccess, ErrorHandler );
+    AjaxRequest('../Route/route.php', 'GET', sendData, 'json', GetDataSuccess, ErrorHandler );
+
 }
 
 /*****************************
@@ -36,19 +36,11 @@ Description: diplay articles
 Parameters: SuccessRespond: responding data from the service, textStatus: Ajaxrequest result status 
 Return: no return
 *****************************/
-function SearchArticlesSuccess(SuccessRespond, textStatus){
-    //update style
-    let introSection = $('section#intro');
-    introSection.addClass('d-none')
-    let searchbar_container = $('div#searchbar_container');
-    searchbar_container.removeClass('p-5');
-    
-    //debug
+function GetDataSuccess(SuccessRespond, textStatus){
     console.log(SuccessRespond);
     
     //target the container
     let articleList = $('#articles');
-    articleList.empty();
     articles = SuccessRespond['data'];
     console.log(articles);
     //display data or empty data message
@@ -62,7 +54,7 @@ function SearchArticlesSuccess(SuccessRespond, textStatus){
         EmptyMessage.classList.add("col-md-12", "p-5");
 
         let text = document.createElement('h1');
-        text.innerHTML = "Oop! No articles!";
+        text.innerHTML = "No articles! Create an new Article!";
         
         EmptyMessage.append(text);
         articleList.append(EmptyMessage);
@@ -158,8 +150,17 @@ function CreateArticleCard(article){
     SetMultipleAttr(Card_Readmore, attrs_readmore);
     Card_Readmore.innerHTML = "Read More";
 
+    let Card_Edit = document.createElement('a');
+    Card_Edit.classList.add("btn", "btn-primary", "mx-1");
+    let attrs_edit = {
+        "name": "btnEdit",
+        "value":article['articleId'],
+    }
+    SetMultipleAttr(Card_Edit, attrs_edit);
+    Card_Edit.innerHTML = "Edit";
+
     //combine all elements
-    article_Card.append(Card_Title, Card_date, Card_Description,Card_Readmore);
+    article_Card.append(Card_Title, Card_date, Card_Description,Card_Readmore, Card_Edit);
     article_Card_Frame.append(article_Card);
     article_Frame.append(article_Card_Frame);
 

@@ -1,5 +1,5 @@
-<body>
-    <nav class="navbar navbar-expand-lg bg-dark navbar-dark fixed-top">
+<body class="d-flex flex-column min-vh-100" >
+    <nav class="navbar navbar-expand-lg bg-dark navbar-dark fixed-top ">
         <div class="container">
             <a href="../index.php" class="navbar-brand site-title">Console.Blog</a>
 
@@ -26,10 +26,22 @@
                     </li>
                     <li class="nav-item">
                       <?php
-                          if(isset($_SESSION['userid']))
-                              echo "<a class=\"nav-link\" href=\"Views/user_show.php\">ID: ".$_SESSION['nickname']."</a>";
+                          if(isset($_SESSION['loginRes']))
+                              echo "<a 
+                                    class=\"nav-link\" 
+                                    href=\"account.view.php\" 
+                                    id = \"loginId\" 
+                                    value = \"".$_SESSION['loginRes']['userid']."\">
+                                        <span class=\"text-warning\">User: "
+                                        .$_SESSION['loginRes']['nickname']
+                                        ."</span>
+                                    </a>";
                           else
-                              echo "<a class=\"nav-link\" href=\"Views/user_login.php\">Login / Join</a>";
+                              echo "<a 
+                                    class=\"nav-link\" 
+                                    href=\"user_login.php\">
+                                        <span class=\"text-warning\">Login / Join</span>
+                                    </a>";
                       ?>
                     </li>
                 </ul>
