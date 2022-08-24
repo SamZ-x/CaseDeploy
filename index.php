@@ -227,7 +227,7 @@
                             <p class="card-text">
                                 Provide basic country information 
                             </p>
-                            <a href="./api/index.php" class="btn btn-primary">Read more</a>
+                            <a href="./api/index.php" class="btn btn-primary">Documentation</a>
                         </div>
                     </div>
                 </div>
