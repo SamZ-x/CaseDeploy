@@ -17,7 +17,7 @@
         protected function findByTitle($title){
             //query
             $sqlquery = "SELECT a.`articleId`, a.`UserId`, a.`title`, a.`createdAt`,  CONCAT(u.`Firstname`, ' ', u.`Lastname`) as 'author', a.`description`, a.`markdown`, a.`sanitizedHtml` ";
-            $sqlquery .= "FROM `articles` a JOIN `Users` u ON a.UserId = u.UserId ";
+            $sqlquery .= "FROM `articles` a JOIN `users` u ON a.UserId = u.UserId ";
             $sqlquery .= "WHERE a.`title` LIKE '%' ? '%'";
             $stmt = $this->connect()->prepare($sqlquery);
             
@@ -49,7 +49,7 @@
         protected function findByAuthor($author){
             //query
             $sqlquery = "SELECT a.`articleId`, a.`UserId`, a.`title`, a.`createdAt`,  CONCAT(u.`Firstname`, ' ', u.`Lastname`) as 'author', a.`description`, a.`markdown`, a.`sanitizedHtml` ";
-            $sqlquery .= "FROM `articles` a JOIN `Users` u ON a.`UserId` = u.`UserId`  ";
+            $sqlquery .= "FROM `articles` a JOIN `users` u ON a.`UserId` = u.`UserId`  ";
             $sqlquery .= "WHERE u.`Firstname` LIKE '%' ? '%' OR u.`Lastname` LIKE '%' ? '%' OR u.`Middlename` LIKE '%' ? '%' OR u.`NickName` LIKE '%' ? '%'";
             $stmt = $this->connect()->prepare($sqlquery);
             
@@ -81,7 +81,7 @@
         protected function findByUserId($userid){
             //query
             $sqlquery = "SELECT a.`articleId`, a.`UserId`, a.`title`, a.`createdAt`,  CONCAT(u.`Firstname`, ' ', u.`Lastname`) as 'author', a.`description`, a.`markdown`, a.`sanitizedHtml` ";
-            $sqlquery .= "FROM `articles` a JOIN `Users` u ON a.`UserId` = u.`UserId` ";
+            $sqlquery .= "FROM `articles` a JOIN `users` u ON a.`UserId` = u.`UserId` ";
             $sqlquery .= "WHERE a.`UserId` = ? ";
             $stmt = $this->connect()->prepare($sqlquery);
             
@@ -113,7 +113,7 @@
         protected function findByArticleId($articleid){
             //query
             $sqlquery = "SELECT a.`articleId`, a.`UserId`, a.`title`, a.`createdAt`,  CONCAT(u.`Firstname`, ' ', u.`Lastname`) as 'author', a.`description`, a.`markdown`, a.`sanitizedHtml` ";
-            $sqlquery .= "FROM `articles` a JOIN `Users` u ON a.`UserId` = u.`UserId` ";
+            $sqlquery .= "FROM `articles` a JOIN `users` u ON a.`UserId` = u.`UserId` ";
             $sqlquery .= "WHERE a.`articleId` = ? ";
             $stmt = $this->connect()->prepare($sqlquery);
             //internal server faild return null
