@@ -39,6 +39,7 @@ if(isset($_GET['action']) || isset($_POST['action'])){
             $user = UserContr:: _loginOAuth();
             $data = $user->login_OAuth();
             Done();  //send json response
+            exit();
         break;
         
         case "register":
@@ -93,11 +94,9 @@ if(isset($_GET['action']) || isset($_POST['action'])){
     }//end of the 'action' switch statement
 }
 else{
-    header("location: ../index");
+    header("location: ../index.php");
 }
 
-//Done();
-// die();
 
 /*****************************
 Function Name: Done
