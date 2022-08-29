@@ -16,7 +16,7 @@
         //find an user by user id
         protected function findOneById($arg_id){
             //database query
-            $sqlquery = "SELECT `UserId`, `Password`, `NickName`,`RoleId` FROM `Users` WHERE `UserId` = ?;";
+            $sqlquery = "SELECT `UserId`, `Password`, `NickName`,`RoleId` FROM `users` WHERE `UserId` = ?;";
             $stmt = $this->connect()->prepare($sqlquery);
             
             //internal server faild return null
@@ -46,7 +46,7 @@
         //find an user by user email
         protected function findOneByEmail($arg_email){
             //database query
-            $sqlquery = "SELECT `UserId`, `Password`, `NickName`,`RoleId` FROM `Users` WHERE `Email` = ?;";
+            $sqlquery = "SELECT `UserId`, `Password`, `NickName`,`RoleId` FROM `users` WHERE `Email` = ?;";
             $stmt = $this->connect()->prepare($sqlquery);
             
             //internal server faild return null
@@ -76,7 +76,7 @@
         //find an user by user githubId
         protected function findOneByGitHubId($arg_gid){
             //database query
-            $sqlquery = "SELECT `UserId`, `NickName`,`RoleId` FROM `Users` WHERE `github_id` = ?;";
+            $sqlquery = "SELECT `UserId`, `NickName`,`RoleId` FROM `users` WHERE `github_id` = ?;";
             $stmt = $this->connect()->prepare($sqlquery);
             
             //internal server faild return null
@@ -110,7 +110,7 @@
             $hashpassword = password_hash($password, PASSWORD_DEFAULT);
 
             //create query and prepare the stmt with placeholder
-            $sqlquery = "INSERT INTO `Users`(`UserId`, `Email`, `Password`, `NickName`, `Firstname`, `Lastname`, `Region`, `Phone`) VALUES (?,?,?,?,?,?,?,?);";
+            $sqlquery = "INSERT INTO `users`(`UserId`, `Email`, `Password`, `NickName`, `Firstname`, `Lastname`, `Region`, `Phone`) VALUES (?,?,?,?,?,?,?,?);";
             $stmt = $this->connect()->prepare($sqlquery);
             
             //if the excute shows error, show the error
@@ -137,7 +137,7 @@
             //generate userid
             $userid = $this->generateUserId();
             //create query and prepare the stmt with placeholder
-            $sqlquery = "INSERT INTO `Users`(`UserId`, `github_Id`, `NickName`) VALUES (?,?,?);";
+            $sqlquery = "INSERT INTO `users`(`UserId`, `github_Id`, `NickName`) VALUES (?,?,?);";
             $stmt = $this->connect()->prepare($sqlquery);
             //if the excute shows error, show the error
             if(!$stmt->execute([$userid, $arg_gid, $nname])){          //add info array to statement execute()
