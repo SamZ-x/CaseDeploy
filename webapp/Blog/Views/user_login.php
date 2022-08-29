@@ -21,7 +21,7 @@
         //get resource from Resource server
         $user = json_decode(GetOauthUser($token), true);
 
-
+        var_dump(json_encode($user));
         //redirection
         if($user){
             //create user if not exist in database
