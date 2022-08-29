@@ -5,6 +5,10 @@
         header("location: user_login.php");
         exit();
     }
+    
+    if(isset($_GET['articleId'])&&strlen($_GET['articleId'])>0){
+        $articleId = $_GET['articleId'];
+    }
 
     if(isset($_GET['status'])&&$_GET['status']=="new")
         $_SESSION['inputRecord'] = null;
@@ -14,18 +18,11 @@
     {
         $message = $_GET['message'];
         
-        if($message=="inputEmpty")
+        if($message=="InputEmpty")
             echo "<script>alert('Input can not be empty!');</script>";
 
-        if($message=="databaseError")
-            echo "<script>alert('System Error!');</script>";
-    }
-
-    //get the target article
-    if(isset($_GET['articleId'])){
-        $articleId = $_GET(['articleId']);
-        $userId = $_SESSION['loginRes']['userId'];
-        $articleId = GetSelectedArticle($articleId, $userId);
+        if($message=="InteralError")
+            echo "<script>alert('Interal Error! Try again later.');</script>";
     }
     
 ?>
@@ -48,7 +45,7 @@
         src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"
     >
     </script>
-    <!-- <script src='../Js/account.js'></script> -->
+    <script src='../Js/article_edit.js'></script>
   </head>
 
   <?php require_once "./nav.view.php"; ?>
@@ -68,8 +65,9 @@
         <div class="container bg-secondary text-white">
             <form class="p-2" action="../Route/route.php" method="post">
                 <!-- determine the route -->
-                <input type="hidden" name="action" value="update">
-                <input type="hidden" name="endpoint" value="article">
+                <input type="hidden" name="action" value="editArticle">
+                <input type="hidden" name="articleid" value=<?=$articleId?>>
+                <!-- <input type="hidden" name="endpoint" value="article"> -->
                 
                 <?php require_once "_form_field.php"; ?>
             </form>

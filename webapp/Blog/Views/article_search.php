@@ -56,8 +56,8 @@
             </div>
             <div class="d-flex justify-content-center">
                 <select name="searchCategory" id="searchCategory" class="form-select search-option">
-                    <option name="searchCategory" value="username">User Name</option>
-                    <option name="searchCategory" value="articletitle">Article Title</option>
+                    <option name="searchCategory" value="username">Author</option>
+                    <option name="searchCategory" value="articletitle">Article</option>
                 </select>
 
                 <input  class="form-contol w-50 mr-2" type="text" name="searchInfo" id="searchInfo" placeholder="Input a keyword...">

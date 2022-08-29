@@ -42,7 +42,7 @@
 <div class="row text-center my-2">
     <div class="col-md-6 d-flex justify-content-center">
         <button class = "btn btn-primary btn-md mx-2" type="submit" name="submit">Save</button>
-        <a class = "btn btn-primary btn-md mx-2" href="user_show.php" >Cancel</a>     <!--add url:back to the previous page -->
+        <a class = "btn btn-primary btn-md mx-2" href="./account.view.php" >Cancel</a>     <!--add url:back to the previous page -->
     </div>                     
 </div>
 

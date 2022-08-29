@@ -51,7 +51,7 @@
             $inputSnapshot = array(
                 "title" => $title,
                 "description" => $description,
-                "markdown" => $markdown
+                "markdown" => $markdown_text
             );
             $_SESSION['inputSnapshot'] = $inputSnapshot;
 
@@ -82,10 +82,46 @@
         public static function _targetArticle(){
             $instance = new self();
             //assign values to relative fields
-            $instance->articleid = $_POST['articleId'];
+            $instance->articleid = $_POST['articleid'];
             $instance->userid = $_SESSION['loginRes']['userid'];
             return $instance;
         }
+
+        //function : _updateArticle
+        //create an instance for updating article
+        public static function _updateArticle(){
+            $instance = new self();
+
+            //get value from globals
+            $articleid = $_POST['articleid'];
+            $title = $_POST['title'];
+            $description = $_POST['description'];
+            $markdown_text = $_POST['markdown'];
+            $userid = $_SESSION['loginRes']['userid'];
+
+            //directly assign values to relative fields
+            $instance->articleid = $articleid;
+            $instance->title = $title;
+            $instance->description = $description;
+            $instance->markdown = $markdown_text;
+            $instance->userid =$userid;            
+        
+            //use function to assign
+            $parsedwon = new Parsedown();
+            $instance->sanitizedhtml = $parsedwon->text($markdown_text);
+            $instance->slug = $instance->slugify($title);
+
+            //create a snapshot for lastest input
+            $inputSnapshot = array(
+                "title" => $title,
+                "description" => $description,
+                "markdown" => $markdown_text
+            );
+            $_SESSION['inputSnapshot'] = $inputSnapshot;
+
+            return $instance;
+        }
+
 
         //************************* public Methods *************************//
 
@@ -199,6 +235,7 @@
                 echo json_encode($response);
                 exit();
             }
+
             //delete the target article and get the return
             $article = $this->findOneAndDelete($this->articleid);
             if(!empty($article)){
@@ -215,8 +252,83 @@
             exit();
         }
 
+        //function : getArticle
+        //get single article
+        //base on logged userid and articleid
+        //output: redirection
+        public function getArticle(){
+            //userid check
+            if($this->IsEmpty_UserId()){
+                //send response
+                $response["message"] = "Invalid User";
+                $response["data"] = [];
+                echo json_encode($response);
+                exit();
+            }
 
-        
+            //get articles and check result
+            $article = ($this->findByArticleId($this->articleid))[0];
+            //no matched article for the articleid
+            if(empty($article)){
+                // header("location: ../Views/account.view.php");
+                // exit();
+                $response["message"] = "Invalid articleId. No matched article.";
+                $response["data"] = [];
+                echo json_encode($response);
+                exit();
+            }
+            //userid un-match
+            if($this->userid != $article['UserId']){
+                $response["message"] = "Action Unauthorized.";
+                $response["data"] = [];
+                echo json_encode($response);
+                exit();
+            }
+
+            //send response
+            $response["message"] = "succeed";
+            $response["data"] = $article;
+            echo json_encode($response);
+            exit();
+        }
+
+        //function : updateAritcle
+        //update selected article
+        //base on logged userid and articleid
+        //output: redirection
+        public function updateAritcle(){
+            //check article existence and verify the articleid
+            $article = $this->findByArticleId($this->articleid); 
+            //no matched article for the articleid
+            if(empty($article)){
+                header("location: ../Views/account.view.php");
+                exit();
+            }
+            //userid un-match
+            if($this->userid != $article[0]['UserId']){
+                header("location: ../Views/account.view.php");
+                exit();
+            }
+
+            //input data check
+            if($this->IsEmpty_ArticleInput()){
+                header("location: ../Views/article_edit.php?articleId=".$this->articleid."&status=failed&message=InputEmpty");
+                exit();   
+            }
+
+            //insert database
+            $article = $this->findOneAndUpdate($this->title, $this->description, $this->markdown, $this->sanitizedhtml, $this->slug, $this->articleid);
+            if(!empty($article)){
+                header("location: ../Views/account.view.php");
+                exit();
+            }
+            else{
+                header("location: ../Views/edit.php?articleId=".$this->articleid."&status=failed&message=InteralError");
+                exit();
+            }
+        }
+
+
         //************** Helper Methods *****************//
         
         //replace all special char with '-'

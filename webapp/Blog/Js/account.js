@@ -63,7 +63,7 @@ function GetDataSuccess(SuccessRespond, textStatus){
     //delete action
     $('button[name="btnDelete"]').on('click', DeleteArticle);
     //edit action
-    $('button[name="btnEdit"]').on('click', EditArticle);
+    // $('button[name="btnEdit"]').on('click', EditArticle);
 }
 
 /*****************************
@@ -77,7 +77,7 @@ function DeleteArticle(){
     let articleId = this.value;//attr('value');
     let sendData = {
         'action':'deleteArticle',
-        'articleId': articleId,
+        'articleid': articleId,
     };
 
     console.log(sendData);
@@ -110,8 +110,8 @@ function EditArticle(){
     //prepare request
     let articleId = this.value;//attr('value');
     let sendData = {};
-    sendData['action'] = 'delete';
-    sendData['endpoint'] = 'article';
+    sendData['action'] = 'editArticle';
+    // sendData['endpoint'] = 'article';
     sendData['articleId'] = articleId;
 
     console.log(sendData);
