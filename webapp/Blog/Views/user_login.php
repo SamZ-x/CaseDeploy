@@ -23,7 +23,7 @@
 
 
         //redirection
-        if(!empty($user)){
+        if($user){
             //create user if not exist in database
             //or pull user info from database
             $oAuth_uid = $user['id'];
