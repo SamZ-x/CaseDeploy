@@ -120,7 +120,7 @@
                 </div>
             </form>
             <div class="d-flex flex-row justify-content-center p-2">
-                <a  href="https://github.com/login/oauth/authorize?client_id=4890993edc61fa32aaca"><i class="bi bi-github"></i></a>
+                <a  href="https://github.com/login/oauth/authorize?client_id=cac6a4b3047f85cfce35"><i class="bi bi-github"></i></a>
             </div>
         </div>
     </section>
