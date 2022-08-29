@@ -37,7 +37,7 @@ function loginUser($oAuth_uid, $nickname){
         "nickname" => $nickname,
     );
     $header="";
-    return callAPI("POST", "http://localhost/caseDeploy/webapp/Blog/Route/route.php", $data, $header);
+    return callAPI("POST", "https://www.casedeploy.com/webapp/Blog/Route/route.php", $data, $header);
 }
 
 //curl functions to send request to API
