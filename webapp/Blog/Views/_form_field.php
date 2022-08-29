@@ -5,9 +5,9 @@
     $description="";
     $markdown="";
 
-    if(isset($_SESSION['inputRecord'])){
+    if(isset($_SESSION['inputSnapshot'])){
         //extract the input record
-        $dataRec = $_SESSION['inputRecord'];
+        $dataRec = $_SESSION['inputSnapshot'];
         $title = $dataRec['title'];
         $description = $dataRec['description'];
         $markdown = $dataRec['markdown'];

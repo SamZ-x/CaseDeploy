@@ -26,131 +26,198 @@
         }
 
         //function : _newAritcle
-        //take 2 parameters :'title', 'username'
-        //create an instance for local search (logined user)
-        public static function _newAritcle($title, $description, $userid, $markdown){
+        //create an instance for creating new article
+        public static function _newAritcle(){
             $instance = new self();
+            
+            //get value from globals
+            $title = $_POST['title'];
+            $description = $_POST['description'];
+            $markdown_text = $_POST['markdown'];
+            $userid = $_SESSION['loginRes']['userid'];
+
             //directly assign values to relative fields
             $instance->title = $title;
             $instance->description = $description;
-            $instance->markdown = $markdown;
+            $instance->markdown = $markdown_text;
             $instance->userid =$userid;            
         
             //use function to assign
             $parsedwon = new Parsedown();
-            $instance->sanitizedhtml = $parsedwon->text($markdown);
+            $instance->sanitizedhtml = $parsedwon->text($markdown_text);
             $instance->slug = $instance->slugify($title);
+
+            //create a snapshot for lastest input
+            $inputSnapshot = array(
+                "title" => $title,
+                "description" => $description,
+                "markdown" => $markdown
+            );
+            $_SESSION['inputSnapshot'] = $inputSnapshot;
+
             return $instance;
         }
 
-        //function : _globalSearch
-        //take 2 parameters :'title', 'username'
-        //create an instance for global search 
-        public static function _globalSearch($category, $keyword){
+        //function : _Search
+        //create an instance for global search
+        public static function _Search(){
             $instance = new self();
             //assign values to relative fields
-            $instance->category = $category;
-            $instance->keyword = $keyword;
+            $instance->category = $_GET['searchCategory'];
+            $instance->keyword = $_GET['searchInfo'];
             return $instance;
         }
 
-        //function : _localSearch
-        //take 2 parameters :'title', 'username'
-        //create an instance for local search (logined user)
-        public static function _localSearch($userid, $keyword){
+        //function : _UserArticle
+        //create an instance for retrieve articles data for logged user
+        public static function _UserArticle(){
             $instance = new self();
             //assign values to relative fields
-            $instance->userid = $userid;
-            $instance->keyword = $keyword;
+            $instance->userid = $_POST['userid'];
             return $instance;
         }
 
-        //function : _getSingle
-        //take 2 parameters :'articleid'
-        //create an instance for single search 
-        public static function _getSingle($articleid){
+        //function : _targetArticle
+        //create an instance for selected article
+        public static function _targetArticle(){
             $instance = new self();
             //assign values to relative fields
-            $instance->articleid = $articleid;
+            $instance->articleid = $_POST['articleId'];
+            $instance->userid = $_SESSION['loginRes']['userid'];
             return $instance;
         }
-
-
 
         //************************* public Methods *************************//
 
-        //function : GetArticles
-        //run error checking and request insert data to database
-        public function getSingleArticle(){
-            //all Articles class function to get the articles
-            $result = $this->Retrieve_signle($this->articleid);
-            return $result;
-        }
-
-        //function : globalSearchArticles
-        //run error checking and request data from database
-        //return data
-        public function globalSearchArticles(){
-    
-            //back to index page with error message if input empty
-            if($this->IsEmpty_globalsearch()){
-                header("location:../index.php?status=failed&message=inputEmpty");
+        //function : search
+        //search articles
+        //base on category and keyword
+        //output: article object and message
+        public function search(){
+            //input check
+            if($this->IsEmpty_Search()){
+                //send response
+                $response["message"] = "Please select search category and keyword.";
+                $response["data"] = [];
+                echo json_encode($response);
                 exit();
             }
 
-            //get the data and return
-            $result = $this->Retrieve_globalSearch($this->category, $this->keyword);
-            return $result;
+            //get article
+            if($this->category == "username"){
+                $articles = $this->findByAuthor($this->keyword);
+            }
+
+            if($this->category == "articletitle"){
+                $articles = $this->findByTitle($this->keyword);
+            }
+
+            //result check
+            if(!empty($articles)){
+                $response["message"] = "succeed";
+            }
+            else{
+                $response["message"] = "No matched articles";
+            }
+            
+            //send response
+            $response["data"] = $articles;
+            echo json_encode($response);
+            exit();
         }
 
-        //function : localSearchArticles
-        //run error checking and request data fromdatabase
-        //return data
-        public function localSearchArticles(){
-    
-            //back to login page with error message if input empty
-            if($this->IsEmpty_localsearch()){
-                header("location:../Views/user_login.php?status=failed&message=inputEmpty");
+        //function : getUserArticle
+        //get the current user's articles
+        //base on logged userid
+        //output: article object and message
+        public function getUserArticle(){
+            //userid check
+            if($this->IsEmpty_UserId()){
+                //send response
+                $response["message"] = "Invalid User";
+                $response["data"] = [];
+                echo json_encode($response);
                 exit();
             }
 
-            //get the data and return
-            $result = $this->Retrieve_localSearch($this->userid, $this->keyword);
-            return $result;
+            //get articles and check result
+            $articles = $this->findByUserId($this->userid);
+            if(!empty($articles)){
+                $response["message"] = "succeed";
+                $response["data"] = $articles;
+            }
+            else{
+                $response["message"] = "No matched articles";
+                $response["data"] = [];
+            }
+            //send response
+            echo json_encode($response);
+            exit();
         }
 
-
-        //function : addArticle
-        //run error checking and request insert data to database
-        public function addArticle(){
-            //return error checking
-            if($this->IsEmpty_Add()){
-                header("location: ../Views/article_new.php?status=failed&message=inputEmpty");
-                $inputRecord = array(
-                    "title" => $this->title,
-                    "description" => $this->description,
-                    "markdown" => $this->markdown
-                );
-
-                $_SESSION['inputRecord'] = $inputRecord;
+        //function : createArticle
+        //create new article
+        //output: redirection
+        public function createArticle(){
+            //input data check
+            if($this->IsEmpty_ArticleInput()){
+                header("location: ../Views/article_new.php?status=failed&message=InputEmpty");
                 exit();   
             }
-
-            //store all data into an array to pass to the insert function
-            $data = array(
-                "title" => $this->title,
-                "description" => $this->description,
-                "markdown" => $this->markdown,
-                "userid" => $this->userid,
-                "sanitizedhtml" => $this->sanitizedhtml,
-                "slug" => $this->slug
-            );
-    
-            //reuqest to insert the data
-            $this->Insert($data);
+            //insert database
+            $article = $this->create($this->title,$this->userid,$this->description,$this->markdown, $this->sanitizedhtml, $this->slug);
+            if(!empty($article)){
+                header("location: ../Views/account.view.php");
+                exit();
+            }
+            else{
+                header("location: ../Views/article_new.php?status=failed&message=InteralError");
+                exit();
+            }
         }
+
+        //function : deleteAritcle
+        //delete selected article
+        //base on logged userid and articleid
+        //output: article object and message
+        public function deleteAritcle(){
+            //check article existence and verify the articleid
+            $article = $this->findByArticleId($this->articleid);  
+            //no matched article for the articleid
+            if(empty($article)){
+                // header("location: ../Views/account.view.php");
+                // exit();
+                $response["message"] = "Invalid articleId. No matched article.";
+                $response["data"] = [];
+                echo json_encode($response);
+                exit();
+            }
+            //userid un-match
+            if($this->userid != $article[0]['UserId']){
+                $response["message"] = "Action Unauthorized.";
+                $response["data"] = [];
+                echo json_encode($response);
+                exit();
+            }
+            //delete the target article and get the return
+            $article = $this->findOneAndDelete($this->articleid);
+            if(!empty($article)){
+                $response["message"] = "succeed.";
+                $response["data"] = $article;
+            }else{
+                // header("location: ../Views/account.view.php?status=failed&message=InteralError");
+                // exit();
+                $response["message"] = "Internal Error.";
+                $response["data"] = [];
+            }
+            //send response
+            echo json_encode($response);
+            exit();
+        }
+
+
         
-        //************************* helper methods *************************//
+        //************** Helper Methods *****************//
         
         //replace all special char with '-'
         private function slugify($string){
@@ -158,19 +225,19 @@
         }
 
         //check empty input for adding article(include space)
-        private function IsEmpty_Add(){
+        private function IsEmpty_ArticleInput(){
             //check the input
             return empty(trim($this->title)) || empty( trim($this->description)) || empty(trim($this->markdown));
         }
 
         //check empty input for global search(include space)
-        private function IsEmpty_globalsearch(){
+        private function IsEmpty_Search(){
             //check the input
             return empty(trim($this->category)) || empty(trim($this->keyword));
         }
 
         //check empty userid for local search(include space)
-        private function IsEmpty_localsearch(){
+        private function IsEmpty_UserId(){
             //check the input
             return empty(trim($this->userid));
         }

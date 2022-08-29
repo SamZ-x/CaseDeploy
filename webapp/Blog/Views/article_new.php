@@ -7,18 +7,18 @@
     }
 
     if(isset($_GET['status'])&&$_GET['status']=="new")
-        $_SESSION['inputRecord'] = null;
+        $_SESSION['inputSnapshot'] = null;
 
 
     if(isset($_GET['status'])&&$_GET['status']=="failed")
     {
         $message = $_GET['message'];
         
-        if($message=="inputEmpty")
+        if($message=="InputEmpty")
             echo "<script>alert('Input can not be empty!');</script>";
 
-        if($message=="databaseError")
-            echo "<script>alert('System Error!');</script>";
+        if($message=="InternalError")
+            echo "<script>alert('Internal Error!Try again later.');</script>";
     }
 ?>
 <!DOCTYPE html>
@@ -60,8 +60,8 @@
         <div class="container bg-secondary text-white">
             <form class="p-2" action="../Route/route.php" method="post">
                 <!-- determine the route -->
-                <input type="hidden" name="action" value="insert">
-                <input type="hidden" name="endpoint" value="article">
+                <input type="hidden" name="action" value="createArticle">
+                <!-- <input type="hidden" name="endpoint" value="article"> -->
                 
                 <?php require_once "_form_field.php"; ?>
             </form>

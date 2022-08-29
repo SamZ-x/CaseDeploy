@@ -6,7 +6,7 @@
                 <h1><span class="text-warning">MarkDown</span> Blog </h1>
                 <p class="lead my-4">
                     A simple Blog using <b>PHP</b> scripts, with <b>Markdown</b> as content input language.<br>
-                    This Blog is also using <b>LAMP Stack</b> and <b>MVC</b> design pattern. 
+                    Using <b>LAMP Stack</b> and <b>MVC</b> design pattern. 
                 </p>
                 <!-- <button 
                     class="btn btn-primary btn-lg m-1"

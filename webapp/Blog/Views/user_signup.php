@@ -35,8 +35,8 @@
         <div class="d-flex flex-row ">
             <form action="../Route/route.php" method="post">
                 <!-- determine the route -->
-                <input type="hidden" name="action" value="insert">
-                <input type="hidden" name="endpoint" value="user">
+                <input type="hidden" name="action" value="register">
+                <!-- <input type="hidden" name="endpoint" value="user"> -->
 
                 <div class="blog_signup_item">
                     <label  >Firstname</label>

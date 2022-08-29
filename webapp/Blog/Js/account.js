@@ -1,10 +1,10 @@
+//article container
 var articles;
 
 $(function(ev){
-    console.log(articles);
     //load current account data
     GetAccountData();
-    console.log(articles);
+
 });
 
 
@@ -16,17 +16,15 @@ Return: no return, display users info in table format
 *****************************/
 function GetAccountData(){
 
-    //prepare data for server
+    //prepare request
     let userid = $('#loginId').attr('value');
-    let sendData = {};
-    sendData['action'] = 'select';
-    sendData['endpoint'] = 'article';
-    sendData['userid'] = userid;
-    sendData['keyword'] = " ";
-
+    let sendData = {
+        'action':'getUserArticles',
+        'userid': userid,
+    };
     console.log(sendData);
     //request data
-    AjaxRequest('../Route/route.php', 'GET', sendData, 'json', GetDataSuccess, ErrorHandler );
+    AjaxRequest('../Route/route.php', 'POST', sendData, 'json', GetDataSuccess, ErrorHandler );
 
 }
 
@@ -62,7 +60,83 @@ function GetDataSuccess(SuccessRespond, textStatus){
 
     //read more action
     $('button[name="btnReadMore"]').on('click', GetArticleContent);
+    //delete action
+    $('button[name="btnDelete"]').on('click', DeleteArticle);
+    //edit action
+    $('button[name="btnEdit"]').on('click', EditArticle);
 }
+
+/*****************************
+Function Name: DeleteArticle
+Description: delete the selected article
+Parameters: no parameter
+Return: no return
+*****************************/
+function DeleteArticle(){
+    //prepare request
+    let articleId = this.value;//attr('value');
+    let sendData = {
+        'action':'deleteArticle',
+        'articleId': articleId,
+    };
+
+    console.log(sendData);
+    //request data
+    AjaxRequest('../Route/route.php', 'POST', sendData, 'json', DeleteArticleSuccess, ErrorHandler );
+}
+
+/*****************************
+Function Name: DeleteArticleSuccess
+Description: diplay articles
+Parameters: SuccessRespond: responding data from the service, textStatus: Ajaxrequest result status 
+Return: no return
+*****************************/
+function DeleteArticleSuccess(SuccessRespond, textStatus){
+    console.log(SuccessRespond);
+    //target the container
+    let articleList = $('#articles');
+    articleList.empty();
+    //get the latest article list
+    GetAccountData();
+}
+
+/*****************************
+Function Name: DeleteArticle
+Description: delete the selected article
+Parameters: no parameter
+Return: no return
+*****************************/
+function EditArticle(){
+    //prepare request
+    let articleId = this.value;//attr('value');
+    let sendData = {};
+    sendData['action'] = 'delete';
+    sendData['endpoint'] = 'article';
+    sendData['articleId'] = articleId;
+
+    console.log(sendData);
+    //request data
+    AjaxRequest('../Route/route.php', 'POST', sendData, 'json', EditArticleSuccess, ErrorHandler );
+}
+
+/*****************************
+Function Name: DeleteArticleSuccess
+Description: diplay articles
+Parameters: SuccessRespond: responding data from the service, textStatus: Ajaxrequest result status 
+Return: no return
+*****************************/
+function EditArticleSuccess(SuccessRespond, textStatus){
+    console.log(SuccessRespond);
+    //target the container
+    let articleList = $('#articles');
+    articleList.empty();
+    //get the latest article list
+    GetAccountData();
+}
+
+
+ 
+//************** Helper Methods *****************//
 
 /*****************************
 Function Name: GetArticleContent
@@ -118,7 +192,7 @@ function CreateArticleCard(article){
     article_Frame.classList.add("col-md-4");
 
     let article_Card_Frame = document.createElement('div');
-    article_Card_Frame.classList.add("card", "bg-light","h-100");
+    article_Card_Frame.classList.add("card", "bg-white","h-100");
     article_Card_Frame.setAttribute("id",'articleId' );
 
     let article_Card = document.createElement('div');
@@ -151,6 +225,7 @@ function CreateArticleCard(article){
     Card_Readmore.innerHTML = "Read More";
 
     let Card_Edit = document.createElement('a');
+    Card_Edit.href="./article_edit.php?articleId="+article['articleId'];
     Card_Edit.classList.add("btn", "btn-primary", "mx-1");
     let attrs_edit = {
         "name": "btnEdit",
@@ -159,8 +234,17 @@ function CreateArticleCard(article){
     SetMultipleAttr(Card_Edit, attrs_edit);
     Card_Edit.innerHTML = "Edit";
 
+    let Card_delete = document.createElement('button');
+    Card_delete.classList.add("btn","btn-primary", "mx-1");
+    let attrs_delete = {
+        "name": "btnDelete",
+        "value":article['articleId'],
+    }
+    SetMultipleAttr(Card_delete, attrs_delete);
+    Card_delete.innerHTML = "Delete";
+
     //combine all elements
-    article_Card.append(Card_Title, Card_date, Card_Description,Card_Readmore, Card_Edit);
+    article_Card.append(Card_Title, Card_date, Card_Description,Card_Readmore, Card_Edit,Card_delete);
     article_Card_Frame.append(article_Card);
     article_Frame.append(article_Card_Frame);
 
@@ -178,6 +262,8 @@ function SetMultipleAttr(element, attrArr){
         element.setAttribute(attr, attrArr[attr]);
     }
 }
+
+
 
 /*****************************
 Function Name: AjaxRequest

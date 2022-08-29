@@ -1,124 +1,205 @@
 <?php
+    //User Article
+    //Represent an Article object in database.
+
+    //Model Methods include:
+    //findOne({argkey:argvalue})
+
+    //Methods Output include:
+    //succeed: object
+    //failed: null
 
     //manipulate articles
     class Article extends Dbh{
 
-        /************************* SELECT ******************************/     
-        //function : Retrieve_signle
-        //take 2 parameters :'articleid'
-        //retrieve data from database table 'Articles' base on the 'category' and'keyword'
-        protected function Retrieve_signle($articleid){
+        //function:findByTitle
+        //find an article by title
+        protected function findByTitle($title){
             //query
-            $sqlQuery = "SELECT * FROM `Articles` WHERE `articleId` = ? ";
-            //fill the query with parameters
-            $stmt = $this->connect()->prepare($sqlQuery);
-            $stmt->execute([$articleid]);
-            //store the query result
-            $result = array();
-            $result['data'] =$stmt->FETCHALL();
-            $result['rowcount'] = $stmt->rowCount();
-            
-            //if successfully retrieve data, clear the statment and return
-            $stmt=null;
-            //return associate array/empty object.
-            return $result;
-        } 
-
-        //function : Retrieve_globalSearch
-        //take 2 parameters :'category', 'keyword'
-        //retrieve data from database table 'Articles' base on the 'category' and'keyword'
-        protected function Retrieve_globalSearch($category, $keyword){
-                
-            //create query base on the category
-            if($category == "username"){
-                $sqlQuery = "SELECT * FROM `Articles` a JOIN `Users` u ON a.UserId = u.UserId ";
-                $sqlQuery .= "WHERE u.Firstname LIKE '%' ? '%' OR u.Lastname LIKE '%' ? '%' OR u.Middlename LIKE '%' ? '%'";
-                //fill the query with parameters
-                $stmt = $this->connect()->prepare($sqlQuery);
-                $status = $stmt->execute([$keyword, $keyword, $keyword]);
-            }
-
-            if($category == "articletitle"){
-                $sqlQuery = "SELECT * FROM `Articles` a JOIN `Users` u ON a.UserId = u.UserId ";
-                $sqlQuery .= "WHERE a.Title LIKE '%' ? '%'";
-
-                //fill the query with parameters
-                $stmt = $this->connect()->prepare($sqlQuery);
-                $status = $stmt->execute([$keyword]);
-            }
-            
-            //Error hanlde
-            //if query execute error, back to index page with error message
-            if(!$status){
-                $stmt=null;
-                header("location: ../index.php?status=failed&error=databaseError");
-                exit();
-            }
-            //otherwise, store the query result
-            // $result = array();
-            // $result['data'] =$stmt->FETCHALL();
-            // $result['rowcount'] = $stmt->rowCount();
-            $result = $stmt->FETCHALL();
-            //if successfully retrieve data, clear the statment and return
-            $stmt=null;
-            //return associate array/empty object.
-            return $result;
-        }
-
-        //function : Retrieve_localSearch
-        //take 2 parameters :'category', 'keyword'
-        //retrieve data from database table 'Articles' base on the 'category' and'keyword'
-        protected function Retrieve_localSearch($userid, $keyword){
-                
-            //run database query
-            $sqlquery = "SELECT * FROM `Articles` a JOIN `Users` u ON a.UserId = u.UserId WHERE a.UserId = ? AND a.title LIKE '%' ? '%';";
+            $sqlquery = "SELECT a.`articleId`, a.`UserId`, a.`title`, a.`createdAt`,  CONCAT(u.`Firstname`, ' ', u.`Lastname`) as 'author', a.`description`, a.`markdown`, a.`sanitizedHtml` ";
+            $sqlquery .= "FROM `Articles` a JOIN `Users` u ON a.UserId = u.UserId ";
+            $sqlquery .= "WHERE a.`title` LIKE '%' ? '%'";
             $stmt = $this->connect()->prepare($sqlquery);
-            //$status = $stmt->execute([$uid]);
-
-            //if database statment return false, redirect with error
-            if(!$stmt->execute([$userid, $keyword])){
+            
+            //internal server faild return null
+            if(!$stmt->execute([$title])){
                 $stmt = null;
-                header("location: ../Views/blog_userpage.php?error=stmterror");
-                exit();
+                return null;
             }
+            else{
+                //Get all matched user object(array)
+                //result is any array of user object
+                $result = $stmt->FETCHALL();
 
-            //otherwise
-            $result = $stmt->FETCHALL();    //return associate array/empty object.
-            error_log(json_encode($result));
-            //if successfully retrieve data, clear the statment and return
-            $stmt=null;
-            return $result;
+                //no matched user
+                if(empty($result)){
+                    $stmt = null;
+                    return null;
+                }
+                //find matched user
+                else{
+                    $stmt = null;
+                    return $result;      
+                }
+            }
         }
         
-        
-        /************************* INSERT ******************************/
-
-        //function : Insert
-        //take 1 parameters :'dataArr' (contain all article info)
-        //insert data into database table 'Articles'
-        protected function Insert($dataArr){
+        //function:findByAuthor
+        //find an article by author name
+        protected function findByAuthor($author){
             //query
-            $sqlQuery = "INSERT INTO `Articles`(`title`, `UserId`, `description`, `markdown`, `sanitizedHtml`, `slug`) VALUES ( ?, ?, ?, ?, ?, ?);";
+            $sqlquery = "SELECT a.`articleId`, a.`UserId`, a.`title`, a.`createdAt`,  CONCAT(u.`Firstname`, ' ', u.`Lastname`) as 'author', a.`description`, a.`markdown`, a.`sanitizedHtml` ";
+            $sqlquery .= "FROM `Articles` a JOIN `Users` u ON a.`UserId` = u.`UserId`  ";
+            $sqlquery .= "WHERE u.`Firstname` LIKE '%' ? '%' OR u.`Lastname` LIKE '%' ? '%' OR u.`Middlename` LIKE '%' ? '%'";
+            $stmt = $this->connect()->prepare($sqlquery);
+            
+            //internal server faild return null
+            if(!$stmt->execute([$author, $author, $author])){
+                $stmt = null;
+                return null;
+            }
+            else{
+                //Get all matched user object(array)
+                //result is any array of user object
+                $result = $stmt->FETCHALL();
+
+                //no matched user
+                if(empty($result)){
+                    $stmt = null;
+                    return null;
+                }
+                //find matched user
+                else{
+                    $stmt = null;
+                    return $result;      
+                }
+            }
+        }
+        
+        //function:findByUserId
+        //find an article by userid
+        protected function findByUserId($userid){
+            //query
+            $sqlquery = "SELECT a.`articleId`, a.`UserId`, a.`title`, a.`createdAt`,  CONCAT(u.`Firstname`, ' ', u.`Lastname`) as 'author', a.`description`, a.`markdown`, a.`sanitizedHtml` ";
+            $sqlquery .= "FROM `Articles` a JOIN `Users` u ON a.`UserId` = u.`UserId` ";
+            $sqlquery .= "WHERE a.`UserId` = ? ";
+            $stmt = $this->connect()->prepare($sqlquery);
+            
+            //internal server faild return null
+            if(!$stmt->execute([$userid])){
+                $stmt = null;
+                return null;
+            }
+            else{
+                //Get all matched user object(array)
+                //result is any array of user object
+                $result = $stmt->FETCHALL();
+
+                //no matched user
+                if(empty($result)){
+                    $stmt = null;
+                    return null;
+                }
+                //find matched user
+                else{
+                    $stmt = null;
+                    return $result;      
+                }
+            }
+        }
+        
+        //function:findByArticleId
+        //find an article by articleid
+        protected function findByArticleId($articleid){
+            //query
+            $sqlquery = "SELECT a.`articleId`, a.`UserId`, a.`title`, a.`createdAt`,  CONCAT(u.`Firstname`, ' ', u.`Lastname`) as 'author', a.`description`, a.`markdown`, a.`sanitizedHtml` ";
+            $sqlquery .= "FROM `Articles` a JOIN `Users` u ON a.`UserId` = u.`UserId` ";
+            $sqlquery .= "WHERE a.`articleId` = ? ";
+            $stmt = $this->connect()->prepare($sqlquery);
+            
+            //internal server faild return null
+            if(!$stmt->execute([$articleid])){
+                $stmt = null;
+                return null;
+            }
+            else{
+                //Get all matched user object(array)
+                //result is any array of user object
+                $result = $stmt->FETCHALL();
+
+                //no matched user
+                if(empty($result)){
+                    $stmt = null;
+                    return null;
+                }
+                //find matched user
+                else{
+                    $stmt = null;
+                    return $result;      
+                }
+            }
+        }
+
+        //function:create
+        //find an article by title
+        protected function create($title,$UserId,$description,$markdown,$sanitizedHtml,$slug){
+             
+            //generate articleId
+            $articleid = $this->generateArticleId();
+            //query
+            $sqlQuery = "INSERT INTO `Articles`(`articleId`, `title`, `UserId`, `description`, `markdown`, `sanitizedHtml`, `slug`) VALUES (?, ?, ?, ?, ?, ?, ?);";
             $stmt = $this->connect()->prepare($sqlQuery);
             
             //excute query, handle error
-            if(!$stmt->execute([$dataArr['title'], $dataArr['userid'], $dataArr['description'], $dataArr['markdown'], $dataArr['sanitizedhtml'], $dataArr['slug']])){
-                
-                //pass input record if insert failed
-                $inputRecord = array(
-                    "title" => $dataArr['title'],
-                    "description" => $dataArr['description'], 
-                    "markdown" => $dataArr['markdown']
-                );
-                $_SESSION['inputRecord'] = $inputRecord;
-                
-                $stmt = null;
-                header("location: ../Views/article_new.php?status=failed&error=databaseError");
+            if(!$stmt->execute([$articleid,$title,$UserId,$description,$markdown,$sanitizedHtml,$slug])){
+                $stmt = null;    
+                return null;
             }
 
-            //clear the $statement
-            $stmt=null;
+            //if insert successfully, get the userid and nickname for login
+            if($stmt->rowCount() > 0)
+            { 
+                $stmt = null;
+                return $this->findByArticleId($articleid);   
+            }else{
+                $stmt = null;    
+                return null;
+            }
         }
+
+        //function:findOneAndDelete
+        //find a target article and delete 
+        protected function findOneAndDelete($articleid){
+            //get the target article
+            $article = $this->findByArticleId($articleid);
+            //query
+            $sqlquery = "DELETE FROM `Articles` WHERE `articleId` = ? ";
+            //fill the query with parameters
+            $stmt = $this->connect()->prepare($sqlquery);
+            //internal server faild return null
+            if(!$stmt->execute([$articleid])){
+                $stmt = null;
+                return null;
+            }
+            else{
+                $stmt = null;
+                return $article;    //optional
+            }
+        }
+
+        //************** Helper Methods *****************//
+
+        //function:generateArticleId
+        //return unique 13 charactors userid 
+        private function generateArticleId(){
+            //create unique id and check existence in database
+            do{
+                $articleid = uniqid("a_",false);
+            }while(!empty($this->findByArticleId($articleid)));
+            return $articleid;
+        }
+
+    
     }
 
 ?>

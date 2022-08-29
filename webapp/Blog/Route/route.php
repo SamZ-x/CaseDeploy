@@ -21,84 +21,107 @@ if(isset($_GET['action']) || isset($_POST['action'])){
     if(!$endpoint)
         $endpoint = filter_input(INPUT_POST, "endpoint", FILTER_SANITIZE_STRING);
 
-    error_log($action);
-    error_log($endpoint);
-
-    
     //use 'action' and 'endpoint' parameters to determine the route
     switch($action){
+
+        case 'login':
+            //request user authentication
+            require_once "../Models/Dbh.class.php";
+            require_once "../Controls/UserContr.class.php";
+            $user = UserContr::_login();
+            $user->login();
+        break;
+
+        case "OAuth_login":
+            //request control to insert data base on the parameter$oAuth_uid, $nname
+            require_once "../Models/Dbh.class.php";
+            require_once "../Controls/UserContr.class.php";
+            $user = UserContr:: _loginOAuth();
+            $data = $user->login_OAuth();
+            Done();  //send json response
+        break;
+        
+        case "register":
+            //request control to insert data base on the parameter
+            require_once "../Models/Dbh.class.php";
+            require_once "../Controls/UserContr.class.php";
+            $user = UserContr:: _register(); 
+            $user->register();
+        break;
+
+        case "search":
+            require_once "../Models/Dbh.class.php";
+            require_once "../Controls/ArticleContr.class.php";
+            $article = ArticleContr::_Search();
+            $article->search();
+        break;
+
+        case "getUserArticles":
+            require_once "../Models/Dbh.class.php";
+            require_once "../Controls/ArticleContr.class.php";
+            $article = ArticleContr::_UserArticle();
+            $article->getUserArticle();
+        break;
+
+        case 'createArticle':
+            require_once "../Models/Dbh.class.php";
+            require_once "../Controls/ArticleContr.class.php";
+            $article = ArticleContr::_newAritcle();
+            $article->createArticle();
+        break;
+
+        case 'deleteArticle':
+            require_once "../Models/Dbh.class.php";
+            require_once "../Controls/ArticleContr.class.php";
+            $article = ArticleContr::_targetArticle();
+            $article->deleteAritcle();
+        break;
+
+
 
         case 'select':
             
             switch($endpoint){
 
-                case "article":
-                    $userid = $_GET['userid'];
-                    $keyword= $_GET['keyword'];
-
-                    //request control to select data base on the parameter
-                    require_once "../Models/Dbh.class.php";
-                    require_once "../Controls/ArticleContr.class.php";
-                    $article = ArticleContr::_localSearch($userid, $keyword);
-                    $data = $article->localSearchArticles();
-                    $status = "success";
-                    error_log(json_encode($data));
-                    //store the data and redirect to present the data
-                    //$_SESSION['userdata'] = $data;
-                    // if($_SESSION['loginRes']['loginstatus'])
-                    //     header("location: ../Views/account.view.php?status=done&error=none");
-                break;
-
-                // case "single_article":
-                //     $articleid = $_GET['articleid'];
+                // case "article":
+                //     $userid = $_GET['userid'];
+                //     $articleId = $_GET['articleid'];
+                //     $keyword= $_GET['keyword'];
 
                 //     //request control to select data base on the parameter
                 //     require_once "../Models/Dbh.class.php";
                 //     require_once "../Controls/ArticleContr.class.php";
-                //     $article = ArticleContr::getArticle_single($articleid);
-                //     $data = $article->Retrieve_signle();
-                    
-                //     //store the data and redirect to present the data
-                //     $_SESSION['single_article'] = $data;
-                //     // if($_SESSION['loginstatus'])
-                //     //     header("location: ../Views/user_show.php?status=done&error=none");
+                //     $article = ArticleContr::_localSearch($userid, $keyword);
+                //     $data = $article->localSearchArticles();
+                //     $status = "success";
                 // break;
 
-                case 'globalsearch':
-                    //get the search info
-                    $category = $_GET['searchCategory'];
-                    $keyword = $_GET['searchInfo'];
+                // case 'globalsearch':
+                //     //get the search info
+                //     $category = $_GET['searchCategory'];
+                //     $keyword = $_GET['searchInfo'];
         
-                    //request control to select data base on the parameter
-                    require_once "../Models/Dbh.class.php";
-                    require_once "../Controls/ArticleContr.class.php";
-                    $article = ArticleContr::_globalSearch($category, $keyword);
-                    $data = $article->globalSearchArticles();
-                    $status = "success";
-                    //header("location: ../Views/article_show.php?status=done&error=none");
-                    //store the data and redirect to present the data
-                    //$_SESSION['data'] = $data;
-                    break;
+                //     //request control to select data base on the parameter
+                //     require_once "../Models/Dbh.class.php";
+                //     require_once "../Controls/ArticleContr.class.php";
+                //     $article = ArticleContr::_globalSearch($category, $keyword);
+                //     $data = $article->globalSearchArticles();
+                //     $status = "success";
+                //     break;
             
-                case 'userlogin':
-           
-                    //get user input
-                    $uid = $_POST['userid_email'];
-                    $pwd = $_POST['password'];
+                // case 'userlogin':
+                //     //get user input
+                //     $uid = $_POST['userid_email'];
+                //     $pwd = $_POST['password'];
         
-                    //request user authentication
-                    require_once "../Models/Dbh.class.php";
-                    require_once "../Controls/UserContr.class.php";
-                    $user = UserContr::_userLogin($uid, $pwd);
-                    $response = $user->userLogin();
-
-
-                    $_SESSION['loginRes'] = $response;
-                    
-                    //request article data retrieve if logined successfully
-                    //header("location: route.php?action=select&endpoint=article&userid={$uid}&keyword=");
-                    header("location: ../Views/account.view.php");
-                break;
+                //     //request user authentication
+                //     require_once "../Models/Dbh.class.php";
+                //     require_once "../Controls/UserContr.class.php";
+                //     $user = UserContr::_userLogin($uid, $pwd);
+                //     $response = $user->userLogin();
+                //     $_SESSION['loginRes'] = $response;
+                //     header("location: ../Views/account.view.php");
+                // break;
 
             }//end of the 'endpoint' switch statement
         break;
@@ -107,22 +130,21 @@ if(isset($_GET['action']) || isset($_POST['action'])){
             
             switch($endpoint){
                 
-                case "article":
-                    //get user input
-                    $title = $_POST['title'];
-                    $description = $_POST['description'];
-                    $markdown = $_POST['markdown'];
-                    $userid = $_SESSION['loginRes']['userid'];
-                    //request control to insert data base on the parameter
-                    require_once "../Models/Dbh.class.php";
-                    require_once "../Controls/ArticleContr.class.php";
-                    $article = ArticleContr::_newAritcle($title, $description, $userid, $markdown);
-                    $article->addArticle();
-                    
-                    //request article data retrieve if logined successfully
-                    //header("location: route.php?action=select&endpoint=article&userid={$_SESSION['userid']}&keyword=");
-                    header("location: ../Views/account.view.php");
-                break;  
+                // case "article":
+                //     //get user input
+                //     $title = $_POST['title'];
+                //     $description = $_POST['description'];
+                //     $markdown = $_POST['markdown'];
+                //     $userid = $_SESSION['loginRes']['UserId'];
+                //     //request control to insert data base on the parameter
+                //     require_once "../Models/Dbh.class.php";
+                //     require_once "../Controls/ArticleContr.class.php";
+                //     $article = ArticleContr::_newAritcle($title, $description, $userid, $markdown);
+                //     if($article->addArticle())
+                //         $status = "success";
+
+                //     header("location: ../Views/account.view.php");
+                // break;  
 
                 case "role":
                     //request control to select data base on the parameter
@@ -130,25 +152,29 @@ if(isset($_GET['action']) || isset($_POST['action'])){
                 break;
 
                 
-                case "user":
-                    //get input data
-                    $fname=$_POST['firstname'];
-                    $lname=$_POST['lastname'];
-                    $nname=$_POST['nickname'];
-                    $password = $_POST['password'];
-                    $email=$_POST['email'];
-                    $phone=$_POST['phone'];
-                    $region=$_POST['Region'];
-                    //request control to insert data base on the parameter
-                    require_once "../Models/Dbh.class.php";
-                    require_once "../Controls/UserContr.class.php";
-                    $user = UserContr:: _userSignup($fname,$lname,$nname,$email,$password,$phone,$region);
-                    $response = $user->signupUser();
-                    $_SESSION['loginRes'] = $response;
-                    //redirect to user page
-                    header("location: ../Views/account.view.php");
+                // case "user":
+                   
+                //     //request control to insert data base on the parameter
+                //     require_once "../Models/Dbh.class.php";
+                //     require_once "../Controls/UserContr.class.php";
+                //     $user = UserContr:: _register();  //$fname,$lname,$nname,$email,$password,$phone,$region
+                //     $user->register();
+                //     //$_SESSION['loginRes'] = $response;
+                //     //redirect to user page
+                //     //header("location: ../Views/account.view.php");
 
-                break;
+                // break;
+
+                // case "oAuthuser":
+                //     //get input data
+                //     // $oAuth_uid=$_POST['oAuth_uid'];
+                //     // $nname=$_POST['nickname'];
+                //     //request control to insert data base on the parameter$oAuth_uid, $nname
+                //     require_once "../Models/Dbh.class.php";
+                //     require_once "../Controls/UserContr.class.php";
+                //     $user = UserContr:: _registerOAuth();
+                //     $data = $user->signupOAuthUser();
+                // break;
             }
         break;
 
@@ -178,10 +204,17 @@ if(isset($_GET['action']) || isset($_POST['action'])){
             
             switch($endpoint){
                 
-                case "article":
-                    //request control to select data base on the parameter
-                    //present data to client
-                break;
+                // case "article":
+                //     //request control to select data base on the parameter
+                //     $articleId = $_POST['articleId'];
+                //     //request control to insert data base on the parameter
+                //     require_once "../Models/Dbh.class.php";
+                //     require_once "../Controls/ArticleContr.class.php";
+                //     $article = ArticleContr::_getSingle($articleId);
+                //     $result = $article->deleteArticle();
+                //     if($result['rowcount']==1)
+                //         $status = 'success';
+                // break;
 
                 case "role":
                     //request control to select data base on the parameter
@@ -201,7 +234,7 @@ else{
     header("location: ../index");
 }
 
-Done();
+//Done();
 die();
 
 /*****************************

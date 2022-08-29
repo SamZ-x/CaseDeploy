@@ -19,8 +19,9 @@ function SearchArticles(){
     let searchInfo = $('input#searchInfo').val();
     let searchCategory = $('select#searchCategory option:selected').val();
     let sendData = {
-        'action':'select',
-        'endpoint':'globalsearch',
+        // 'action':'select',
+        // 'endpoint':'globalsearch',
+        'action':'search',
         'searchCategory': searchCategory,
         'searchInfo':searchInfo
     };
