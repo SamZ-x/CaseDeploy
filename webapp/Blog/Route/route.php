@@ -38,6 +38,7 @@ if(isset($_GET['action']) || isset($_POST['action'])){
             require_once "../Controls/UserContr.class.php";
             $user = UserContr:: _loginOAuth();
             $data = $user->login_OAuth();
+            $status = "logged";
             Done();  //send json response
             exit();
         break;
