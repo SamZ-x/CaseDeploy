@@ -128,7 +128,7 @@
                 return $user; //should be unique
             }
             else{
-                return $this->createByGithubId($this->oAuth_uid, $this->nname);
+                return ($this->createByGithubId($this->oAuth_uid, $this->nname))[0];
             }
         }
 
