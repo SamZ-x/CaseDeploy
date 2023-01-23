@@ -25,7 +25,13 @@
 <section class="bg-white text-black p-5" >
     <div class="container">
         <div class="d-flex align-items-center justify-content-between">
-            <h3 class="mb-md-0">home page desc section...</h3>
+            <h3 class="mb-md-0">
+                Main Functions:</br>
+                - Article Search by 'Author' / 'Article Title'</br>
+                - User Sign up/Login or Login via GitHub (Oauth2.0)</br>
+                - Create, Edit, Delete articles</br>
+                - Recornize MarkDown Syntax</br>
+            </h3>
         </div>
     </div>
 </section>
@@ -53,7 +59,7 @@
                                 Manager
                             </h3>
                             <p class="card-text">
-                                Login as manager account
+                                Login as manager account(Upcoming...)
                             </p>
                             <form action="./Route/route.php" method="post">
                                 <!-- determine the route -->
@@ -83,8 +89,8 @@
                                 <!-- determine the route -->
                                 <input type="hidden" name="action" value="select">
                                 <input type="hidden" name="endpoint" value="userlogin">
-                                <input type="hidden" name="userid_email" value="demo_user_jm@gmail.com">
-                                <input type="hidden" name="password" value="jm">
+                                <input type="hidden" name="userid_email" value="demo_user@gmail.com">
+                                <input type="hidden" name="password" value="demo_user">
                                 <button type="submit" class="btn btn-primary">Go</button>
                             </form>
                             <!-- <a href="#" class="btn btn-primary">Go</a> -->
