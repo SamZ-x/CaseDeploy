@@ -138,7 +138,7 @@
                             <p class="card-text">
                                 Use MVC and OOP to build a simple blog
                             </p>
-                            <a href="#" class="btn btn-primary">Read more</a>
+                            <a href="https://www.casedeploy.com/webapp/Blog/" class="btn btn-primary">Read more</a>
                         </div>
                     </div>
                 </div>
@@ -152,7 +152,7 @@
                                 Defect/Bug Tracker
                             </h3>
                             <p class="card-text">
-                                Defect tracking system for projects ffgd
+                                Up coming...
                             </p>
                             <a href="#" class="btn btn-primary">Read more</a>
                         </div>
@@ -168,9 +168,6 @@
                                 what
                             </h3>
                             <p class="card-text">
-                                just some wired text what do tyou 
-                                poT4dfsjj wheh
-                                ajisjdif
                             </p>
                             <a href="#" class="btn btn-primary">Read more</a>
                         </div>

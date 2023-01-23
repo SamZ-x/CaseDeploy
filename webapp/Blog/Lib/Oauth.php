@@ -9,7 +9,7 @@ function GetToken($code){
     $OauthCredential = json_decode(file_get_contents('../Dbh.json', true), true);
     $client_id = $OauthCredential['client_id'];
     $client_secret = $OauthCredential['client_secret'];
-    
+
     $data = array(
         "client_id"=>$OauthCredential['client_id'],
         "client_secret"=>$OauthCredential['client_secret'],
