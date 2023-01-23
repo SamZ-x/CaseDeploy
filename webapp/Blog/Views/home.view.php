@@ -90,11 +90,11 @@
                             </p>
                             <form action="./Route/route.php" method="post">
                                 <!-- determine the route -->
-                                <input type="hidden" name="action" value="select">
-                                <input type="hidden" name="endpoint" value="userlogin">
-                                <input type="hidden" name="userid_email" value="demo_user@gmail.com">
+                                <input type="hidden" name="action" value="login">
+                                <input type="hidden" name="endpoint" value="user">
+                                <input type="hidden" name="useremail" value="demo_user@gmail.com">
                                 <input type="hidden" name="password" value="demo_user">
-                                <button type="submit" class="btn btn-primary">Go</button>
+                                <button type="submit" name="submit" class="btn btn-primary">Go</button>
                             </form>
                             <!-- <a href="#" class="btn btn-primary">Go</a> -->
                         </div>
