@@ -26,12 +26,15 @@
     <div class="container">
         <div class="d-flex align-items-center justify-content-between">
             <h3 class="mb-md-0">
-                Main Functions:</br>
-                - Article Search by 'Author' / 'Article Title'</br>
-                - User Sign up/Login or Login via GitHub (Oauth2.0)</br>
-                - Create, Edit, Delete articles</br>
-                - Recornize MarkDown Syntax</br>
+                Blog Functions Intro
             </h3>
+            <p>
+                Main Functions:</br>
+                    - Article Search by 'Author' / 'Article Title'</br>
+                    - User Sign up/Login or Login via GitHub (Oauth2.0)</br>
+                    - Create, Edit, Delete articles</br>
+                    - Recornize MarkDown Syntax</br>
+            </p>
         </div>
     </div>
 </section>
